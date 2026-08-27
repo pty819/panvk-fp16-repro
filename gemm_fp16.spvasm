@@ -1,0 +1,4314 @@
+; SPIR-V
+; Version: 1.0
+; Generator: Google Shaderc over Glslang; 11
+; Bound: 3541
+; Schema: 0
+               OpCapability Shader
+               OpCapability Float16
+          %1 = OpExtInstImport "GLSL.std.450"
+               OpMemoryModel Logical GLSL450
+               OpEntryPoint GLCompute %main "main" %gl_WorkGroupID %gl_LocalInvocationID
+               OpExecutionMode %main LocalSize 8 8 1
+               OpSource GLSL 450
+               OpSourceExtension "GL_EXT_shader_16bit_storage"
+               OpSourceExtension "GL_EXT_shader_explicit_arithmetic_types_float16"
+               OpSourceExtension "GL_GOOGLE_cpp_style_line_directive"
+               OpSourceExtension "GL_GOOGLE_include_directive"
+               OpName %main "main"
+               OpName %r0 "r0"
+               OpName %gl_WorkGroupID "gl_WorkGroupID"
+               OpName %gl_LocalInvocationID "gl_LocalInvocationID"
+               OpName %c0 "c0"
+               OpName %c02 "c02"
+               OpName %x0_0 "x0_0"
+               OpName %x0_1 "x0_1"
+               OpName %x0_2 "x0_2"
+               OpName %x0_3 "x0_3"
+               OpName %x1_0 "x1_0"
+               OpName %x1_1 "x1_1"
+               OpName %x1_2 "x1_2"
+               OpName %x1_3 "x1_3"
+               OpName %x2_0 "x2_0"
+               OpName %x2_1 "x2_1"
+               OpName %x2_2 "x2_2"
+               OpName %x2_3 "x2_3"
+               OpName %x3_0 "x3_0"
+               OpName %x3_1 "x3_1"
+               OpName %x3_2 "x3_2"
+               OpName %x3_3 "x3_3"
+               OpName %x4_0 "x4_0"
+               OpName %x4_1 "x4_1"
+               OpName %x4_2 "x4_2"
+               OpName %x4_3 "x4_3"
+               OpName %x5_0 "x5_0"
+               OpName %x5_1 "x5_1"
+               OpName %x5_2 "x5_2"
+               OpName %x5_3 "x5_3"
+               OpName %x6_0 "x6_0"
+               OpName %x6_1 "x6_1"
+               OpName %x6_2 "x6_2"
+               OpName %x6_3 "x6_3"
+               OpName %x7_0 "x7_0"
+               OpName %x7_1 "x7_1"
+               OpName %x7_2 "x7_2"
+               OpName %x7_3 "x7_3"
+               OpName %kt "kt"
+               OpName %K_ "K_"
+               OpName %av0_0 "av0_0"
+               OpName %A "A"
+               OpMemberName %A 0 "a"
+               OpName %_ ""
+               OpName %av1_0 "av1_0"
+               OpName %av2_0 "av2_0"
+               OpName %av3_0 "av3_0"
+               OpName %av4_0 "av4_0"
+               OpName %av5_0 "av5_0"
+               OpName %av6_0 "av6_0"
+               OpName %av7_0 "av7_0"
+               OpName %bv0_0 "bv0_0"
+               OpName %B "B"
+               OpMemberName %B 0 "b"
+               OpName %__0 ""
+               OpName %N_ "N_"
+               OpName %bv0_1 "bv0_1"
+               OpName %bv0_2 "bv0_2"
+               OpName %bv0_3 "bv0_3"
+               OpName %s0_0 "s0_0"
+               OpName %s1_0 "s1_0"
+               OpName %s2_0 "s2_0"
+               OpName %s3_0 "s3_0"
+               OpName %s4_0 "s4_0"
+               OpName %s5_0 "s5_0"
+               OpName %s6_0 "s6_0"
+               OpName %s7_0 "s7_0"
+               OpName %av0_1 "av0_1"
+               OpName %av1_1 "av1_1"
+               OpName %av2_1 "av2_1"
+               OpName %av3_1 "av3_1"
+               OpName %av4_1 "av4_1"
+               OpName %av5_1 "av5_1"
+               OpName %av6_1 "av6_1"
+               OpName %av7_1 "av7_1"
+               OpName %bv1_0 "bv1_0"
+               OpName %bv1_1 "bv1_1"
+               OpName %bv1_2 "bv1_2"
+               OpName %bv1_3 "bv1_3"
+               OpName %s0_1 "s0_1"
+               OpName %s1_1 "s1_1"
+               OpName %s2_1 "s2_1"
+               OpName %s3_1 "s3_1"
+               OpName %s4_1 "s4_1"
+               OpName %s5_1 "s5_1"
+               OpName %s6_1 "s6_1"
+               OpName %s7_1 "s7_1"
+               OpName %av0_2 "av0_2"
+               OpName %av1_2 "av1_2"
+               OpName %av2_2 "av2_2"
+               OpName %av3_2 "av3_2"
+               OpName %av4_2 "av4_2"
+               OpName %av5_2 "av5_2"
+               OpName %av6_2 "av6_2"
+               OpName %av7_2 "av7_2"
+               OpName %bv2_0 "bv2_0"
+               OpName %bv2_1 "bv2_1"
+               OpName %bv2_2 "bv2_2"
+               OpName %bv2_3 "bv2_3"
+               OpName %s0_2 "s0_2"
+               OpName %s1_2 "s1_2"
+               OpName %s2_2 "s2_2"
+               OpName %s3_2 "s3_2"
+               OpName %s4_2 "s4_2"
+               OpName %s5_2 "s5_2"
+               OpName %s6_2 "s6_2"
+               OpName %s7_2 "s7_2"
+               OpName %av0_3 "av0_3"
+               OpName %av1_3 "av1_3"
+               OpName %av2_3 "av2_3"
+               OpName %av3_3 "av3_3"
+               OpName %av4_3 "av4_3"
+               OpName %av5_3 "av5_3"
+               OpName %av6_3 "av6_3"
+               OpName %av7_3 "av7_3"
+               OpName %bv3_0 "bv3_0"
+               OpName %bv3_1 "bv3_1"
+               OpName %bv3_2 "bv3_2"
+               OpName %bv3_3 "bv3_3"
+               OpName %s0_3 "s0_3"
+               OpName %s1_3 "s1_3"
+               OpName %s2_3 "s2_3"
+               OpName %s3_3 "s3_3"
+               OpName %s4_3 "s4_3"
+               OpName %s5_3 "s5_3"
+               OpName %s6_3 "s6_3"
+               OpName %s7_3 "s7_3"
+               OpName %av0_4 "av0_4"
+               OpName %av1_4 "av1_4"
+               OpName %av2_4 "av2_4"
+               OpName %av3_4 "av3_4"
+               OpName %av4_4 "av4_4"
+               OpName %av5_4 "av5_4"
+               OpName %av6_4 "av6_4"
+               OpName %av7_4 "av7_4"
+               OpName %bv4_0 "bv4_0"
+               OpName %bv4_1 "bv4_1"
+               OpName %bv4_2 "bv4_2"
+               OpName %bv4_3 "bv4_3"
+               OpName %s0_4 "s0_4"
+               OpName %s1_4 "s1_4"
+               OpName %s2_4 "s2_4"
+               OpName %s3_4 "s3_4"
+               OpName %s4_4 "s4_4"
+               OpName %s5_4 "s5_4"
+               OpName %s6_4 "s6_4"
+               OpName %s7_4 "s7_4"
+               OpName %av0_5 "av0_5"
+               OpName %av1_5 "av1_5"
+               OpName %av2_5 "av2_5"
+               OpName %av3_5 "av3_5"
+               OpName %av4_5 "av4_5"
+               OpName %av5_5 "av5_5"
+               OpName %av6_5 "av6_5"
+               OpName %av7_5 "av7_5"
+               OpName %bv5_0 "bv5_0"
+               OpName %bv5_1 "bv5_1"
+               OpName %bv5_2 "bv5_2"
+               OpName %bv5_3 "bv5_3"
+               OpName %s0_5 "s0_5"
+               OpName %s1_5 "s1_5"
+               OpName %s2_5 "s2_5"
+               OpName %s3_5 "s3_5"
+               OpName %s4_5 "s4_5"
+               OpName %s5_5 "s5_5"
+               OpName %s6_5 "s6_5"
+               OpName %s7_5 "s7_5"
+               OpName %av0_6 "av0_6"
+               OpName %av1_6 "av1_6"
+               OpName %av2_6 "av2_6"
+               OpName %av3_6 "av3_6"
+               OpName %av4_6 "av4_6"
+               OpName %av5_6 "av5_6"
+               OpName %av6_6 "av6_6"
+               OpName %av7_6 "av7_6"
+               OpName %bv6_0 "bv6_0"
+               OpName %bv6_1 "bv6_1"
+               OpName %bv6_2 "bv6_2"
+               OpName %bv6_3 "bv6_3"
+               OpName %s0_6 "s0_6"
+               OpName %s1_6 "s1_6"
+               OpName %s2_6 "s2_6"
+               OpName %s3_6 "s3_6"
+               OpName %s4_6 "s4_6"
+               OpName %s5_6 "s5_6"
+               OpName %s6_6 "s6_6"
+               OpName %s7_6 "s7_6"
+               OpName %av0_7 "av0_7"
+               OpName %av1_7 "av1_7"
+               OpName %av2_7 "av2_7"
+               OpName %av3_7 "av3_7"
+               OpName %av4_7 "av4_7"
+               OpName %av5_7 "av5_7"
+               OpName %av6_7 "av6_7"
+               OpName %av7_7 "av7_7"
+               OpName %bv7_0 "bv7_0"
+               OpName %bv7_1 "bv7_1"
+               OpName %bv7_2 "bv7_2"
+               OpName %bv7_3 "bv7_3"
+               OpName %s0_7 "s0_7"
+               OpName %s1_7 "s1_7"
+               OpName %s2_7 "s2_7"
+               OpName %s3_7 "s3_7"
+               OpName %s4_7 "s4_7"
+               OpName %s5_7 "s5_7"
+               OpName %s6_7 "s6_7"
+               OpName %s7_7 "s7_7"
+               OpName %C "C"
+               OpMemberName %C 0 "c"
+               OpName %__1 ""
+               OpDecorate %gl_WorkGroupID BuiltIn WorkgroupId
+               OpDecorate %gl_LocalInvocationID BuiltIn LocalInvocationId
+               OpDecorate %K_ SpecId 0
+               OpDecorate %_runtimearr_float ArrayStride 4
+               OpDecorate %A BufferBlock
+               OpMemberDecorate %A 0 NonWritable
+               OpMemberDecorate %A 0 Offset 0
+               OpDecorate %_ NonWritable
+               OpDecorate %_ Binding 0
+               OpDecorate %_ DescriptorSet 0
+               OpDecorate %_runtimearr_float_0 ArrayStride 4
+               OpDecorate %B BufferBlock
+               OpMemberDecorate %B 0 NonWritable
+               OpMemberDecorate %B 0 Offset 0
+               OpDecorate %__0 NonWritable
+               OpDecorate %__0 Binding 1
+               OpDecorate %__0 DescriptorSet 0
+               OpDecorate %N_ SpecId 1
+               OpDecorate %_runtimearr_float_1 ArrayStride 4
+               OpDecorate %C BufferBlock
+               OpMemberDecorate %C 0 Offset 0
+               OpDecorate %__1 Binding 2
+               OpDecorate %__1 DescriptorSet 0
+               OpDecorate %gl_WorkGroupSize BuiltIn WorkgroupSize
+       %void = OpTypeVoid
+          %3 = OpTypeFunction %void
+        %int = OpTypeInt 32 1
+%_ptr_Function_int = OpTypePointer Function %int
+       %uint = OpTypeInt 32 0
+     %v3uint = OpTypeVector %uint 3
+%_ptr_Input_v3uint = OpTypePointer Input %v3uint
+%gl_WorkGroupID = OpVariable %_ptr_Input_v3uint Input
+     %uint_0 = OpConstant %uint 0
+%_ptr_Input_uint = OpTypePointer Input %uint
+     %int_64 = OpConstant %int 64
+%gl_LocalInvocationID = OpVariable %_ptr_Input_v3uint Input
+      %int_8 = OpConstant %int 8
+     %uint_1 = OpConstant %uint 1
+      %int_2 = OpConstant %int 2
+       %half = OpTypeFloat 16
+     %v2half = OpTypeVector %half 2
+%_ptr_Function_v2half = OpTypePointer Function %v2half
+%half_0x0p_0 = OpConstant %half 0x0p+0
+         %47 = OpConstantComposite %v2half %half_0x0p_0 %half_0x0p_0
+      %int_0 = OpConstant %int 0
+         %K_ = OpSpecConstant %int 0
+       %bool = OpTypeBool
+      %float = OpTypeFloat 32
+%_ptr_Function_float = OpTypePointer Function %float
+%_runtimearr_float = OpTypeRuntimeArray %float
+          %A = OpTypeStruct %_runtimearr_float
+%_ptr_Uniform_A = OpTypePointer Uniform %A
+          %_ = OpVariable %_ptr_Uniform_A Uniform
+%_ptr_Uniform_float = OpTypePointer Uniform %float
+      %int_1 = OpConstant %int 1
+      %int_3 = OpConstant %int 3
+      %int_4 = OpConstant %int 4
+      %int_5 = OpConstant %int 5
+      %int_6 = OpConstant %int 6
+      %int_7 = OpConstant %int 7
+%_runtimearr_float_0 = OpTypeRuntimeArray %float
+          %B = OpTypeStruct %_runtimearr_float_0
+%_ptr_Uniform_B = OpTypePointer Uniform %B
+        %__0 = OpVariable %_ptr_Uniform_B Uniform
+         %N_ = OpSpecConstant %int 0
+%_runtimearr_float_1 = OpTypeRuntimeArray %float
+          %C = OpTypeStruct %_runtimearr_float_1
+%_ptr_Uniform_C = OpTypePointer Uniform %C
+        %__1 = OpVariable %_ptr_Uniform_C Uniform
+%_ptr_Function_half = OpTypePointer Function %half
+     %uint_8 = OpConstant %uint 8
+%gl_WorkGroupSize = OpConstantComposite %v3uint %uint_8 %uint_8 %uint_1
+       %main = OpFunction %void None %3
+          %5 = OpLabel
+         %r0 = OpVariable %_ptr_Function_int Function
+         %c0 = OpVariable %_ptr_Function_int Function
+        %c02 = OpVariable %_ptr_Function_int Function
+       %x0_0 = OpVariable %_ptr_Function_v2half Function
+       %x0_1 = OpVariable %_ptr_Function_v2half Function
+       %x0_2 = OpVariable %_ptr_Function_v2half Function
+       %x0_3 = OpVariable %_ptr_Function_v2half Function
+       %x1_0 = OpVariable %_ptr_Function_v2half Function
+       %x1_1 = OpVariable %_ptr_Function_v2half Function
+       %x1_2 = OpVariable %_ptr_Function_v2half Function
+       %x1_3 = OpVariable %_ptr_Function_v2half Function
+       %x2_0 = OpVariable %_ptr_Function_v2half Function
+       %x2_1 = OpVariable %_ptr_Function_v2half Function
+       %x2_2 = OpVariable %_ptr_Function_v2half Function
+       %x2_3 = OpVariable %_ptr_Function_v2half Function
+       %x3_0 = OpVariable %_ptr_Function_v2half Function
+       %x3_1 = OpVariable %_ptr_Function_v2half Function
+       %x3_2 = OpVariable %_ptr_Function_v2half Function
+       %x3_3 = OpVariable %_ptr_Function_v2half Function
+       %x4_0 = OpVariable %_ptr_Function_v2half Function
+       %x4_1 = OpVariable %_ptr_Function_v2half Function
+       %x4_2 = OpVariable %_ptr_Function_v2half Function
+       %x4_3 = OpVariable %_ptr_Function_v2half Function
+       %x5_0 = OpVariable %_ptr_Function_v2half Function
+       %x5_1 = OpVariable %_ptr_Function_v2half Function
+       %x5_2 = OpVariable %_ptr_Function_v2half Function
+       %x5_3 = OpVariable %_ptr_Function_v2half Function
+       %x6_0 = OpVariable %_ptr_Function_v2half Function
+       %x6_1 = OpVariable %_ptr_Function_v2half Function
+       %x6_2 = OpVariable %_ptr_Function_v2half Function
+       %x6_3 = OpVariable %_ptr_Function_v2half Function
+       %x7_0 = OpVariable %_ptr_Function_v2half Function
+       %x7_1 = OpVariable %_ptr_Function_v2half Function
+       %x7_2 = OpVariable %_ptr_Function_v2half Function
+       %x7_3 = OpVariable %_ptr_Function_v2half Function
+         %kt = OpVariable %_ptr_Function_int Function
+      %av0_0 = OpVariable %_ptr_Function_float Function
+      %av1_0 = OpVariable %_ptr_Function_float Function
+      %av2_0 = OpVariable %_ptr_Function_float Function
+      %av3_0 = OpVariable %_ptr_Function_float Function
+      %av4_0 = OpVariable %_ptr_Function_float Function
+      %av5_0 = OpVariable %_ptr_Function_float Function
+      %av6_0 = OpVariable %_ptr_Function_float Function
+      %av7_0 = OpVariable %_ptr_Function_float Function
+      %bv0_0 = OpVariable %_ptr_Function_v2half Function
+      %bv0_1 = OpVariable %_ptr_Function_v2half Function
+      %bv0_2 = OpVariable %_ptr_Function_v2half Function
+      %bv0_3 = OpVariable %_ptr_Function_v2half Function
+       %s0_0 = OpVariable %_ptr_Function_v2half Function
+       %s1_0 = OpVariable %_ptr_Function_v2half Function
+       %s2_0 = OpVariable %_ptr_Function_v2half Function
+       %s3_0 = OpVariable %_ptr_Function_v2half Function
+       %s4_0 = OpVariable %_ptr_Function_v2half Function
+       %s5_0 = OpVariable %_ptr_Function_v2half Function
+       %s6_0 = OpVariable %_ptr_Function_v2half Function
+       %s7_0 = OpVariable %_ptr_Function_v2half Function
+      %av0_1 = OpVariable %_ptr_Function_float Function
+      %av1_1 = OpVariable %_ptr_Function_float Function
+      %av2_1 = OpVariable %_ptr_Function_float Function
+      %av3_1 = OpVariable %_ptr_Function_float Function
+      %av4_1 = OpVariable %_ptr_Function_float Function
+      %av5_1 = OpVariable %_ptr_Function_float Function
+      %av6_1 = OpVariable %_ptr_Function_float Function
+      %av7_1 = OpVariable %_ptr_Function_float Function
+      %bv1_0 = OpVariable %_ptr_Function_v2half Function
+      %bv1_1 = OpVariable %_ptr_Function_v2half Function
+      %bv1_2 = OpVariable %_ptr_Function_v2half Function
+      %bv1_3 = OpVariable %_ptr_Function_v2half Function
+       %s0_1 = OpVariable %_ptr_Function_v2half Function
+       %s1_1 = OpVariable %_ptr_Function_v2half Function
+       %s2_1 = OpVariable %_ptr_Function_v2half Function
+       %s3_1 = OpVariable %_ptr_Function_v2half Function
+       %s4_1 = OpVariable %_ptr_Function_v2half Function
+       %s5_1 = OpVariable %_ptr_Function_v2half Function
+       %s6_1 = OpVariable %_ptr_Function_v2half Function
+       %s7_1 = OpVariable %_ptr_Function_v2half Function
+      %av0_2 = OpVariable %_ptr_Function_float Function
+      %av1_2 = OpVariable %_ptr_Function_float Function
+      %av2_2 = OpVariable %_ptr_Function_float Function
+      %av3_2 = OpVariable %_ptr_Function_float Function
+      %av4_2 = OpVariable %_ptr_Function_float Function
+      %av5_2 = OpVariable %_ptr_Function_float Function
+      %av6_2 = OpVariable %_ptr_Function_float Function
+      %av7_2 = OpVariable %_ptr_Function_float Function
+      %bv2_0 = OpVariable %_ptr_Function_v2half Function
+      %bv2_1 = OpVariable %_ptr_Function_v2half Function
+      %bv2_2 = OpVariable %_ptr_Function_v2half Function
+      %bv2_3 = OpVariable %_ptr_Function_v2half Function
+       %s0_2 = OpVariable %_ptr_Function_v2half Function
+       %s1_2 = OpVariable %_ptr_Function_v2half Function
+       %s2_2 = OpVariable %_ptr_Function_v2half Function
+       %s3_2 = OpVariable %_ptr_Function_v2half Function
+       %s4_2 = OpVariable %_ptr_Function_v2half Function
+       %s5_2 = OpVariable %_ptr_Function_v2half Function
+       %s6_2 = OpVariable %_ptr_Function_v2half Function
+       %s7_2 = OpVariable %_ptr_Function_v2half Function
+      %av0_3 = OpVariable %_ptr_Function_float Function
+      %av1_3 = OpVariable %_ptr_Function_float Function
+      %av2_3 = OpVariable %_ptr_Function_float Function
+      %av3_3 = OpVariable %_ptr_Function_float Function
+      %av4_3 = OpVariable %_ptr_Function_float Function
+      %av5_3 = OpVariable %_ptr_Function_float Function
+      %av6_3 = OpVariable %_ptr_Function_float Function
+      %av7_3 = OpVariable %_ptr_Function_float Function
+      %bv3_0 = OpVariable %_ptr_Function_v2half Function
+      %bv3_1 = OpVariable %_ptr_Function_v2half Function
+      %bv3_2 = OpVariable %_ptr_Function_v2half Function
+      %bv3_3 = OpVariable %_ptr_Function_v2half Function
+       %s0_3 = OpVariable %_ptr_Function_v2half Function
+       %s1_3 = OpVariable %_ptr_Function_v2half Function
+       %s2_3 = OpVariable %_ptr_Function_v2half Function
+       %s3_3 = OpVariable %_ptr_Function_v2half Function
+       %s4_3 = OpVariable %_ptr_Function_v2half Function
+       %s5_3 = OpVariable %_ptr_Function_v2half Function
+       %s6_3 = OpVariable %_ptr_Function_v2half Function
+       %s7_3 = OpVariable %_ptr_Function_v2half Function
+      %av0_4 = OpVariable %_ptr_Function_float Function
+      %av1_4 = OpVariable %_ptr_Function_float Function
+      %av2_4 = OpVariable %_ptr_Function_float Function
+      %av3_4 = OpVariable %_ptr_Function_float Function
+      %av4_4 = OpVariable %_ptr_Function_float Function
+      %av5_4 = OpVariable %_ptr_Function_float Function
+      %av6_4 = OpVariable %_ptr_Function_float Function
+      %av7_4 = OpVariable %_ptr_Function_float Function
+      %bv4_0 = OpVariable %_ptr_Function_v2half Function
+      %bv4_1 = OpVariable %_ptr_Function_v2half Function
+      %bv4_2 = OpVariable %_ptr_Function_v2half Function
+      %bv4_3 = OpVariable %_ptr_Function_v2half Function
+       %s0_4 = OpVariable %_ptr_Function_v2half Function
+       %s1_4 = OpVariable %_ptr_Function_v2half Function
+       %s2_4 = OpVariable %_ptr_Function_v2half Function
+       %s3_4 = OpVariable %_ptr_Function_v2half Function
+       %s4_4 = OpVariable %_ptr_Function_v2half Function
+       %s5_4 = OpVariable %_ptr_Function_v2half Function
+       %s6_4 = OpVariable %_ptr_Function_v2half Function
+       %s7_4 = OpVariable %_ptr_Function_v2half Function
+      %av0_5 = OpVariable %_ptr_Function_float Function
+      %av1_5 = OpVariable %_ptr_Function_float Function
+      %av2_5 = OpVariable %_ptr_Function_float Function
+      %av3_5 = OpVariable %_ptr_Function_float Function
+      %av4_5 = OpVariable %_ptr_Function_float Function
+      %av5_5 = OpVariable %_ptr_Function_float Function
+      %av6_5 = OpVariable %_ptr_Function_float Function
+      %av7_5 = OpVariable %_ptr_Function_float Function
+      %bv5_0 = OpVariable %_ptr_Function_v2half Function
+      %bv5_1 = OpVariable %_ptr_Function_v2half Function
+      %bv5_2 = OpVariable %_ptr_Function_v2half Function
+      %bv5_3 = OpVariable %_ptr_Function_v2half Function
+       %s0_5 = OpVariable %_ptr_Function_v2half Function
+       %s1_5 = OpVariable %_ptr_Function_v2half Function
+       %s2_5 = OpVariable %_ptr_Function_v2half Function
+       %s3_5 = OpVariable %_ptr_Function_v2half Function
+       %s4_5 = OpVariable %_ptr_Function_v2half Function
+       %s5_5 = OpVariable %_ptr_Function_v2half Function
+       %s6_5 = OpVariable %_ptr_Function_v2half Function
+       %s7_5 = OpVariable %_ptr_Function_v2half Function
+      %av0_6 = OpVariable %_ptr_Function_float Function
+      %av1_6 = OpVariable %_ptr_Function_float Function
+      %av2_6 = OpVariable %_ptr_Function_float Function
+      %av3_6 = OpVariable %_ptr_Function_float Function
+      %av4_6 = OpVariable %_ptr_Function_float Function
+      %av5_6 = OpVariable %_ptr_Function_float Function
+      %av6_6 = OpVariable %_ptr_Function_float Function
+      %av7_6 = OpVariable %_ptr_Function_float Function
+      %bv6_0 = OpVariable %_ptr_Function_v2half Function
+      %bv6_1 = OpVariable %_ptr_Function_v2half Function
+      %bv6_2 = OpVariable %_ptr_Function_v2half Function
+      %bv6_3 = OpVariable %_ptr_Function_v2half Function
+       %s0_6 = OpVariable %_ptr_Function_v2half Function
+       %s1_6 = OpVariable %_ptr_Function_v2half Function
+       %s2_6 = OpVariable %_ptr_Function_v2half Function
+       %s3_6 = OpVariable %_ptr_Function_v2half Function
+       %s4_6 = OpVariable %_ptr_Function_v2half Function
+       %s5_6 = OpVariable %_ptr_Function_v2half Function
+       %s6_6 = OpVariable %_ptr_Function_v2half Function
+       %s7_6 = OpVariable %_ptr_Function_v2half Function
+      %av0_7 = OpVariable %_ptr_Function_float Function
+      %av1_7 = OpVariable %_ptr_Function_float Function
+      %av2_7 = OpVariable %_ptr_Function_float Function
+      %av3_7 = OpVariable %_ptr_Function_float Function
+      %av4_7 = OpVariable %_ptr_Function_float Function
+      %av5_7 = OpVariable %_ptr_Function_float Function
+      %av6_7 = OpVariable %_ptr_Function_float Function
+      %av7_7 = OpVariable %_ptr_Function_float Function
+      %bv7_0 = OpVariable %_ptr_Function_v2half Function
+      %bv7_1 = OpVariable %_ptr_Function_v2half Function
+      %bv7_2 = OpVariable %_ptr_Function_v2half Function
+      %bv7_3 = OpVariable %_ptr_Function_v2half Function
+       %s0_7 = OpVariable %_ptr_Function_v2half Function
+       %s1_7 = OpVariable %_ptr_Function_v2half Function
+       %s2_7 = OpVariable %_ptr_Function_v2half Function
+       %s3_7 = OpVariable %_ptr_Function_v2half Function
+       %s4_7 = OpVariable %_ptr_Function_v2half Function
+       %s5_7 = OpVariable %_ptr_Function_v2half Function
+       %s6_7 = OpVariable %_ptr_Function_v2half Function
+       %s7_7 = OpVariable %_ptr_Function_v2half Function
+         %15 = OpAccessChain %_ptr_Input_uint %gl_WorkGroupID %uint_0
+         %16 = OpLoad %uint %15
+         %17 = OpBitcast %int %16
+         %19 = OpIMul %int %17 %int_64
+         %21 = OpAccessChain %_ptr_Input_uint %gl_LocalInvocationID %uint_0
+         %22 = OpLoad %uint %21
+         %23 = OpBitcast %int %22
+         %25 = OpIMul %int %23 %int_8
+         %26 = OpIAdd %int %19 %25
+               OpStore %r0 %26
+         %29 = OpAccessChain %_ptr_Input_uint %gl_WorkGroupID %uint_1
+         %30 = OpLoad %uint %29
+         %31 = OpBitcast %int %30
+         %32 = OpIMul %int %31 %int_64
+         %33 = OpAccessChain %_ptr_Input_uint %gl_LocalInvocationID %uint_1
+         %34 = OpLoad %uint %33
+         %35 = OpBitcast %int %34
+         %36 = OpIMul %int %35 %int_8
+         %37 = OpIAdd %int %32 %36
+               OpStore %c0 %37
+         %39 = OpLoad %int %c0
+         %41 = OpSDiv %int %39 %int_2
+               OpStore %c02 %41
+               OpStore %x0_0 %47
+               OpStore %x0_1 %47
+               OpStore %x0_2 %47
+               OpStore %x0_3 %47
+               OpStore %x1_0 %47
+               OpStore %x1_1 %47
+               OpStore %x1_2 %47
+               OpStore %x1_3 %47
+               OpStore %x2_0 %47
+               OpStore %x2_1 %47
+               OpStore %x2_2 %47
+               OpStore %x2_3 %47
+               OpStore %x3_0 %47
+               OpStore %x3_1 %47
+               OpStore %x3_2 %47
+               OpStore %x3_3 %47
+               OpStore %x4_0 %47
+               OpStore %x4_1 %47
+               OpStore %x4_2 %47
+               OpStore %x4_3 %47
+               OpStore %x5_0 %47
+               OpStore %x5_1 %47
+               OpStore %x5_2 %47
+               OpStore %x5_3 %47
+               OpStore %x6_0 %47
+               OpStore %x6_1 %47
+               OpStore %x6_2 %47
+               OpStore %x6_3 %47
+               OpStore %x7_0 %47
+               OpStore %x7_1 %47
+               OpStore %x7_2 %47
+               OpStore %x7_3 %47
+               OpStore %kt %int_0
+               OpBranch %81
+         %81 = OpLabel
+               OpLoopMerge %83 %84 None
+               OpBranch %85
+         %85 = OpLabel
+         %86 = OpLoad %int %kt
+         %89 = OpSLessThan %bool %86 %K_
+               OpBranchConditional %89 %82 %83
+         %82 = OpLabel
+         %97 = OpLoad %int %r0
+         %98 = OpIAdd %int %97 %int_0
+         %99 = OpIMul %int %98 %K_
+        %100 = OpLoad %int %kt
+        %101 = OpIAdd %int %99 %100
+        %102 = OpIAdd %int %101 %int_0
+        %104 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %102
+        %105 = OpLoad %float %104
+               OpStore %av0_0 %105
+        %107 = OpLoad %int %r0
+        %109 = OpIAdd %int %107 %int_1
+        %110 = OpIMul %int %109 %K_
+        %111 = OpLoad %int %kt
+        %112 = OpIAdd %int %110 %111
+        %113 = OpIAdd %int %112 %int_0
+        %114 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %113
+        %115 = OpLoad %float %114
+               OpStore %av1_0 %115
+        %117 = OpLoad %int %r0
+        %118 = OpIAdd %int %117 %int_2
+        %119 = OpIMul %int %118 %K_
+        %120 = OpLoad %int %kt
+        %121 = OpIAdd %int %119 %120
+        %122 = OpIAdd %int %121 %int_0
+        %123 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %122
+        %124 = OpLoad %float %123
+               OpStore %av2_0 %124
+        %126 = OpLoad %int %r0
+        %128 = OpIAdd %int %126 %int_3
+        %129 = OpIMul %int %128 %K_
+        %130 = OpLoad %int %kt
+        %131 = OpIAdd %int %129 %130
+        %132 = OpIAdd %int %131 %int_0
+        %133 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %132
+        %134 = OpLoad %float %133
+               OpStore %av3_0 %134
+        %136 = OpLoad %int %r0
+        %138 = OpIAdd %int %136 %int_4
+        %139 = OpIMul %int %138 %K_
+        %140 = OpLoad %int %kt
+        %141 = OpIAdd %int %139 %140
+        %142 = OpIAdd %int %141 %int_0
+        %143 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %142
+        %144 = OpLoad %float %143
+               OpStore %av4_0 %144
+        %146 = OpLoad %int %r0
+        %148 = OpIAdd %int %146 %int_5
+        %149 = OpIMul %int %148 %K_
+        %150 = OpLoad %int %kt
+        %151 = OpIAdd %int %149 %150
+        %152 = OpIAdd %int %151 %int_0
+        %153 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %152
+        %154 = OpLoad %float %153
+               OpStore %av5_0 %154
+        %156 = OpLoad %int %r0
+        %158 = OpIAdd %int %156 %int_6
+        %159 = OpIMul %int %158 %K_
+        %160 = OpLoad %int %kt
+        %161 = OpIAdd %int %159 %160
+        %162 = OpIAdd %int %161 %int_0
+        %163 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %162
+        %164 = OpLoad %float %163
+               OpStore %av6_0 %164
+        %166 = OpLoad %int %r0
+        %168 = OpIAdd %int %166 %int_7
+        %169 = OpIMul %int %168 %K_
+        %170 = OpLoad %int %kt
+        %171 = OpIAdd %int %169 %170
+        %172 = OpIAdd %int %171 %int_0
+        %173 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %172
+        %174 = OpLoad %float %173
+               OpStore %av7_0 %174
+        %180 = OpLoad %int %kt
+        %181 = OpIAdd %int %180 %int_0
+        %183 = OpIMul %int %181 %N_
+        %184 = OpLoad %int %c0
+        %185 = OpIAdd %int %183 %184
+        %186 = OpIAdd %int %185 %int_0
+        %187 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %186
+        %188 = OpLoad %float %187
+        %189 = OpFConvert %half %188
+        %190 = OpLoad %int %kt
+        %191 = OpIAdd %int %190 %int_0
+        %192 = OpIMul %int %191 %N_
+        %193 = OpLoad %int %c0
+        %194 = OpIAdd %int %192 %193
+        %195 = OpIAdd %int %194 %int_0
+        %196 = OpIAdd %int %195 %int_1
+        %197 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %196
+        %198 = OpLoad %float %197
+        %199 = OpFConvert %half %198
+        %200 = OpCompositeConstruct %v2half %189 %199
+               OpStore %bv0_0 %200
+        %202 = OpLoad %int %kt
+        %203 = OpIAdd %int %202 %int_0
+        %204 = OpIMul %int %203 %N_
+        %205 = OpLoad %int %c0
+        %206 = OpIAdd %int %204 %205
+        %207 = OpIAdd %int %206 %int_2
+        %208 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %207
+        %209 = OpLoad %float %208
+        %210 = OpFConvert %half %209
+        %211 = OpLoad %int %kt
+        %212 = OpIAdd %int %211 %int_0
+        %213 = OpIMul %int %212 %N_
+        %214 = OpLoad %int %c0
+        %215 = OpIAdd %int %213 %214
+        %216 = OpIAdd %int %215 %int_2
+        %217 = OpIAdd %int %216 %int_1
+        %218 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %217
+        %219 = OpLoad %float %218
+        %220 = OpFConvert %half %219
+        %221 = OpCompositeConstruct %v2half %210 %220
+               OpStore %bv0_1 %221
+        %223 = OpLoad %int %kt
+        %224 = OpIAdd %int %223 %int_0
+        %225 = OpIMul %int %224 %N_
+        %226 = OpLoad %int %c0
+        %227 = OpIAdd %int %225 %226
+        %228 = OpIAdd %int %227 %int_4
+        %229 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %228
+        %230 = OpLoad %float %229
+        %231 = OpFConvert %half %230
+        %232 = OpLoad %int %kt
+        %233 = OpIAdd %int %232 %int_0
+        %234 = OpIMul %int %233 %N_
+        %235 = OpLoad %int %c0
+        %236 = OpIAdd %int %234 %235
+        %237 = OpIAdd %int %236 %int_4
+        %238 = OpIAdd %int %237 %int_1
+        %239 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %238
+        %240 = OpLoad %float %239
+        %241 = OpFConvert %half %240
+        %242 = OpCompositeConstruct %v2half %231 %241
+               OpStore %bv0_2 %242
+        %244 = OpLoad %int %kt
+        %245 = OpIAdd %int %244 %int_0
+        %246 = OpIMul %int %245 %N_
+        %247 = OpLoad %int %c0
+        %248 = OpIAdd %int %246 %247
+        %249 = OpIAdd %int %248 %int_6
+        %250 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %249
+        %251 = OpLoad %float %250
+        %252 = OpFConvert %half %251
+        %253 = OpLoad %int %kt
+        %254 = OpIAdd %int %253 %int_0
+        %255 = OpIMul %int %254 %N_
+        %256 = OpLoad %int %c0
+        %257 = OpIAdd %int %255 %256
+        %258 = OpIAdd %int %257 %int_6
+        %259 = OpIAdd %int %258 %int_1
+        %260 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %259
+        %261 = OpLoad %float %260
+        %262 = OpFConvert %half %261
+        %263 = OpCompositeConstruct %v2half %252 %262
+               OpStore %bv0_3 %263
+        %265 = OpLoad %float %av0_0
+        %266 = OpFConvert %half %265
+        %267 = OpCompositeConstruct %v2half %266 %266
+               OpStore %s0_0 %267
+        %268 = OpLoad %v2half %x0_0
+        %269 = OpLoad %v2half %s0_0
+        %270 = OpLoad %v2half %bv0_0
+        %271 = OpFMul %v2half %269 %270
+        %272 = OpFAdd %v2half %268 %271
+               OpStore %x0_0 %272
+        %273 = OpLoad %v2half %x0_1
+        %274 = OpLoad %v2half %s0_0
+        %275 = OpLoad %v2half %bv0_1
+        %276 = OpFMul %v2half %274 %275
+        %277 = OpFAdd %v2half %273 %276
+               OpStore %x0_1 %277
+        %278 = OpLoad %v2half %x0_2
+        %279 = OpLoad %v2half %s0_0
+        %280 = OpLoad %v2half %bv0_2
+        %281 = OpFMul %v2half %279 %280
+        %282 = OpFAdd %v2half %278 %281
+               OpStore %x0_2 %282
+        %283 = OpLoad %v2half %x0_3
+        %284 = OpLoad %v2half %s0_0
+        %285 = OpLoad %v2half %bv0_3
+        %286 = OpFMul %v2half %284 %285
+        %287 = OpFAdd %v2half %283 %286
+               OpStore %x0_3 %287
+        %289 = OpLoad %float %av1_0
+        %290 = OpFConvert %half %289
+        %291 = OpCompositeConstruct %v2half %290 %290
+               OpStore %s1_0 %291
+        %292 = OpLoad %v2half %x1_0
+        %293 = OpLoad %v2half %s1_0
+        %294 = OpLoad %v2half %bv0_0
+        %295 = OpFMul %v2half %293 %294
+        %296 = OpFAdd %v2half %292 %295
+               OpStore %x1_0 %296
+        %297 = OpLoad %v2half %x1_1
+        %298 = OpLoad %v2half %s1_0
+        %299 = OpLoad %v2half %bv0_1
+        %300 = OpFMul %v2half %298 %299
+        %301 = OpFAdd %v2half %297 %300
+               OpStore %x1_1 %301
+        %302 = OpLoad %v2half %x1_2
+        %303 = OpLoad %v2half %s1_0
+        %304 = OpLoad %v2half %bv0_2
+        %305 = OpFMul %v2half %303 %304
+        %306 = OpFAdd %v2half %302 %305
+               OpStore %x1_2 %306
+        %307 = OpLoad %v2half %x1_3
+        %308 = OpLoad %v2half %s1_0
+        %309 = OpLoad %v2half %bv0_3
+        %310 = OpFMul %v2half %308 %309
+        %311 = OpFAdd %v2half %307 %310
+               OpStore %x1_3 %311
+        %313 = OpLoad %float %av2_0
+        %314 = OpFConvert %half %313
+        %315 = OpCompositeConstruct %v2half %314 %314
+               OpStore %s2_0 %315
+        %316 = OpLoad %v2half %x2_0
+        %317 = OpLoad %v2half %s2_0
+        %318 = OpLoad %v2half %bv0_0
+        %319 = OpFMul %v2half %317 %318
+        %320 = OpFAdd %v2half %316 %319
+               OpStore %x2_0 %320
+        %321 = OpLoad %v2half %x2_1
+        %322 = OpLoad %v2half %s2_0
+        %323 = OpLoad %v2half %bv0_1
+        %324 = OpFMul %v2half %322 %323
+        %325 = OpFAdd %v2half %321 %324
+               OpStore %x2_1 %325
+        %326 = OpLoad %v2half %x2_2
+        %327 = OpLoad %v2half %s2_0
+        %328 = OpLoad %v2half %bv0_2
+        %329 = OpFMul %v2half %327 %328
+        %330 = OpFAdd %v2half %326 %329
+               OpStore %x2_2 %330
+        %331 = OpLoad %v2half %x2_3
+        %332 = OpLoad %v2half %s2_0
+        %333 = OpLoad %v2half %bv0_3
+        %334 = OpFMul %v2half %332 %333
+        %335 = OpFAdd %v2half %331 %334
+               OpStore %x2_3 %335
+        %337 = OpLoad %float %av3_0
+        %338 = OpFConvert %half %337
+        %339 = OpCompositeConstruct %v2half %338 %338
+               OpStore %s3_0 %339
+        %340 = OpLoad %v2half %x3_0
+        %341 = OpLoad %v2half %s3_0
+        %342 = OpLoad %v2half %bv0_0
+        %343 = OpFMul %v2half %341 %342
+        %344 = OpFAdd %v2half %340 %343
+               OpStore %x3_0 %344
+        %345 = OpLoad %v2half %x3_1
+        %346 = OpLoad %v2half %s3_0
+        %347 = OpLoad %v2half %bv0_1
+        %348 = OpFMul %v2half %346 %347
+        %349 = OpFAdd %v2half %345 %348
+               OpStore %x3_1 %349
+        %350 = OpLoad %v2half %x3_2
+        %351 = OpLoad %v2half %s3_0
+        %352 = OpLoad %v2half %bv0_2
+        %353 = OpFMul %v2half %351 %352
+        %354 = OpFAdd %v2half %350 %353
+               OpStore %x3_2 %354
+        %355 = OpLoad %v2half %x3_3
+        %356 = OpLoad %v2half %s3_0
+        %357 = OpLoad %v2half %bv0_3
+        %358 = OpFMul %v2half %356 %357
+        %359 = OpFAdd %v2half %355 %358
+               OpStore %x3_3 %359
+        %361 = OpLoad %float %av4_0
+        %362 = OpFConvert %half %361
+        %363 = OpCompositeConstruct %v2half %362 %362
+               OpStore %s4_0 %363
+        %364 = OpLoad %v2half %x4_0
+        %365 = OpLoad %v2half %s4_0
+        %366 = OpLoad %v2half %bv0_0
+        %367 = OpFMul %v2half %365 %366
+        %368 = OpFAdd %v2half %364 %367
+               OpStore %x4_0 %368
+        %369 = OpLoad %v2half %x4_1
+        %370 = OpLoad %v2half %s4_0
+        %371 = OpLoad %v2half %bv0_1
+        %372 = OpFMul %v2half %370 %371
+        %373 = OpFAdd %v2half %369 %372
+               OpStore %x4_1 %373
+        %374 = OpLoad %v2half %x4_2
+        %375 = OpLoad %v2half %s4_0
+        %376 = OpLoad %v2half %bv0_2
+        %377 = OpFMul %v2half %375 %376
+        %378 = OpFAdd %v2half %374 %377
+               OpStore %x4_2 %378
+        %379 = OpLoad %v2half %x4_3
+        %380 = OpLoad %v2half %s4_0
+        %381 = OpLoad %v2half %bv0_3
+        %382 = OpFMul %v2half %380 %381
+        %383 = OpFAdd %v2half %379 %382
+               OpStore %x4_3 %383
+        %385 = OpLoad %float %av5_0
+        %386 = OpFConvert %half %385
+        %387 = OpCompositeConstruct %v2half %386 %386
+               OpStore %s5_0 %387
+        %388 = OpLoad %v2half %x5_0
+        %389 = OpLoad %v2half %s5_0
+        %390 = OpLoad %v2half %bv0_0
+        %391 = OpFMul %v2half %389 %390
+        %392 = OpFAdd %v2half %388 %391
+               OpStore %x5_0 %392
+        %393 = OpLoad %v2half %x5_1
+        %394 = OpLoad %v2half %s5_0
+        %395 = OpLoad %v2half %bv0_1
+        %396 = OpFMul %v2half %394 %395
+        %397 = OpFAdd %v2half %393 %396
+               OpStore %x5_1 %397
+        %398 = OpLoad %v2half %x5_2
+        %399 = OpLoad %v2half %s5_0
+        %400 = OpLoad %v2half %bv0_2
+        %401 = OpFMul %v2half %399 %400
+        %402 = OpFAdd %v2half %398 %401
+               OpStore %x5_2 %402
+        %403 = OpLoad %v2half %x5_3
+        %404 = OpLoad %v2half %s5_0
+        %405 = OpLoad %v2half %bv0_3
+        %406 = OpFMul %v2half %404 %405
+        %407 = OpFAdd %v2half %403 %406
+               OpStore %x5_3 %407
+        %409 = OpLoad %float %av6_0
+        %410 = OpFConvert %half %409
+        %411 = OpCompositeConstruct %v2half %410 %410
+               OpStore %s6_0 %411
+        %412 = OpLoad %v2half %x6_0
+        %413 = OpLoad %v2half %s6_0
+        %414 = OpLoad %v2half %bv0_0
+        %415 = OpFMul %v2half %413 %414
+        %416 = OpFAdd %v2half %412 %415
+               OpStore %x6_0 %416
+        %417 = OpLoad %v2half %x6_1
+        %418 = OpLoad %v2half %s6_0
+        %419 = OpLoad %v2half %bv0_1
+        %420 = OpFMul %v2half %418 %419
+        %421 = OpFAdd %v2half %417 %420
+               OpStore %x6_1 %421
+        %422 = OpLoad %v2half %x6_2
+        %423 = OpLoad %v2half %s6_0
+        %424 = OpLoad %v2half %bv0_2
+        %425 = OpFMul %v2half %423 %424
+        %426 = OpFAdd %v2half %422 %425
+               OpStore %x6_2 %426
+        %427 = OpLoad %v2half %x6_3
+        %428 = OpLoad %v2half %s6_0
+        %429 = OpLoad %v2half %bv0_3
+        %430 = OpFMul %v2half %428 %429
+        %431 = OpFAdd %v2half %427 %430
+               OpStore %x6_3 %431
+        %433 = OpLoad %float %av7_0
+        %434 = OpFConvert %half %433
+        %435 = OpCompositeConstruct %v2half %434 %434
+               OpStore %s7_0 %435
+        %436 = OpLoad %v2half %x7_0
+        %437 = OpLoad %v2half %s7_0
+        %438 = OpLoad %v2half %bv0_0
+        %439 = OpFMul %v2half %437 %438
+        %440 = OpFAdd %v2half %436 %439
+               OpStore %x7_0 %440
+        %441 = OpLoad %v2half %x7_1
+        %442 = OpLoad %v2half %s7_0
+        %443 = OpLoad %v2half %bv0_1
+        %444 = OpFMul %v2half %442 %443
+        %445 = OpFAdd %v2half %441 %444
+               OpStore %x7_1 %445
+        %446 = OpLoad %v2half %x7_2
+        %447 = OpLoad %v2half %s7_0
+        %448 = OpLoad %v2half %bv0_2
+        %449 = OpFMul %v2half %447 %448
+        %450 = OpFAdd %v2half %446 %449
+               OpStore %x7_2 %450
+        %451 = OpLoad %v2half %x7_3
+        %452 = OpLoad %v2half %s7_0
+        %453 = OpLoad %v2half %bv0_3
+        %454 = OpFMul %v2half %452 %453
+        %455 = OpFAdd %v2half %451 %454
+               OpStore %x7_3 %455
+        %457 = OpLoad %int %r0
+        %458 = OpIAdd %int %457 %int_0
+        %459 = OpIMul %int %458 %K_
+        %460 = OpLoad %int %kt
+        %461 = OpIAdd %int %459 %460
+        %462 = OpIAdd %int %461 %int_1
+        %463 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %462
+        %464 = OpLoad %float %463
+               OpStore %av0_1 %464
+        %466 = OpLoad %int %r0
+        %467 = OpIAdd %int %466 %int_1
+        %468 = OpIMul %int %467 %K_
+        %469 = OpLoad %int %kt
+        %470 = OpIAdd %int %468 %469
+        %471 = OpIAdd %int %470 %int_1
+        %472 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %471
+        %473 = OpLoad %float %472
+               OpStore %av1_1 %473
+        %475 = OpLoad %int %r0
+        %476 = OpIAdd %int %475 %int_2
+        %477 = OpIMul %int %476 %K_
+        %478 = OpLoad %int %kt
+        %479 = OpIAdd %int %477 %478
+        %480 = OpIAdd %int %479 %int_1
+        %481 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %480
+        %482 = OpLoad %float %481
+               OpStore %av2_1 %482
+        %484 = OpLoad %int %r0
+        %485 = OpIAdd %int %484 %int_3
+        %486 = OpIMul %int %485 %K_
+        %487 = OpLoad %int %kt
+        %488 = OpIAdd %int %486 %487
+        %489 = OpIAdd %int %488 %int_1
+        %490 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %489
+        %491 = OpLoad %float %490
+               OpStore %av3_1 %491
+        %493 = OpLoad %int %r0
+        %494 = OpIAdd %int %493 %int_4
+        %495 = OpIMul %int %494 %K_
+        %496 = OpLoad %int %kt
+        %497 = OpIAdd %int %495 %496
+        %498 = OpIAdd %int %497 %int_1
+        %499 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %498
+        %500 = OpLoad %float %499
+               OpStore %av4_1 %500
+        %502 = OpLoad %int %r0
+        %503 = OpIAdd %int %502 %int_5
+        %504 = OpIMul %int %503 %K_
+        %505 = OpLoad %int %kt
+        %506 = OpIAdd %int %504 %505
+        %507 = OpIAdd %int %506 %int_1
+        %508 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %507
+        %509 = OpLoad %float %508
+               OpStore %av5_1 %509
+        %511 = OpLoad %int %r0
+        %512 = OpIAdd %int %511 %int_6
+        %513 = OpIMul %int %512 %K_
+        %514 = OpLoad %int %kt
+        %515 = OpIAdd %int %513 %514
+        %516 = OpIAdd %int %515 %int_1
+        %517 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %516
+        %518 = OpLoad %float %517
+               OpStore %av6_1 %518
+        %520 = OpLoad %int %r0
+        %521 = OpIAdd %int %520 %int_7
+        %522 = OpIMul %int %521 %K_
+        %523 = OpLoad %int %kt
+        %524 = OpIAdd %int %522 %523
+        %525 = OpIAdd %int %524 %int_1
+        %526 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %525
+        %527 = OpLoad %float %526
+               OpStore %av7_1 %527
+        %529 = OpLoad %int %kt
+        %530 = OpIAdd %int %529 %int_1
+        %531 = OpIMul %int %530 %N_
+        %532 = OpLoad %int %c0
+        %533 = OpIAdd %int %531 %532
+        %534 = OpIAdd %int %533 %int_0
+        %535 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %534
+        %536 = OpLoad %float %535
+        %537 = OpFConvert %half %536
+        %538 = OpLoad %int %kt
+        %539 = OpIAdd %int %538 %int_1
+        %540 = OpIMul %int %539 %N_
+        %541 = OpLoad %int %c0
+        %542 = OpIAdd %int %540 %541
+        %543 = OpIAdd %int %542 %int_0
+        %544 = OpIAdd %int %543 %int_1
+        %545 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %544
+        %546 = OpLoad %float %545
+        %547 = OpFConvert %half %546
+        %548 = OpCompositeConstruct %v2half %537 %547
+               OpStore %bv1_0 %548
+        %550 = OpLoad %int %kt
+        %551 = OpIAdd %int %550 %int_1
+        %552 = OpIMul %int %551 %N_
+        %553 = OpLoad %int %c0
+        %554 = OpIAdd %int %552 %553
+        %555 = OpIAdd %int %554 %int_2
+        %556 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %555
+        %557 = OpLoad %float %556
+        %558 = OpFConvert %half %557
+        %559 = OpLoad %int %kt
+        %560 = OpIAdd %int %559 %int_1
+        %561 = OpIMul %int %560 %N_
+        %562 = OpLoad %int %c0
+        %563 = OpIAdd %int %561 %562
+        %564 = OpIAdd %int %563 %int_2
+        %565 = OpIAdd %int %564 %int_1
+        %566 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %565
+        %567 = OpLoad %float %566
+        %568 = OpFConvert %half %567
+        %569 = OpCompositeConstruct %v2half %558 %568
+               OpStore %bv1_1 %569
+        %571 = OpLoad %int %kt
+        %572 = OpIAdd %int %571 %int_1
+        %573 = OpIMul %int %572 %N_
+        %574 = OpLoad %int %c0
+        %575 = OpIAdd %int %573 %574
+        %576 = OpIAdd %int %575 %int_4
+        %577 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %576
+        %578 = OpLoad %float %577
+        %579 = OpFConvert %half %578
+        %580 = OpLoad %int %kt
+        %581 = OpIAdd %int %580 %int_1
+        %582 = OpIMul %int %581 %N_
+        %583 = OpLoad %int %c0
+        %584 = OpIAdd %int %582 %583
+        %585 = OpIAdd %int %584 %int_4
+        %586 = OpIAdd %int %585 %int_1
+        %587 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %586
+        %588 = OpLoad %float %587
+        %589 = OpFConvert %half %588
+        %590 = OpCompositeConstruct %v2half %579 %589
+               OpStore %bv1_2 %590
+        %592 = OpLoad %int %kt
+        %593 = OpIAdd %int %592 %int_1
+        %594 = OpIMul %int %593 %N_
+        %595 = OpLoad %int %c0
+        %596 = OpIAdd %int %594 %595
+        %597 = OpIAdd %int %596 %int_6
+        %598 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %597
+        %599 = OpLoad %float %598
+        %600 = OpFConvert %half %599
+        %601 = OpLoad %int %kt
+        %602 = OpIAdd %int %601 %int_1
+        %603 = OpIMul %int %602 %N_
+        %604 = OpLoad %int %c0
+        %605 = OpIAdd %int %603 %604
+        %606 = OpIAdd %int %605 %int_6
+        %607 = OpIAdd %int %606 %int_1
+        %608 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %607
+        %609 = OpLoad %float %608
+        %610 = OpFConvert %half %609
+        %611 = OpCompositeConstruct %v2half %600 %610
+               OpStore %bv1_3 %611
+        %613 = OpLoad %float %av0_1
+        %614 = OpFConvert %half %613
+        %615 = OpCompositeConstruct %v2half %614 %614
+               OpStore %s0_1 %615
+        %616 = OpLoad %v2half %x0_0
+        %617 = OpLoad %v2half %s0_1
+        %618 = OpLoad %v2half %bv1_0
+        %619 = OpFMul %v2half %617 %618
+        %620 = OpFAdd %v2half %616 %619
+               OpStore %x0_0 %620
+        %621 = OpLoad %v2half %x0_1
+        %622 = OpLoad %v2half %s0_1
+        %623 = OpLoad %v2half %bv1_1
+        %624 = OpFMul %v2half %622 %623
+        %625 = OpFAdd %v2half %621 %624
+               OpStore %x0_1 %625
+        %626 = OpLoad %v2half %x0_2
+        %627 = OpLoad %v2half %s0_1
+        %628 = OpLoad %v2half %bv1_2
+        %629 = OpFMul %v2half %627 %628
+        %630 = OpFAdd %v2half %626 %629
+               OpStore %x0_2 %630
+        %631 = OpLoad %v2half %x0_3
+        %632 = OpLoad %v2half %s0_1
+        %633 = OpLoad %v2half %bv1_3
+        %634 = OpFMul %v2half %632 %633
+        %635 = OpFAdd %v2half %631 %634
+               OpStore %x0_3 %635
+        %637 = OpLoad %float %av1_1
+        %638 = OpFConvert %half %637
+        %639 = OpCompositeConstruct %v2half %638 %638
+               OpStore %s1_1 %639
+        %640 = OpLoad %v2half %x1_0
+        %641 = OpLoad %v2half %s1_1
+        %642 = OpLoad %v2half %bv1_0
+        %643 = OpFMul %v2half %641 %642
+        %644 = OpFAdd %v2half %640 %643
+               OpStore %x1_0 %644
+        %645 = OpLoad %v2half %x1_1
+        %646 = OpLoad %v2half %s1_1
+        %647 = OpLoad %v2half %bv1_1
+        %648 = OpFMul %v2half %646 %647
+        %649 = OpFAdd %v2half %645 %648
+               OpStore %x1_1 %649
+        %650 = OpLoad %v2half %x1_2
+        %651 = OpLoad %v2half %s1_1
+        %652 = OpLoad %v2half %bv1_2
+        %653 = OpFMul %v2half %651 %652
+        %654 = OpFAdd %v2half %650 %653
+               OpStore %x1_2 %654
+        %655 = OpLoad %v2half %x1_3
+        %656 = OpLoad %v2half %s1_1
+        %657 = OpLoad %v2half %bv1_3
+        %658 = OpFMul %v2half %656 %657
+        %659 = OpFAdd %v2half %655 %658
+               OpStore %x1_3 %659
+        %661 = OpLoad %float %av2_1
+        %662 = OpFConvert %half %661
+        %663 = OpCompositeConstruct %v2half %662 %662
+               OpStore %s2_1 %663
+        %664 = OpLoad %v2half %x2_0
+        %665 = OpLoad %v2half %s2_1
+        %666 = OpLoad %v2half %bv1_0
+        %667 = OpFMul %v2half %665 %666
+        %668 = OpFAdd %v2half %664 %667
+               OpStore %x2_0 %668
+        %669 = OpLoad %v2half %x2_1
+        %670 = OpLoad %v2half %s2_1
+        %671 = OpLoad %v2half %bv1_1
+        %672 = OpFMul %v2half %670 %671
+        %673 = OpFAdd %v2half %669 %672
+               OpStore %x2_1 %673
+        %674 = OpLoad %v2half %x2_2
+        %675 = OpLoad %v2half %s2_1
+        %676 = OpLoad %v2half %bv1_2
+        %677 = OpFMul %v2half %675 %676
+        %678 = OpFAdd %v2half %674 %677
+               OpStore %x2_2 %678
+        %679 = OpLoad %v2half %x2_3
+        %680 = OpLoad %v2half %s2_1
+        %681 = OpLoad %v2half %bv1_3
+        %682 = OpFMul %v2half %680 %681
+        %683 = OpFAdd %v2half %679 %682
+               OpStore %x2_3 %683
+        %685 = OpLoad %float %av3_1
+        %686 = OpFConvert %half %685
+        %687 = OpCompositeConstruct %v2half %686 %686
+               OpStore %s3_1 %687
+        %688 = OpLoad %v2half %x3_0
+        %689 = OpLoad %v2half %s3_1
+        %690 = OpLoad %v2half %bv1_0
+        %691 = OpFMul %v2half %689 %690
+        %692 = OpFAdd %v2half %688 %691
+               OpStore %x3_0 %692
+        %693 = OpLoad %v2half %x3_1
+        %694 = OpLoad %v2half %s3_1
+        %695 = OpLoad %v2half %bv1_1
+        %696 = OpFMul %v2half %694 %695
+        %697 = OpFAdd %v2half %693 %696
+               OpStore %x3_1 %697
+        %698 = OpLoad %v2half %x3_2
+        %699 = OpLoad %v2half %s3_1
+        %700 = OpLoad %v2half %bv1_2
+        %701 = OpFMul %v2half %699 %700
+        %702 = OpFAdd %v2half %698 %701
+               OpStore %x3_2 %702
+        %703 = OpLoad %v2half %x3_3
+        %704 = OpLoad %v2half %s3_1
+        %705 = OpLoad %v2half %bv1_3
+        %706 = OpFMul %v2half %704 %705
+        %707 = OpFAdd %v2half %703 %706
+               OpStore %x3_3 %707
+        %709 = OpLoad %float %av4_1
+        %710 = OpFConvert %half %709
+        %711 = OpCompositeConstruct %v2half %710 %710
+               OpStore %s4_1 %711
+        %712 = OpLoad %v2half %x4_0
+        %713 = OpLoad %v2half %s4_1
+        %714 = OpLoad %v2half %bv1_0
+        %715 = OpFMul %v2half %713 %714
+        %716 = OpFAdd %v2half %712 %715
+               OpStore %x4_0 %716
+        %717 = OpLoad %v2half %x4_1
+        %718 = OpLoad %v2half %s4_1
+        %719 = OpLoad %v2half %bv1_1
+        %720 = OpFMul %v2half %718 %719
+        %721 = OpFAdd %v2half %717 %720
+               OpStore %x4_1 %721
+        %722 = OpLoad %v2half %x4_2
+        %723 = OpLoad %v2half %s4_1
+        %724 = OpLoad %v2half %bv1_2
+        %725 = OpFMul %v2half %723 %724
+        %726 = OpFAdd %v2half %722 %725
+               OpStore %x4_2 %726
+        %727 = OpLoad %v2half %x4_3
+        %728 = OpLoad %v2half %s4_1
+        %729 = OpLoad %v2half %bv1_3
+        %730 = OpFMul %v2half %728 %729
+        %731 = OpFAdd %v2half %727 %730
+               OpStore %x4_3 %731
+        %733 = OpLoad %float %av5_1
+        %734 = OpFConvert %half %733
+        %735 = OpCompositeConstruct %v2half %734 %734
+               OpStore %s5_1 %735
+        %736 = OpLoad %v2half %x5_0
+        %737 = OpLoad %v2half %s5_1
+        %738 = OpLoad %v2half %bv1_0
+        %739 = OpFMul %v2half %737 %738
+        %740 = OpFAdd %v2half %736 %739
+               OpStore %x5_0 %740
+        %741 = OpLoad %v2half %x5_1
+        %742 = OpLoad %v2half %s5_1
+        %743 = OpLoad %v2half %bv1_1
+        %744 = OpFMul %v2half %742 %743
+        %745 = OpFAdd %v2half %741 %744
+               OpStore %x5_1 %745
+        %746 = OpLoad %v2half %x5_2
+        %747 = OpLoad %v2half %s5_1
+        %748 = OpLoad %v2half %bv1_2
+        %749 = OpFMul %v2half %747 %748
+        %750 = OpFAdd %v2half %746 %749
+               OpStore %x5_2 %750
+        %751 = OpLoad %v2half %x5_3
+        %752 = OpLoad %v2half %s5_1
+        %753 = OpLoad %v2half %bv1_3
+        %754 = OpFMul %v2half %752 %753
+        %755 = OpFAdd %v2half %751 %754
+               OpStore %x5_3 %755
+        %757 = OpLoad %float %av6_1
+        %758 = OpFConvert %half %757
+        %759 = OpCompositeConstruct %v2half %758 %758
+               OpStore %s6_1 %759
+        %760 = OpLoad %v2half %x6_0
+        %761 = OpLoad %v2half %s6_1
+        %762 = OpLoad %v2half %bv1_0
+        %763 = OpFMul %v2half %761 %762
+        %764 = OpFAdd %v2half %760 %763
+               OpStore %x6_0 %764
+        %765 = OpLoad %v2half %x6_1
+        %766 = OpLoad %v2half %s6_1
+        %767 = OpLoad %v2half %bv1_1
+        %768 = OpFMul %v2half %766 %767
+        %769 = OpFAdd %v2half %765 %768
+               OpStore %x6_1 %769
+        %770 = OpLoad %v2half %x6_2
+        %771 = OpLoad %v2half %s6_1
+        %772 = OpLoad %v2half %bv1_2
+        %773 = OpFMul %v2half %771 %772
+        %774 = OpFAdd %v2half %770 %773
+               OpStore %x6_2 %774
+        %775 = OpLoad %v2half %x6_3
+        %776 = OpLoad %v2half %s6_1
+        %777 = OpLoad %v2half %bv1_3
+        %778 = OpFMul %v2half %776 %777
+        %779 = OpFAdd %v2half %775 %778
+               OpStore %x6_3 %779
+        %781 = OpLoad %float %av7_1
+        %782 = OpFConvert %half %781
+        %783 = OpCompositeConstruct %v2half %782 %782
+               OpStore %s7_1 %783
+        %784 = OpLoad %v2half %x7_0
+        %785 = OpLoad %v2half %s7_1
+        %786 = OpLoad %v2half %bv1_0
+        %787 = OpFMul %v2half %785 %786
+        %788 = OpFAdd %v2half %784 %787
+               OpStore %x7_0 %788
+        %789 = OpLoad %v2half %x7_1
+        %790 = OpLoad %v2half %s7_1
+        %791 = OpLoad %v2half %bv1_1
+        %792 = OpFMul %v2half %790 %791
+        %793 = OpFAdd %v2half %789 %792
+               OpStore %x7_1 %793
+        %794 = OpLoad %v2half %x7_2
+        %795 = OpLoad %v2half %s7_1
+        %796 = OpLoad %v2half %bv1_2
+        %797 = OpFMul %v2half %795 %796
+        %798 = OpFAdd %v2half %794 %797
+               OpStore %x7_2 %798
+        %799 = OpLoad %v2half %x7_3
+        %800 = OpLoad %v2half %s7_1
+        %801 = OpLoad %v2half %bv1_3
+        %802 = OpFMul %v2half %800 %801
+        %803 = OpFAdd %v2half %799 %802
+               OpStore %x7_3 %803
+        %805 = OpLoad %int %r0
+        %806 = OpIAdd %int %805 %int_0
+        %807 = OpIMul %int %806 %K_
+        %808 = OpLoad %int %kt
+        %809 = OpIAdd %int %807 %808
+        %810 = OpIAdd %int %809 %int_2
+        %811 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %810
+        %812 = OpLoad %float %811
+               OpStore %av0_2 %812
+        %814 = OpLoad %int %r0
+        %815 = OpIAdd %int %814 %int_1
+        %816 = OpIMul %int %815 %K_
+        %817 = OpLoad %int %kt
+        %818 = OpIAdd %int %816 %817
+        %819 = OpIAdd %int %818 %int_2
+        %820 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %819
+        %821 = OpLoad %float %820
+               OpStore %av1_2 %821
+        %823 = OpLoad %int %r0
+        %824 = OpIAdd %int %823 %int_2
+        %825 = OpIMul %int %824 %K_
+        %826 = OpLoad %int %kt
+        %827 = OpIAdd %int %825 %826
+        %828 = OpIAdd %int %827 %int_2
+        %829 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %828
+        %830 = OpLoad %float %829
+               OpStore %av2_2 %830
+        %832 = OpLoad %int %r0
+        %833 = OpIAdd %int %832 %int_3
+        %834 = OpIMul %int %833 %K_
+        %835 = OpLoad %int %kt
+        %836 = OpIAdd %int %834 %835
+        %837 = OpIAdd %int %836 %int_2
+        %838 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %837
+        %839 = OpLoad %float %838
+               OpStore %av3_2 %839
+        %841 = OpLoad %int %r0
+        %842 = OpIAdd %int %841 %int_4
+        %843 = OpIMul %int %842 %K_
+        %844 = OpLoad %int %kt
+        %845 = OpIAdd %int %843 %844
+        %846 = OpIAdd %int %845 %int_2
+        %847 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %846
+        %848 = OpLoad %float %847
+               OpStore %av4_2 %848
+        %850 = OpLoad %int %r0
+        %851 = OpIAdd %int %850 %int_5
+        %852 = OpIMul %int %851 %K_
+        %853 = OpLoad %int %kt
+        %854 = OpIAdd %int %852 %853
+        %855 = OpIAdd %int %854 %int_2
+        %856 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %855
+        %857 = OpLoad %float %856
+               OpStore %av5_2 %857
+        %859 = OpLoad %int %r0
+        %860 = OpIAdd %int %859 %int_6
+        %861 = OpIMul %int %860 %K_
+        %862 = OpLoad %int %kt
+        %863 = OpIAdd %int %861 %862
+        %864 = OpIAdd %int %863 %int_2
+        %865 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %864
+        %866 = OpLoad %float %865
+               OpStore %av6_2 %866
+        %868 = OpLoad %int %r0
+        %869 = OpIAdd %int %868 %int_7
+        %870 = OpIMul %int %869 %K_
+        %871 = OpLoad %int %kt
+        %872 = OpIAdd %int %870 %871
+        %873 = OpIAdd %int %872 %int_2
+        %874 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %873
+        %875 = OpLoad %float %874
+               OpStore %av7_2 %875
+        %877 = OpLoad %int %kt
+        %878 = OpIAdd %int %877 %int_2
+        %879 = OpIMul %int %878 %N_
+        %880 = OpLoad %int %c0
+        %881 = OpIAdd %int %879 %880
+        %882 = OpIAdd %int %881 %int_0
+        %883 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %882
+        %884 = OpLoad %float %883
+        %885 = OpFConvert %half %884
+        %886 = OpLoad %int %kt
+        %887 = OpIAdd %int %886 %int_2
+        %888 = OpIMul %int %887 %N_
+        %889 = OpLoad %int %c0
+        %890 = OpIAdd %int %888 %889
+        %891 = OpIAdd %int %890 %int_0
+        %892 = OpIAdd %int %891 %int_1
+        %893 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %892
+        %894 = OpLoad %float %893
+        %895 = OpFConvert %half %894
+        %896 = OpCompositeConstruct %v2half %885 %895
+               OpStore %bv2_0 %896
+        %898 = OpLoad %int %kt
+        %899 = OpIAdd %int %898 %int_2
+        %900 = OpIMul %int %899 %N_
+        %901 = OpLoad %int %c0
+        %902 = OpIAdd %int %900 %901
+        %903 = OpIAdd %int %902 %int_2
+        %904 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %903
+        %905 = OpLoad %float %904
+        %906 = OpFConvert %half %905
+        %907 = OpLoad %int %kt
+        %908 = OpIAdd %int %907 %int_2
+        %909 = OpIMul %int %908 %N_
+        %910 = OpLoad %int %c0
+        %911 = OpIAdd %int %909 %910
+        %912 = OpIAdd %int %911 %int_2
+        %913 = OpIAdd %int %912 %int_1
+        %914 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %913
+        %915 = OpLoad %float %914
+        %916 = OpFConvert %half %915
+        %917 = OpCompositeConstruct %v2half %906 %916
+               OpStore %bv2_1 %917
+        %919 = OpLoad %int %kt
+        %920 = OpIAdd %int %919 %int_2
+        %921 = OpIMul %int %920 %N_
+        %922 = OpLoad %int %c0
+        %923 = OpIAdd %int %921 %922
+        %924 = OpIAdd %int %923 %int_4
+        %925 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %924
+        %926 = OpLoad %float %925
+        %927 = OpFConvert %half %926
+        %928 = OpLoad %int %kt
+        %929 = OpIAdd %int %928 %int_2
+        %930 = OpIMul %int %929 %N_
+        %931 = OpLoad %int %c0
+        %932 = OpIAdd %int %930 %931
+        %933 = OpIAdd %int %932 %int_4
+        %934 = OpIAdd %int %933 %int_1
+        %935 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %934
+        %936 = OpLoad %float %935
+        %937 = OpFConvert %half %936
+        %938 = OpCompositeConstruct %v2half %927 %937
+               OpStore %bv2_2 %938
+        %940 = OpLoad %int %kt
+        %941 = OpIAdd %int %940 %int_2
+        %942 = OpIMul %int %941 %N_
+        %943 = OpLoad %int %c0
+        %944 = OpIAdd %int %942 %943
+        %945 = OpIAdd %int %944 %int_6
+        %946 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %945
+        %947 = OpLoad %float %946
+        %948 = OpFConvert %half %947
+        %949 = OpLoad %int %kt
+        %950 = OpIAdd %int %949 %int_2
+        %951 = OpIMul %int %950 %N_
+        %952 = OpLoad %int %c0
+        %953 = OpIAdd %int %951 %952
+        %954 = OpIAdd %int %953 %int_6
+        %955 = OpIAdd %int %954 %int_1
+        %956 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %955
+        %957 = OpLoad %float %956
+        %958 = OpFConvert %half %957
+        %959 = OpCompositeConstruct %v2half %948 %958
+               OpStore %bv2_3 %959
+        %961 = OpLoad %float %av0_2
+        %962 = OpFConvert %half %961
+        %963 = OpCompositeConstruct %v2half %962 %962
+               OpStore %s0_2 %963
+        %964 = OpLoad %v2half %x0_0
+        %965 = OpLoad %v2half %s0_2
+        %966 = OpLoad %v2half %bv2_0
+        %967 = OpFMul %v2half %965 %966
+        %968 = OpFAdd %v2half %964 %967
+               OpStore %x0_0 %968
+        %969 = OpLoad %v2half %x0_1
+        %970 = OpLoad %v2half %s0_2
+        %971 = OpLoad %v2half %bv2_1
+        %972 = OpFMul %v2half %970 %971
+        %973 = OpFAdd %v2half %969 %972
+               OpStore %x0_1 %973
+        %974 = OpLoad %v2half %x0_2
+        %975 = OpLoad %v2half %s0_2
+        %976 = OpLoad %v2half %bv2_2
+        %977 = OpFMul %v2half %975 %976
+        %978 = OpFAdd %v2half %974 %977
+               OpStore %x0_2 %978
+        %979 = OpLoad %v2half %x0_3
+        %980 = OpLoad %v2half %s0_2
+        %981 = OpLoad %v2half %bv2_3
+        %982 = OpFMul %v2half %980 %981
+        %983 = OpFAdd %v2half %979 %982
+               OpStore %x0_3 %983
+        %985 = OpLoad %float %av1_2
+        %986 = OpFConvert %half %985
+        %987 = OpCompositeConstruct %v2half %986 %986
+               OpStore %s1_2 %987
+        %988 = OpLoad %v2half %x1_0
+        %989 = OpLoad %v2half %s1_2
+        %990 = OpLoad %v2half %bv2_0
+        %991 = OpFMul %v2half %989 %990
+        %992 = OpFAdd %v2half %988 %991
+               OpStore %x1_0 %992
+        %993 = OpLoad %v2half %x1_1
+        %994 = OpLoad %v2half %s1_2
+        %995 = OpLoad %v2half %bv2_1
+        %996 = OpFMul %v2half %994 %995
+        %997 = OpFAdd %v2half %993 %996
+               OpStore %x1_1 %997
+        %998 = OpLoad %v2half %x1_2
+        %999 = OpLoad %v2half %s1_2
+       %1000 = OpLoad %v2half %bv2_2
+       %1001 = OpFMul %v2half %999 %1000
+       %1002 = OpFAdd %v2half %998 %1001
+               OpStore %x1_2 %1002
+       %1003 = OpLoad %v2half %x1_3
+       %1004 = OpLoad %v2half %s1_2
+       %1005 = OpLoad %v2half %bv2_3
+       %1006 = OpFMul %v2half %1004 %1005
+       %1007 = OpFAdd %v2half %1003 %1006
+               OpStore %x1_3 %1007
+       %1009 = OpLoad %float %av2_2
+       %1010 = OpFConvert %half %1009
+       %1011 = OpCompositeConstruct %v2half %1010 %1010
+               OpStore %s2_2 %1011
+       %1012 = OpLoad %v2half %x2_0
+       %1013 = OpLoad %v2half %s2_2
+       %1014 = OpLoad %v2half %bv2_0
+       %1015 = OpFMul %v2half %1013 %1014
+       %1016 = OpFAdd %v2half %1012 %1015
+               OpStore %x2_0 %1016
+       %1017 = OpLoad %v2half %x2_1
+       %1018 = OpLoad %v2half %s2_2
+       %1019 = OpLoad %v2half %bv2_1
+       %1020 = OpFMul %v2half %1018 %1019
+       %1021 = OpFAdd %v2half %1017 %1020
+               OpStore %x2_1 %1021
+       %1022 = OpLoad %v2half %x2_2
+       %1023 = OpLoad %v2half %s2_2
+       %1024 = OpLoad %v2half %bv2_2
+       %1025 = OpFMul %v2half %1023 %1024
+       %1026 = OpFAdd %v2half %1022 %1025
+               OpStore %x2_2 %1026
+       %1027 = OpLoad %v2half %x2_3
+       %1028 = OpLoad %v2half %s2_2
+       %1029 = OpLoad %v2half %bv2_3
+       %1030 = OpFMul %v2half %1028 %1029
+       %1031 = OpFAdd %v2half %1027 %1030
+               OpStore %x2_3 %1031
+       %1033 = OpLoad %float %av3_2
+       %1034 = OpFConvert %half %1033
+       %1035 = OpCompositeConstruct %v2half %1034 %1034
+               OpStore %s3_2 %1035
+       %1036 = OpLoad %v2half %x3_0
+       %1037 = OpLoad %v2half %s3_2
+       %1038 = OpLoad %v2half %bv2_0
+       %1039 = OpFMul %v2half %1037 %1038
+       %1040 = OpFAdd %v2half %1036 %1039
+               OpStore %x3_0 %1040
+       %1041 = OpLoad %v2half %x3_1
+       %1042 = OpLoad %v2half %s3_2
+       %1043 = OpLoad %v2half %bv2_1
+       %1044 = OpFMul %v2half %1042 %1043
+       %1045 = OpFAdd %v2half %1041 %1044
+               OpStore %x3_1 %1045
+       %1046 = OpLoad %v2half %x3_2
+       %1047 = OpLoad %v2half %s3_2
+       %1048 = OpLoad %v2half %bv2_2
+       %1049 = OpFMul %v2half %1047 %1048
+       %1050 = OpFAdd %v2half %1046 %1049
+               OpStore %x3_2 %1050
+       %1051 = OpLoad %v2half %x3_3
+       %1052 = OpLoad %v2half %s3_2
+       %1053 = OpLoad %v2half %bv2_3
+       %1054 = OpFMul %v2half %1052 %1053
+       %1055 = OpFAdd %v2half %1051 %1054
+               OpStore %x3_3 %1055
+       %1057 = OpLoad %float %av4_2
+       %1058 = OpFConvert %half %1057
+       %1059 = OpCompositeConstruct %v2half %1058 %1058
+               OpStore %s4_2 %1059
+       %1060 = OpLoad %v2half %x4_0
+       %1061 = OpLoad %v2half %s4_2
+       %1062 = OpLoad %v2half %bv2_0
+       %1063 = OpFMul %v2half %1061 %1062
+       %1064 = OpFAdd %v2half %1060 %1063
+               OpStore %x4_0 %1064
+       %1065 = OpLoad %v2half %x4_1
+       %1066 = OpLoad %v2half %s4_2
+       %1067 = OpLoad %v2half %bv2_1
+       %1068 = OpFMul %v2half %1066 %1067
+       %1069 = OpFAdd %v2half %1065 %1068
+               OpStore %x4_1 %1069
+       %1070 = OpLoad %v2half %x4_2
+       %1071 = OpLoad %v2half %s4_2
+       %1072 = OpLoad %v2half %bv2_2
+       %1073 = OpFMul %v2half %1071 %1072
+       %1074 = OpFAdd %v2half %1070 %1073
+               OpStore %x4_2 %1074
+       %1075 = OpLoad %v2half %x4_3
+       %1076 = OpLoad %v2half %s4_2
+       %1077 = OpLoad %v2half %bv2_3
+       %1078 = OpFMul %v2half %1076 %1077
+       %1079 = OpFAdd %v2half %1075 %1078
+               OpStore %x4_3 %1079
+       %1081 = OpLoad %float %av5_2
+       %1082 = OpFConvert %half %1081
+       %1083 = OpCompositeConstruct %v2half %1082 %1082
+               OpStore %s5_2 %1083
+       %1084 = OpLoad %v2half %x5_0
+       %1085 = OpLoad %v2half %s5_2
+       %1086 = OpLoad %v2half %bv2_0
+       %1087 = OpFMul %v2half %1085 %1086
+       %1088 = OpFAdd %v2half %1084 %1087
+               OpStore %x5_0 %1088
+       %1089 = OpLoad %v2half %x5_1
+       %1090 = OpLoad %v2half %s5_2
+       %1091 = OpLoad %v2half %bv2_1
+       %1092 = OpFMul %v2half %1090 %1091
+       %1093 = OpFAdd %v2half %1089 %1092
+               OpStore %x5_1 %1093
+       %1094 = OpLoad %v2half %x5_2
+       %1095 = OpLoad %v2half %s5_2
+       %1096 = OpLoad %v2half %bv2_2
+       %1097 = OpFMul %v2half %1095 %1096
+       %1098 = OpFAdd %v2half %1094 %1097
+               OpStore %x5_2 %1098
+       %1099 = OpLoad %v2half %x5_3
+       %1100 = OpLoad %v2half %s5_2
+       %1101 = OpLoad %v2half %bv2_3
+       %1102 = OpFMul %v2half %1100 %1101
+       %1103 = OpFAdd %v2half %1099 %1102
+               OpStore %x5_3 %1103
+       %1105 = OpLoad %float %av6_2
+       %1106 = OpFConvert %half %1105
+       %1107 = OpCompositeConstruct %v2half %1106 %1106
+               OpStore %s6_2 %1107
+       %1108 = OpLoad %v2half %x6_0
+       %1109 = OpLoad %v2half %s6_2
+       %1110 = OpLoad %v2half %bv2_0
+       %1111 = OpFMul %v2half %1109 %1110
+       %1112 = OpFAdd %v2half %1108 %1111
+               OpStore %x6_0 %1112
+       %1113 = OpLoad %v2half %x6_1
+       %1114 = OpLoad %v2half %s6_2
+       %1115 = OpLoad %v2half %bv2_1
+       %1116 = OpFMul %v2half %1114 %1115
+       %1117 = OpFAdd %v2half %1113 %1116
+               OpStore %x6_1 %1117
+       %1118 = OpLoad %v2half %x6_2
+       %1119 = OpLoad %v2half %s6_2
+       %1120 = OpLoad %v2half %bv2_2
+       %1121 = OpFMul %v2half %1119 %1120
+       %1122 = OpFAdd %v2half %1118 %1121
+               OpStore %x6_2 %1122
+       %1123 = OpLoad %v2half %x6_3
+       %1124 = OpLoad %v2half %s6_2
+       %1125 = OpLoad %v2half %bv2_3
+       %1126 = OpFMul %v2half %1124 %1125
+       %1127 = OpFAdd %v2half %1123 %1126
+               OpStore %x6_3 %1127
+       %1129 = OpLoad %float %av7_2
+       %1130 = OpFConvert %half %1129
+       %1131 = OpCompositeConstruct %v2half %1130 %1130
+               OpStore %s7_2 %1131
+       %1132 = OpLoad %v2half %x7_0
+       %1133 = OpLoad %v2half %s7_2
+       %1134 = OpLoad %v2half %bv2_0
+       %1135 = OpFMul %v2half %1133 %1134
+       %1136 = OpFAdd %v2half %1132 %1135
+               OpStore %x7_0 %1136
+       %1137 = OpLoad %v2half %x7_1
+       %1138 = OpLoad %v2half %s7_2
+       %1139 = OpLoad %v2half %bv2_1
+       %1140 = OpFMul %v2half %1138 %1139
+       %1141 = OpFAdd %v2half %1137 %1140
+               OpStore %x7_1 %1141
+       %1142 = OpLoad %v2half %x7_2
+       %1143 = OpLoad %v2half %s7_2
+       %1144 = OpLoad %v2half %bv2_2
+       %1145 = OpFMul %v2half %1143 %1144
+       %1146 = OpFAdd %v2half %1142 %1145
+               OpStore %x7_2 %1146
+       %1147 = OpLoad %v2half %x7_3
+       %1148 = OpLoad %v2half %s7_2
+       %1149 = OpLoad %v2half %bv2_3
+       %1150 = OpFMul %v2half %1148 %1149
+       %1151 = OpFAdd %v2half %1147 %1150
+               OpStore %x7_3 %1151
+       %1153 = OpLoad %int %r0
+       %1154 = OpIAdd %int %1153 %int_0
+       %1155 = OpIMul %int %1154 %K_
+       %1156 = OpLoad %int %kt
+       %1157 = OpIAdd %int %1155 %1156
+       %1158 = OpIAdd %int %1157 %int_3
+       %1159 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1158
+       %1160 = OpLoad %float %1159
+               OpStore %av0_3 %1160
+       %1162 = OpLoad %int %r0
+       %1163 = OpIAdd %int %1162 %int_1
+       %1164 = OpIMul %int %1163 %K_
+       %1165 = OpLoad %int %kt
+       %1166 = OpIAdd %int %1164 %1165
+       %1167 = OpIAdd %int %1166 %int_3
+       %1168 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1167
+       %1169 = OpLoad %float %1168
+               OpStore %av1_3 %1169
+       %1171 = OpLoad %int %r0
+       %1172 = OpIAdd %int %1171 %int_2
+       %1173 = OpIMul %int %1172 %K_
+       %1174 = OpLoad %int %kt
+       %1175 = OpIAdd %int %1173 %1174
+       %1176 = OpIAdd %int %1175 %int_3
+       %1177 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1176
+       %1178 = OpLoad %float %1177
+               OpStore %av2_3 %1178
+       %1180 = OpLoad %int %r0
+       %1181 = OpIAdd %int %1180 %int_3
+       %1182 = OpIMul %int %1181 %K_
+       %1183 = OpLoad %int %kt
+       %1184 = OpIAdd %int %1182 %1183
+       %1185 = OpIAdd %int %1184 %int_3
+       %1186 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1185
+       %1187 = OpLoad %float %1186
+               OpStore %av3_3 %1187
+       %1189 = OpLoad %int %r0
+       %1190 = OpIAdd %int %1189 %int_4
+       %1191 = OpIMul %int %1190 %K_
+       %1192 = OpLoad %int %kt
+       %1193 = OpIAdd %int %1191 %1192
+       %1194 = OpIAdd %int %1193 %int_3
+       %1195 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1194
+       %1196 = OpLoad %float %1195
+               OpStore %av4_3 %1196
+       %1198 = OpLoad %int %r0
+       %1199 = OpIAdd %int %1198 %int_5
+       %1200 = OpIMul %int %1199 %K_
+       %1201 = OpLoad %int %kt
+       %1202 = OpIAdd %int %1200 %1201
+       %1203 = OpIAdd %int %1202 %int_3
+       %1204 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1203
+       %1205 = OpLoad %float %1204
+               OpStore %av5_3 %1205
+       %1207 = OpLoad %int %r0
+       %1208 = OpIAdd %int %1207 %int_6
+       %1209 = OpIMul %int %1208 %K_
+       %1210 = OpLoad %int %kt
+       %1211 = OpIAdd %int %1209 %1210
+       %1212 = OpIAdd %int %1211 %int_3
+       %1213 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1212
+       %1214 = OpLoad %float %1213
+               OpStore %av6_3 %1214
+       %1216 = OpLoad %int %r0
+       %1217 = OpIAdd %int %1216 %int_7
+       %1218 = OpIMul %int %1217 %K_
+       %1219 = OpLoad %int %kt
+       %1220 = OpIAdd %int %1218 %1219
+       %1221 = OpIAdd %int %1220 %int_3
+       %1222 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1221
+       %1223 = OpLoad %float %1222
+               OpStore %av7_3 %1223
+       %1225 = OpLoad %int %kt
+       %1226 = OpIAdd %int %1225 %int_3
+       %1227 = OpIMul %int %1226 %N_
+       %1228 = OpLoad %int %c0
+       %1229 = OpIAdd %int %1227 %1228
+       %1230 = OpIAdd %int %1229 %int_0
+       %1231 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1230
+       %1232 = OpLoad %float %1231
+       %1233 = OpFConvert %half %1232
+       %1234 = OpLoad %int %kt
+       %1235 = OpIAdd %int %1234 %int_3
+       %1236 = OpIMul %int %1235 %N_
+       %1237 = OpLoad %int %c0
+       %1238 = OpIAdd %int %1236 %1237
+       %1239 = OpIAdd %int %1238 %int_0
+       %1240 = OpIAdd %int %1239 %int_1
+       %1241 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1240
+       %1242 = OpLoad %float %1241
+       %1243 = OpFConvert %half %1242
+       %1244 = OpCompositeConstruct %v2half %1233 %1243
+               OpStore %bv3_0 %1244
+       %1246 = OpLoad %int %kt
+       %1247 = OpIAdd %int %1246 %int_3
+       %1248 = OpIMul %int %1247 %N_
+       %1249 = OpLoad %int %c0
+       %1250 = OpIAdd %int %1248 %1249
+       %1251 = OpIAdd %int %1250 %int_2
+       %1252 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1251
+       %1253 = OpLoad %float %1252
+       %1254 = OpFConvert %half %1253
+       %1255 = OpLoad %int %kt
+       %1256 = OpIAdd %int %1255 %int_3
+       %1257 = OpIMul %int %1256 %N_
+       %1258 = OpLoad %int %c0
+       %1259 = OpIAdd %int %1257 %1258
+       %1260 = OpIAdd %int %1259 %int_2
+       %1261 = OpIAdd %int %1260 %int_1
+       %1262 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1261
+       %1263 = OpLoad %float %1262
+       %1264 = OpFConvert %half %1263
+       %1265 = OpCompositeConstruct %v2half %1254 %1264
+               OpStore %bv3_1 %1265
+       %1267 = OpLoad %int %kt
+       %1268 = OpIAdd %int %1267 %int_3
+       %1269 = OpIMul %int %1268 %N_
+       %1270 = OpLoad %int %c0
+       %1271 = OpIAdd %int %1269 %1270
+       %1272 = OpIAdd %int %1271 %int_4
+       %1273 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1272
+       %1274 = OpLoad %float %1273
+       %1275 = OpFConvert %half %1274
+       %1276 = OpLoad %int %kt
+       %1277 = OpIAdd %int %1276 %int_3
+       %1278 = OpIMul %int %1277 %N_
+       %1279 = OpLoad %int %c0
+       %1280 = OpIAdd %int %1278 %1279
+       %1281 = OpIAdd %int %1280 %int_4
+       %1282 = OpIAdd %int %1281 %int_1
+       %1283 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1282
+       %1284 = OpLoad %float %1283
+       %1285 = OpFConvert %half %1284
+       %1286 = OpCompositeConstruct %v2half %1275 %1285
+               OpStore %bv3_2 %1286
+       %1288 = OpLoad %int %kt
+       %1289 = OpIAdd %int %1288 %int_3
+       %1290 = OpIMul %int %1289 %N_
+       %1291 = OpLoad %int %c0
+       %1292 = OpIAdd %int %1290 %1291
+       %1293 = OpIAdd %int %1292 %int_6
+       %1294 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1293
+       %1295 = OpLoad %float %1294
+       %1296 = OpFConvert %half %1295
+       %1297 = OpLoad %int %kt
+       %1298 = OpIAdd %int %1297 %int_3
+       %1299 = OpIMul %int %1298 %N_
+       %1300 = OpLoad %int %c0
+       %1301 = OpIAdd %int %1299 %1300
+       %1302 = OpIAdd %int %1301 %int_6
+       %1303 = OpIAdd %int %1302 %int_1
+       %1304 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1303
+       %1305 = OpLoad %float %1304
+       %1306 = OpFConvert %half %1305
+       %1307 = OpCompositeConstruct %v2half %1296 %1306
+               OpStore %bv3_3 %1307
+       %1309 = OpLoad %float %av0_3
+       %1310 = OpFConvert %half %1309
+       %1311 = OpCompositeConstruct %v2half %1310 %1310
+               OpStore %s0_3 %1311
+       %1312 = OpLoad %v2half %x0_0
+       %1313 = OpLoad %v2half %s0_3
+       %1314 = OpLoad %v2half %bv3_0
+       %1315 = OpFMul %v2half %1313 %1314
+       %1316 = OpFAdd %v2half %1312 %1315
+               OpStore %x0_0 %1316
+       %1317 = OpLoad %v2half %x0_1
+       %1318 = OpLoad %v2half %s0_3
+       %1319 = OpLoad %v2half %bv3_1
+       %1320 = OpFMul %v2half %1318 %1319
+       %1321 = OpFAdd %v2half %1317 %1320
+               OpStore %x0_1 %1321
+       %1322 = OpLoad %v2half %x0_2
+       %1323 = OpLoad %v2half %s0_3
+       %1324 = OpLoad %v2half %bv3_2
+       %1325 = OpFMul %v2half %1323 %1324
+       %1326 = OpFAdd %v2half %1322 %1325
+               OpStore %x0_2 %1326
+       %1327 = OpLoad %v2half %x0_3
+       %1328 = OpLoad %v2half %s0_3
+       %1329 = OpLoad %v2half %bv3_3
+       %1330 = OpFMul %v2half %1328 %1329
+       %1331 = OpFAdd %v2half %1327 %1330
+               OpStore %x0_3 %1331
+       %1333 = OpLoad %float %av1_3
+       %1334 = OpFConvert %half %1333
+       %1335 = OpCompositeConstruct %v2half %1334 %1334
+               OpStore %s1_3 %1335
+       %1336 = OpLoad %v2half %x1_0
+       %1337 = OpLoad %v2half %s1_3
+       %1338 = OpLoad %v2half %bv3_0
+       %1339 = OpFMul %v2half %1337 %1338
+       %1340 = OpFAdd %v2half %1336 %1339
+               OpStore %x1_0 %1340
+       %1341 = OpLoad %v2half %x1_1
+       %1342 = OpLoad %v2half %s1_3
+       %1343 = OpLoad %v2half %bv3_1
+       %1344 = OpFMul %v2half %1342 %1343
+       %1345 = OpFAdd %v2half %1341 %1344
+               OpStore %x1_1 %1345
+       %1346 = OpLoad %v2half %x1_2
+       %1347 = OpLoad %v2half %s1_3
+       %1348 = OpLoad %v2half %bv3_2
+       %1349 = OpFMul %v2half %1347 %1348
+       %1350 = OpFAdd %v2half %1346 %1349
+               OpStore %x1_2 %1350
+       %1351 = OpLoad %v2half %x1_3
+       %1352 = OpLoad %v2half %s1_3
+       %1353 = OpLoad %v2half %bv3_3
+       %1354 = OpFMul %v2half %1352 %1353
+       %1355 = OpFAdd %v2half %1351 %1354
+               OpStore %x1_3 %1355
+       %1357 = OpLoad %float %av2_3
+       %1358 = OpFConvert %half %1357
+       %1359 = OpCompositeConstruct %v2half %1358 %1358
+               OpStore %s2_3 %1359
+       %1360 = OpLoad %v2half %x2_0
+       %1361 = OpLoad %v2half %s2_3
+       %1362 = OpLoad %v2half %bv3_0
+       %1363 = OpFMul %v2half %1361 %1362
+       %1364 = OpFAdd %v2half %1360 %1363
+               OpStore %x2_0 %1364
+       %1365 = OpLoad %v2half %x2_1
+       %1366 = OpLoad %v2half %s2_3
+       %1367 = OpLoad %v2half %bv3_1
+       %1368 = OpFMul %v2half %1366 %1367
+       %1369 = OpFAdd %v2half %1365 %1368
+               OpStore %x2_1 %1369
+       %1370 = OpLoad %v2half %x2_2
+       %1371 = OpLoad %v2half %s2_3
+       %1372 = OpLoad %v2half %bv3_2
+       %1373 = OpFMul %v2half %1371 %1372
+       %1374 = OpFAdd %v2half %1370 %1373
+               OpStore %x2_2 %1374
+       %1375 = OpLoad %v2half %x2_3
+       %1376 = OpLoad %v2half %s2_3
+       %1377 = OpLoad %v2half %bv3_3
+       %1378 = OpFMul %v2half %1376 %1377
+       %1379 = OpFAdd %v2half %1375 %1378
+               OpStore %x2_3 %1379
+       %1381 = OpLoad %float %av3_3
+       %1382 = OpFConvert %half %1381
+       %1383 = OpCompositeConstruct %v2half %1382 %1382
+               OpStore %s3_3 %1383
+       %1384 = OpLoad %v2half %x3_0
+       %1385 = OpLoad %v2half %s3_3
+       %1386 = OpLoad %v2half %bv3_0
+       %1387 = OpFMul %v2half %1385 %1386
+       %1388 = OpFAdd %v2half %1384 %1387
+               OpStore %x3_0 %1388
+       %1389 = OpLoad %v2half %x3_1
+       %1390 = OpLoad %v2half %s3_3
+       %1391 = OpLoad %v2half %bv3_1
+       %1392 = OpFMul %v2half %1390 %1391
+       %1393 = OpFAdd %v2half %1389 %1392
+               OpStore %x3_1 %1393
+       %1394 = OpLoad %v2half %x3_2
+       %1395 = OpLoad %v2half %s3_3
+       %1396 = OpLoad %v2half %bv3_2
+       %1397 = OpFMul %v2half %1395 %1396
+       %1398 = OpFAdd %v2half %1394 %1397
+               OpStore %x3_2 %1398
+       %1399 = OpLoad %v2half %x3_3
+       %1400 = OpLoad %v2half %s3_3
+       %1401 = OpLoad %v2half %bv3_3
+       %1402 = OpFMul %v2half %1400 %1401
+       %1403 = OpFAdd %v2half %1399 %1402
+               OpStore %x3_3 %1403
+       %1405 = OpLoad %float %av4_3
+       %1406 = OpFConvert %half %1405
+       %1407 = OpCompositeConstruct %v2half %1406 %1406
+               OpStore %s4_3 %1407
+       %1408 = OpLoad %v2half %x4_0
+       %1409 = OpLoad %v2half %s4_3
+       %1410 = OpLoad %v2half %bv3_0
+       %1411 = OpFMul %v2half %1409 %1410
+       %1412 = OpFAdd %v2half %1408 %1411
+               OpStore %x4_0 %1412
+       %1413 = OpLoad %v2half %x4_1
+       %1414 = OpLoad %v2half %s4_3
+       %1415 = OpLoad %v2half %bv3_1
+       %1416 = OpFMul %v2half %1414 %1415
+       %1417 = OpFAdd %v2half %1413 %1416
+               OpStore %x4_1 %1417
+       %1418 = OpLoad %v2half %x4_2
+       %1419 = OpLoad %v2half %s4_3
+       %1420 = OpLoad %v2half %bv3_2
+       %1421 = OpFMul %v2half %1419 %1420
+       %1422 = OpFAdd %v2half %1418 %1421
+               OpStore %x4_2 %1422
+       %1423 = OpLoad %v2half %x4_3
+       %1424 = OpLoad %v2half %s4_3
+       %1425 = OpLoad %v2half %bv3_3
+       %1426 = OpFMul %v2half %1424 %1425
+       %1427 = OpFAdd %v2half %1423 %1426
+               OpStore %x4_3 %1427
+       %1429 = OpLoad %float %av5_3
+       %1430 = OpFConvert %half %1429
+       %1431 = OpCompositeConstruct %v2half %1430 %1430
+               OpStore %s5_3 %1431
+       %1432 = OpLoad %v2half %x5_0
+       %1433 = OpLoad %v2half %s5_3
+       %1434 = OpLoad %v2half %bv3_0
+       %1435 = OpFMul %v2half %1433 %1434
+       %1436 = OpFAdd %v2half %1432 %1435
+               OpStore %x5_0 %1436
+       %1437 = OpLoad %v2half %x5_1
+       %1438 = OpLoad %v2half %s5_3
+       %1439 = OpLoad %v2half %bv3_1
+       %1440 = OpFMul %v2half %1438 %1439
+       %1441 = OpFAdd %v2half %1437 %1440
+               OpStore %x5_1 %1441
+       %1442 = OpLoad %v2half %x5_2
+       %1443 = OpLoad %v2half %s5_3
+       %1444 = OpLoad %v2half %bv3_2
+       %1445 = OpFMul %v2half %1443 %1444
+       %1446 = OpFAdd %v2half %1442 %1445
+               OpStore %x5_2 %1446
+       %1447 = OpLoad %v2half %x5_3
+       %1448 = OpLoad %v2half %s5_3
+       %1449 = OpLoad %v2half %bv3_3
+       %1450 = OpFMul %v2half %1448 %1449
+       %1451 = OpFAdd %v2half %1447 %1450
+               OpStore %x5_3 %1451
+       %1453 = OpLoad %float %av6_3
+       %1454 = OpFConvert %half %1453
+       %1455 = OpCompositeConstruct %v2half %1454 %1454
+               OpStore %s6_3 %1455
+       %1456 = OpLoad %v2half %x6_0
+       %1457 = OpLoad %v2half %s6_3
+       %1458 = OpLoad %v2half %bv3_0
+       %1459 = OpFMul %v2half %1457 %1458
+       %1460 = OpFAdd %v2half %1456 %1459
+               OpStore %x6_0 %1460
+       %1461 = OpLoad %v2half %x6_1
+       %1462 = OpLoad %v2half %s6_3
+       %1463 = OpLoad %v2half %bv3_1
+       %1464 = OpFMul %v2half %1462 %1463
+       %1465 = OpFAdd %v2half %1461 %1464
+               OpStore %x6_1 %1465
+       %1466 = OpLoad %v2half %x6_2
+       %1467 = OpLoad %v2half %s6_3
+       %1468 = OpLoad %v2half %bv3_2
+       %1469 = OpFMul %v2half %1467 %1468
+       %1470 = OpFAdd %v2half %1466 %1469
+               OpStore %x6_2 %1470
+       %1471 = OpLoad %v2half %x6_3
+       %1472 = OpLoad %v2half %s6_3
+       %1473 = OpLoad %v2half %bv3_3
+       %1474 = OpFMul %v2half %1472 %1473
+       %1475 = OpFAdd %v2half %1471 %1474
+               OpStore %x6_3 %1475
+       %1477 = OpLoad %float %av7_3
+       %1478 = OpFConvert %half %1477
+       %1479 = OpCompositeConstruct %v2half %1478 %1478
+               OpStore %s7_3 %1479
+       %1480 = OpLoad %v2half %x7_0
+       %1481 = OpLoad %v2half %s7_3
+       %1482 = OpLoad %v2half %bv3_0
+       %1483 = OpFMul %v2half %1481 %1482
+       %1484 = OpFAdd %v2half %1480 %1483
+               OpStore %x7_0 %1484
+       %1485 = OpLoad %v2half %x7_1
+       %1486 = OpLoad %v2half %s7_3
+       %1487 = OpLoad %v2half %bv3_1
+       %1488 = OpFMul %v2half %1486 %1487
+       %1489 = OpFAdd %v2half %1485 %1488
+               OpStore %x7_1 %1489
+       %1490 = OpLoad %v2half %x7_2
+       %1491 = OpLoad %v2half %s7_3
+       %1492 = OpLoad %v2half %bv3_2
+       %1493 = OpFMul %v2half %1491 %1492
+       %1494 = OpFAdd %v2half %1490 %1493
+               OpStore %x7_2 %1494
+       %1495 = OpLoad %v2half %x7_3
+       %1496 = OpLoad %v2half %s7_3
+       %1497 = OpLoad %v2half %bv3_3
+       %1498 = OpFMul %v2half %1496 %1497
+       %1499 = OpFAdd %v2half %1495 %1498
+               OpStore %x7_3 %1499
+       %1501 = OpLoad %int %r0
+       %1502 = OpIAdd %int %1501 %int_0
+       %1503 = OpIMul %int %1502 %K_
+       %1504 = OpLoad %int %kt
+       %1505 = OpIAdd %int %1503 %1504
+       %1506 = OpIAdd %int %1505 %int_4
+       %1507 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1506
+       %1508 = OpLoad %float %1507
+               OpStore %av0_4 %1508
+       %1510 = OpLoad %int %r0
+       %1511 = OpIAdd %int %1510 %int_1
+       %1512 = OpIMul %int %1511 %K_
+       %1513 = OpLoad %int %kt
+       %1514 = OpIAdd %int %1512 %1513
+       %1515 = OpIAdd %int %1514 %int_4
+       %1516 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1515
+       %1517 = OpLoad %float %1516
+               OpStore %av1_4 %1517
+       %1519 = OpLoad %int %r0
+       %1520 = OpIAdd %int %1519 %int_2
+       %1521 = OpIMul %int %1520 %K_
+       %1522 = OpLoad %int %kt
+       %1523 = OpIAdd %int %1521 %1522
+       %1524 = OpIAdd %int %1523 %int_4
+       %1525 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1524
+       %1526 = OpLoad %float %1525
+               OpStore %av2_4 %1526
+       %1528 = OpLoad %int %r0
+       %1529 = OpIAdd %int %1528 %int_3
+       %1530 = OpIMul %int %1529 %K_
+       %1531 = OpLoad %int %kt
+       %1532 = OpIAdd %int %1530 %1531
+       %1533 = OpIAdd %int %1532 %int_4
+       %1534 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1533
+       %1535 = OpLoad %float %1534
+               OpStore %av3_4 %1535
+       %1537 = OpLoad %int %r0
+       %1538 = OpIAdd %int %1537 %int_4
+       %1539 = OpIMul %int %1538 %K_
+       %1540 = OpLoad %int %kt
+       %1541 = OpIAdd %int %1539 %1540
+       %1542 = OpIAdd %int %1541 %int_4
+       %1543 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1542
+       %1544 = OpLoad %float %1543
+               OpStore %av4_4 %1544
+       %1546 = OpLoad %int %r0
+       %1547 = OpIAdd %int %1546 %int_5
+       %1548 = OpIMul %int %1547 %K_
+       %1549 = OpLoad %int %kt
+       %1550 = OpIAdd %int %1548 %1549
+       %1551 = OpIAdd %int %1550 %int_4
+       %1552 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1551
+       %1553 = OpLoad %float %1552
+               OpStore %av5_4 %1553
+       %1555 = OpLoad %int %r0
+       %1556 = OpIAdd %int %1555 %int_6
+       %1557 = OpIMul %int %1556 %K_
+       %1558 = OpLoad %int %kt
+       %1559 = OpIAdd %int %1557 %1558
+       %1560 = OpIAdd %int %1559 %int_4
+       %1561 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1560
+       %1562 = OpLoad %float %1561
+               OpStore %av6_4 %1562
+       %1564 = OpLoad %int %r0
+       %1565 = OpIAdd %int %1564 %int_7
+       %1566 = OpIMul %int %1565 %K_
+       %1567 = OpLoad %int %kt
+       %1568 = OpIAdd %int %1566 %1567
+       %1569 = OpIAdd %int %1568 %int_4
+       %1570 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1569
+       %1571 = OpLoad %float %1570
+               OpStore %av7_4 %1571
+       %1573 = OpLoad %int %kt
+       %1574 = OpIAdd %int %1573 %int_4
+       %1575 = OpIMul %int %1574 %N_
+       %1576 = OpLoad %int %c0
+       %1577 = OpIAdd %int %1575 %1576
+       %1578 = OpIAdd %int %1577 %int_0
+       %1579 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1578
+       %1580 = OpLoad %float %1579
+       %1581 = OpFConvert %half %1580
+       %1582 = OpLoad %int %kt
+       %1583 = OpIAdd %int %1582 %int_4
+       %1584 = OpIMul %int %1583 %N_
+       %1585 = OpLoad %int %c0
+       %1586 = OpIAdd %int %1584 %1585
+       %1587 = OpIAdd %int %1586 %int_0
+       %1588 = OpIAdd %int %1587 %int_1
+       %1589 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1588
+       %1590 = OpLoad %float %1589
+       %1591 = OpFConvert %half %1590
+       %1592 = OpCompositeConstruct %v2half %1581 %1591
+               OpStore %bv4_0 %1592
+       %1594 = OpLoad %int %kt
+       %1595 = OpIAdd %int %1594 %int_4
+       %1596 = OpIMul %int %1595 %N_
+       %1597 = OpLoad %int %c0
+       %1598 = OpIAdd %int %1596 %1597
+       %1599 = OpIAdd %int %1598 %int_2
+       %1600 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1599
+       %1601 = OpLoad %float %1600
+       %1602 = OpFConvert %half %1601
+       %1603 = OpLoad %int %kt
+       %1604 = OpIAdd %int %1603 %int_4
+       %1605 = OpIMul %int %1604 %N_
+       %1606 = OpLoad %int %c0
+       %1607 = OpIAdd %int %1605 %1606
+       %1608 = OpIAdd %int %1607 %int_2
+       %1609 = OpIAdd %int %1608 %int_1
+       %1610 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1609
+       %1611 = OpLoad %float %1610
+       %1612 = OpFConvert %half %1611
+       %1613 = OpCompositeConstruct %v2half %1602 %1612
+               OpStore %bv4_1 %1613
+       %1615 = OpLoad %int %kt
+       %1616 = OpIAdd %int %1615 %int_4
+       %1617 = OpIMul %int %1616 %N_
+       %1618 = OpLoad %int %c0
+       %1619 = OpIAdd %int %1617 %1618
+       %1620 = OpIAdd %int %1619 %int_4
+       %1621 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1620
+       %1622 = OpLoad %float %1621
+       %1623 = OpFConvert %half %1622
+       %1624 = OpLoad %int %kt
+       %1625 = OpIAdd %int %1624 %int_4
+       %1626 = OpIMul %int %1625 %N_
+       %1627 = OpLoad %int %c0
+       %1628 = OpIAdd %int %1626 %1627
+       %1629 = OpIAdd %int %1628 %int_4
+       %1630 = OpIAdd %int %1629 %int_1
+       %1631 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1630
+       %1632 = OpLoad %float %1631
+       %1633 = OpFConvert %half %1632
+       %1634 = OpCompositeConstruct %v2half %1623 %1633
+               OpStore %bv4_2 %1634
+       %1636 = OpLoad %int %kt
+       %1637 = OpIAdd %int %1636 %int_4
+       %1638 = OpIMul %int %1637 %N_
+       %1639 = OpLoad %int %c0
+       %1640 = OpIAdd %int %1638 %1639
+       %1641 = OpIAdd %int %1640 %int_6
+       %1642 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1641
+       %1643 = OpLoad %float %1642
+       %1644 = OpFConvert %half %1643
+       %1645 = OpLoad %int %kt
+       %1646 = OpIAdd %int %1645 %int_4
+       %1647 = OpIMul %int %1646 %N_
+       %1648 = OpLoad %int %c0
+       %1649 = OpIAdd %int %1647 %1648
+       %1650 = OpIAdd %int %1649 %int_6
+       %1651 = OpIAdd %int %1650 %int_1
+       %1652 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1651
+       %1653 = OpLoad %float %1652
+       %1654 = OpFConvert %half %1653
+       %1655 = OpCompositeConstruct %v2half %1644 %1654
+               OpStore %bv4_3 %1655
+       %1657 = OpLoad %float %av0_4
+       %1658 = OpFConvert %half %1657
+       %1659 = OpCompositeConstruct %v2half %1658 %1658
+               OpStore %s0_4 %1659
+       %1660 = OpLoad %v2half %x0_0
+       %1661 = OpLoad %v2half %s0_4
+       %1662 = OpLoad %v2half %bv4_0
+       %1663 = OpFMul %v2half %1661 %1662
+       %1664 = OpFAdd %v2half %1660 %1663
+               OpStore %x0_0 %1664
+       %1665 = OpLoad %v2half %x0_1
+       %1666 = OpLoad %v2half %s0_4
+       %1667 = OpLoad %v2half %bv4_1
+       %1668 = OpFMul %v2half %1666 %1667
+       %1669 = OpFAdd %v2half %1665 %1668
+               OpStore %x0_1 %1669
+       %1670 = OpLoad %v2half %x0_2
+       %1671 = OpLoad %v2half %s0_4
+       %1672 = OpLoad %v2half %bv4_2
+       %1673 = OpFMul %v2half %1671 %1672
+       %1674 = OpFAdd %v2half %1670 %1673
+               OpStore %x0_2 %1674
+       %1675 = OpLoad %v2half %x0_3
+       %1676 = OpLoad %v2half %s0_4
+       %1677 = OpLoad %v2half %bv4_3
+       %1678 = OpFMul %v2half %1676 %1677
+       %1679 = OpFAdd %v2half %1675 %1678
+               OpStore %x0_3 %1679
+       %1681 = OpLoad %float %av1_4
+       %1682 = OpFConvert %half %1681
+       %1683 = OpCompositeConstruct %v2half %1682 %1682
+               OpStore %s1_4 %1683
+       %1684 = OpLoad %v2half %x1_0
+       %1685 = OpLoad %v2half %s1_4
+       %1686 = OpLoad %v2half %bv4_0
+       %1687 = OpFMul %v2half %1685 %1686
+       %1688 = OpFAdd %v2half %1684 %1687
+               OpStore %x1_0 %1688
+       %1689 = OpLoad %v2half %x1_1
+       %1690 = OpLoad %v2half %s1_4
+       %1691 = OpLoad %v2half %bv4_1
+       %1692 = OpFMul %v2half %1690 %1691
+       %1693 = OpFAdd %v2half %1689 %1692
+               OpStore %x1_1 %1693
+       %1694 = OpLoad %v2half %x1_2
+       %1695 = OpLoad %v2half %s1_4
+       %1696 = OpLoad %v2half %bv4_2
+       %1697 = OpFMul %v2half %1695 %1696
+       %1698 = OpFAdd %v2half %1694 %1697
+               OpStore %x1_2 %1698
+       %1699 = OpLoad %v2half %x1_3
+       %1700 = OpLoad %v2half %s1_4
+       %1701 = OpLoad %v2half %bv4_3
+       %1702 = OpFMul %v2half %1700 %1701
+       %1703 = OpFAdd %v2half %1699 %1702
+               OpStore %x1_3 %1703
+       %1705 = OpLoad %float %av2_4
+       %1706 = OpFConvert %half %1705
+       %1707 = OpCompositeConstruct %v2half %1706 %1706
+               OpStore %s2_4 %1707
+       %1708 = OpLoad %v2half %x2_0
+       %1709 = OpLoad %v2half %s2_4
+       %1710 = OpLoad %v2half %bv4_0
+       %1711 = OpFMul %v2half %1709 %1710
+       %1712 = OpFAdd %v2half %1708 %1711
+               OpStore %x2_0 %1712
+       %1713 = OpLoad %v2half %x2_1
+       %1714 = OpLoad %v2half %s2_4
+       %1715 = OpLoad %v2half %bv4_1
+       %1716 = OpFMul %v2half %1714 %1715
+       %1717 = OpFAdd %v2half %1713 %1716
+               OpStore %x2_1 %1717
+       %1718 = OpLoad %v2half %x2_2
+       %1719 = OpLoad %v2half %s2_4
+       %1720 = OpLoad %v2half %bv4_2
+       %1721 = OpFMul %v2half %1719 %1720
+       %1722 = OpFAdd %v2half %1718 %1721
+               OpStore %x2_2 %1722
+       %1723 = OpLoad %v2half %x2_3
+       %1724 = OpLoad %v2half %s2_4
+       %1725 = OpLoad %v2half %bv4_3
+       %1726 = OpFMul %v2half %1724 %1725
+       %1727 = OpFAdd %v2half %1723 %1726
+               OpStore %x2_3 %1727
+       %1729 = OpLoad %float %av3_4
+       %1730 = OpFConvert %half %1729
+       %1731 = OpCompositeConstruct %v2half %1730 %1730
+               OpStore %s3_4 %1731
+       %1732 = OpLoad %v2half %x3_0
+       %1733 = OpLoad %v2half %s3_4
+       %1734 = OpLoad %v2half %bv4_0
+       %1735 = OpFMul %v2half %1733 %1734
+       %1736 = OpFAdd %v2half %1732 %1735
+               OpStore %x3_0 %1736
+       %1737 = OpLoad %v2half %x3_1
+       %1738 = OpLoad %v2half %s3_4
+       %1739 = OpLoad %v2half %bv4_1
+       %1740 = OpFMul %v2half %1738 %1739
+       %1741 = OpFAdd %v2half %1737 %1740
+               OpStore %x3_1 %1741
+       %1742 = OpLoad %v2half %x3_2
+       %1743 = OpLoad %v2half %s3_4
+       %1744 = OpLoad %v2half %bv4_2
+       %1745 = OpFMul %v2half %1743 %1744
+       %1746 = OpFAdd %v2half %1742 %1745
+               OpStore %x3_2 %1746
+       %1747 = OpLoad %v2half %x3_3
+       %1748 = OpLoad %v2half %s3_4
+       %1749 = OpLoad %v2half %bv4_3
+       %1750 = OpFMul %v2half %1748 %1749
+       %1751 = OpFAdd %v2half %1747 %1750
+               OpStore %x3_3 %1751
+       %1753 = OpLoad %float %av4_4
+       %1754 = OpFConvert %half %1753
+       %1755 = OpCompositeConstruct %v2half %1754 %1754
+               OpStore %s4_4 %1755
+       %1756 = OpLoad %v2half %x4_0
+       %1757 = OpLoad %v2half %s4_4
+       %1758 = OpLoad %v2half %bv4_0
+       %1759 = OpFMul %v2half %1757 %1758
+       %1760 = OpFAdd %v2half %1756 %1759
+               OpStore %x4_0 %1760
+       %1761 = OpLoad %v2half %x4_1
+       %1762 = OpLoad %v2half %s4_4
+       %1763 = OpLoad %v2half %bv4_1
+       %1764 = OpFMul %v2half %1762 %1763
+       %1765 = OpFAdd %v2half %1761 %1764
+               OpStore %x4_1 %1765
+       %1766 = OpLoad %v2half %x4_2
+       %1767 = OpLoad %v2half %s4_4
+       %1768 = OpLoad %v2half %bv4_2
+       %1769 = OpFMul %v2half %1767 %1768
+       %1770 = OpFAdd %v2half %1766 %1769
+               OpStore %x4_2 %1770
+       %1771 = OpLoad %v2half %x4_3
+       %1772 = OpLoad %v2half %s4_4
+       %1773 = OpLoad %v2half %bv4_3
+       %1774 = OpFMul %v2half %1772 %1773
+       %1775 = OpFAdd %v2half %1771 %1774
+               OpStore %x4_3 %1775
+       %1777 = OpLoad %float %av5_4
+       %1778 = OpFConvert %half %1777
+       %1779 = OpCompositeConstruct %v2half %1778 %1778
+               OpStore %s5_4 %1779
+       %1780 = OpLoad %v2half %x5_0
+       %1781 = OpLoad %v2half %s5_4
+       %1782 = OpLoad %v2half %bv4_0
+       %1783 = OpFMul %v2half %1781 %1782
+       %1784 = OpFAdd %v2half %1780 %1783
+               OpStore %x5_0 %1784
+       %1785 = OpLoad %v2half %x5_1
+       %1786 = OpLoad %v2half %s5_4
+       %1787 = OpLoad %v2half %bv4_1
+       %1788 = OpFMul %v2half %1786 %1787
+       %1789 = OpFAdd %v2half %1785 %1788
+               OpStore %x5_1 %1789
+       %1790 = OpLoad %v2half %x5_2
+       %1791 = OpLoad %v2half %s5_4
+       %1792 = OpLoad %v2half %bv4_2
+       %1793 = OpFMul %v2half %1791 %1792
+       %1794 = OpFAdd %v2half %1790 %1793
+               OpStore %x5_2 %1794
+       %1795 = OpLoad %v2half %x5_3
+       %1796 = OpLoad %v2half %s5_4
+       %1797 = OpLoad %v2half %bv4_3
+       %1798 = OpFMul %v2half %1796 %1797
+       %1799 = OpFAdd %v2half %1795 %1798
+               OpStore %x5_3 %1799
+       %1801 = OpLoad %float %av6_4
+       %1802 = OpFConvert %half %1801
+       %1803 = OpCompositeConstruct %v2half %1802 %1802
+               OpStore %s6_4 %1803
+       %1804 = OpLoad %v2half %x6_0
+       %1805 = OpLoad %v2half %s6_4
+       %1806 = OpLoad %v2half %bv4_0
+       %1807 = OpFMul %v2half %1805 %1806
+       %1808 = OpFAdd %v2half %1804 %1807
+               OpStore %x6_0 %1808
+       %1809 = OpLoad %v2half %x6_1
+       %1810 = OpLoad %v2half %s6_4
+       %1811 = OpLoad %v2half %bv4_1
+       %1812 = OpFMul %v2half %1810 %1811
+       %1813 = OpFAdd %v2half %1809 %1812
+               OpStore %x6_1 %1813
+       %1814 = OpLoad %v2half %x6_2
+       %1815 = OpLoad %v2half %s6_4
+       %1816 = OpLoad %v2half %bv4_2
+       %1817 = OpFMul %v2half %1815 %1816
+       %1818 = OpFAdd %v2half %1814 %1817
+               OpStore %x6_2 %1818
+       %1819 = OpLoad %v2half %x6_3
+       %1820 = OpLoad %v2half %s6_4
+       %1821 = OpLoad %v2half %bv4_3
+       %1822 = OpFMul %v2half %1820 %1821
+       %1823 = OpFAdd %v2half %1819 %1822
+               OpStore %x6_3 %1823
+       %1825 = OpLoad %float %av7_4
+       %1826 = OpFConvert %half %1825
+       %1827 = OpCompositeConstruct %v2half %1826 %1826
+               OpStore %s7_4 %1827
+       %1828 = OpLoad %v2half %x7_0
+       %1829 = OpLoad %v2half %s7_4
+       %1830 = OpLoad %v2half %bv4_0
+       %1831 = OpFMul %v2half %1829 %1830
+       %1832 = OpFAdd %v2half %1828 %1831
+               OpStore %x7_0 %1832
+       %1833 = OpLoad %v2half %x7_1
+       %1834 = OpLoad %v2half %s7_4
+       %1835 = OpLoad %v2half %bv4_1
+       %1836 = OpFMul %v2half %1834 %1835
+       %1837 = OpFAdd %v2half %1833 %1836
+               OpStore %x7_1 %1837
+       %1838 = OpLoad %v2half %x7_2
+       %1839 = OpLoad %v2half %s7_4
+       %1840 = OpLoad %v2half %bv4_2
+       %1841 = OpFMul %v2half %1839 %1840
+       %1842 = OpFAdd %v2half %1838 %1841
+               OpStore %x7_2 %1842
+       %1843 = OpLoad %v2half %x7_3
+       %1844 = OpLoad %v2half %s7_4
+       %1845 = OpLoad %v2half %bv4_3
+       %1846 = OpFMul %v2half %1844 %1845
+       %1847 = OpFAdd %v2half %1843 %1846
+               OpStore %x7_3 %1847
+       %1849 = OpLoad %int %r0
+       %1850 = OpIAdd %int %1849 %int_0
+       %1851 = OpIMul %int %1850 %K_
+       %1852 = OpLoad %int %kt
+       %1853 = OpIAdd %int %1851 %1852
+       %1854 = OpIAdd %int %1853 %int_5
+       %1855 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1854
+       %1856 = OpLoad %float %1855
+               OpStore %av0_5 %1856
+       %1858 = OpLoad %int %r0
+       %1859 = OpIAdd %int %1858 %int_1
+       %1860 = OpIMul %int %1859 %K_
+       %1861 = OpLoad %int %kt
+       %1862 = OpIAdd %int %1860 %1861
+       %1863 = OpIAdd %int %1862 %int_5
+       %1864 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1863
+       %1865 = OpLoad %float %1864
+               OpStore %av1_5 %1865
+       %1867 = OpLoad %int %r0
+       %1868 = OpIAdd %int %1867 %int_2
+       %1869 = OpIMul %int %1868 %K_
+       %1870 = OpLoad %int %kt
+       %1871 = OpIAdd %int %1869 %1870
+       %1872 = OpIAdd %int %1871 %int_5
+       %1873 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1872
+       %1874 = OpLoad %float %1873
+               OpStore %av2_5 %1874
+       %1876 = OpLoad %int %r0
+       %1877 = OpIAdd %int %1876 %int_3
+       %1878 = OpIMul %int %1877 %K_
+       %1879 = OpLoad %int %kt
+       %1880 = OpIAdd %int %1878 %1879
+       %1881 = OpIAdd %int %1880 %int_5
+       %1882 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1881
+       %1883 = OpLoad %float %1882
+               OpStore %av3_5 %1883
+       %1885 = OpLoad %int %r0
+       %1886 = OpIAdd %int %1885 %int_4
+       %1887 = OpIMul %int %1886 %K_
+       %1888 = OpLoad %int %kt
+       %1889 = OpIAdd %int %1887 %1888
+       %1890 = OpIAdd %int %1889 %int_5
+       %1891 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1890
+       %1892 = OpLoad %float %1891
+               OpStore %av4_5 %1892
+       %1894 = OpLoad %int %r0
+       %1895 = OpIAdd %int %1894 %int_5
+       %1896 = OpIMul %int %1895 %K_
+       %1897 = OpLoad %int %kt
+       %1898 = OpIAdd %int %1896 %1897
+       %1899 = OpIAdd %int %1898 %int_5
+       %1900 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1899
+       %1901 = OpLoad %float %1900
+               OpStore %av5_5 %1901
+       %1903 = OpLoad %int %r0
+       %1904 = OpIAdd %int %1903 %int_6
+       %1905 = OpIMul %int %1904 %K_
+       %1906 = OpLoad %int %kt
+       %1907 = OpIAdd %int %1905 %1906
+       %1908 = OpIAdd %int %1907 %int_5
+       %1909 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1908
+       %1910 = OpLoad %float %1909
+               OpStore %av6_5 %1910
+       %1912 = OpLoad %int %r0
+       %1913 = OpIAdd %int %1912 %int_7
+       %1914 = OpIMul %int %1913 %K_
+       %1915 = OpLoad %int %kt
+       %1916 = OpIAdd %int %1914 %1915
+       %1917 = OpIAdd %int %1916 %int_5
+       %1918 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %1917
+       %1919 = OpLoad %float %1918
+               OpStore %av7_5 %1919
+       %1921 = OpLoad %int %kt
+       %1922 = OpIAdd %int %1921 %int_5
+       %1923 = OpIMul %int %1922 %N_
+       %1924 = OpLoad %int %c0
+       %1925 = OpIAdd %int %1923 %1924
+       %1926 = OpIAdd %int %1925 %int_0
+       %1927 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1926
+       %1928 = OpLoad %float %1927
+       %1929 = OpFConvert %half %1928
+       %1930 = OpLoad %int %kt
+       %1931 = OpIAdd %int %1930 %int_5
+       %1932 = OpIMul %int %1931 %N_
+       %1933 = OpLoad %int %c0
+       %1934 = OpIAdd %int %1932 %1933
+       %1935 = OpIAdd %int %1934 %int_0
+       %1936 = OpIAdd %int %1935 %int_1
+       %1937 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1936
+       %1938 = OpLoad %float %1937
+       %1939 = OpFConvert %half %1938
+       %1940 = OpCompositeConstruct %v2half %1929 %1939
+               OpStore %bv5_0 %1940
+       %1942 = OpLoad %int %kt
+       %1943 = OpIAdd %int %1942 %int_5
+       %1944 = OpIMul %int %1943 %N_
+       %1945 = OpLoad %int %c0
+       %1946 = OpIAdd %int %1944 %1945
+       %1947 = OpIAdd %int %1946 %int_2
+       %1948 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1947
+       %1949 = OpLoad %float %1948
+       %1950 = OpFConvert %half %1949
+       %1951 = OpLoad %int %kt
+       %1952 = OpIAdd %int %1951 %int_5
+       %1953 = OpIMul %int %1952 %N_
+       %1954 = OpLoad %int %c0
+       %1955 = OpIAdd %int %1953 %1954
+       %1956 = OpIAdd %int %1955 %int_2
+       %1957 = OpIAdd %int %1956 %int_1
+       %1958 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1957
+       %1959 = OpLoad %float %1958
+       %1960 = OpFConvert %half %1959
+       %1961 = OpCompositeConstruct %v2half %1950 %1960
+               OpStore %bv5_1 %1961
+       %1963 = OpLoad %int %kt
+       %1964 = OpIAdd %int %1963 %int_5
+       %1965 = OpIMul %int %1964 %N_
+       %1966 = OpLoad %int %c0
+       %1967 = OpIAdd %int %1965 %1966
+       %1968 = OpIAdd %int %1967 %int_4
+       %1969 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1968
+       %1970 = OpLoad %float %1969
+       %1971 = OpFConvert %half %1970
+       %1972 = OpLoad %int %kt
+       %1973 = OpIAdd %int %1972 %int_5
+       %1974 = OpIMul %int %1973 %N_
+       %1975 = OpLoad %int %c0
+       %1976 = OpIAdd %int %1974 %1975
+       %1977 = OpIAdd %int %1976 %int_4
+       %1978 = OpIAdd %int %1977 %int_1
+       %1979 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1978
+       %1980 = OpLoad %float %1979
+       %1981 = OpFConvert %half %1980
+       %1982 = OpCompositeConstruct %v2half %1971 %1981
+               OpStore %bv5_2 %1982
+       %1984 = OpLoad %int %kt
+       %1985 = OpIAdd %int %1984 %int_5
+       %1986 = OpIMul %int %1985 %N_
+       %1987 = OpLoad %int %c0
+       %1988 = OpIAdd %int %1986 %1987
+       %1989 = OpIAdd %int %1988 %int_6
+       %1990 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1989
+       %1991 = OpLoad %float %1990
+       %1992 = OpFConvert %half %1991
+       %1993 = OpLoad %int %kt
+       %1994 = OpIAdd %int %1993 %int_5
+       %1995 = OpIMul %int %1994 %N_
+       %1996 = OpLoad %int %c0
+       %1997 = OpIAdd %int %1995 %1996
+       %1998 = OpIAdd %int %1997 %int_6
+       %1999 = OpIAdd %int %1998 %int_1
+       %2000 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %1999
+       %2001 = OpLoad %float %2000
+       %2002 = OpFConvert %half %2001
+       %2003 = OpCompositeConstruct %v2half %1992 %2002
+               OpStore %bv5_3 %2003
+       %2005 = OpLoad %float %av0_5
+       %2006 = OpFConvert %half %2005
+       %2007 = OpCompositeConstruct %v2half %2006 %2006
+               OpStore %s0_5 %2007
+       %2008 = OpLoad %v2half %x0_0
+       %2009 = OpLoad %v2half %s0_5
+       %2010 = OpLoad %v2half %bv5_0
+       %2011 = OpFMul %v2half %2009 %2010
+       %2012 = OpFAdd %v2half %2008 %2011
+               OpStore %x0_0 %2012
+       %2013 = OpLoad %v2half %x0_1
+       %2014 = OpLoad %v2half %s0_5
+       %2015 = OpLoad %v2half %bv5_1
+       %2016 = OpFMul %v2half %2014 %2015
+       %2017 = OpFAdd %v2half %2013 %2016
+               OpStore %x0_1 %2017
+       %2018 = OpLoad %v2half %x0_2
+       %2019 = OpLoad %v2half %s0_5
+       %2020 = OpLoad %v2half %bv5_2
+       %2021 = OpFMul %v2half %2019 %2020
+       %2022 = OpFAdd %v2half %2018 %2021
+               OpStore %x0_2 %2022
+       %2023 = OpLoad %v2half %x0_3
+       %2024 = OpLoad %v2half %s0_5
+       %2025 = OpLoad %v2half %bv5_3
+       %2026 = OpFMul %v2half %2024 %2025
+       %2027 = OpFAdd %v2half %2023 %2026
+               OpStore %x0_3 %2027
+       %2029 = OpLoad %float %av1_5
+       %2030 = OpFConvert %half %2029
+       %2031 = OpCompositeConstruct %v2half %2030 %2030
+               OpStore %s1_5 %2031
+       %2032 = OpLoad %v2half %x1_0
+       %2033 = OpLoad %v2half %s1_5
+       %2034 = OpLoad %v2half %bv5_0
+       %2035 = OpFMul %v2half %2033 %2034
+       %2036 = OpFAdd %v2half %2032 %2035
+               OpStore %x1_0 %2036
+       %2037 = OpLoad %v2half %x1_1
+       %2038 = OpLoad %v2half %s1_5
+       %2039 = OpLoad %v2half %bv5_1
+       %2040 = OpFMul %v2half %2038 %2039
+       %2041 = OpFAdd %v2half %2037 %2040
+               OpStore %x1_1 %2041
+       %2042 = OpLoad %v2half %x1_2
+       %2043 = OpLoad %v2half %s1_5
+       %2044 = OpLoad %v2half %bv5_2
+       %2045 = OpFMul %v2half %2043 %2044
+       %2046 = OpFAdd %v2half %2042 %2045
+               OpStore %x1_2 %2046
+       %2047 = OpLoad %v2half %x1_3
+       %2048 = OpLoad %v2half %s1_5
+       %2049 = OpLoad %v2half %bv5_3
+       %2050 = OpFMul %v2half %2048 %2049
+       %2051 = OpFAdd %v2half %2047 %2050
+               OpStore %x1_3 %2051
+       %2053 = OpLoad %float %av2_5
+       %2054 = OpFConvert %half %2053
+       %2055 = OpCompositeConstruct %v2half %2054 %2054
+               OpStore %s2_5 %2055
+       %2056 = OpLoad %v2half %x2_0
+       %2057 = OpLoad %v2half %s2_5
+       %2058 = OpLoad %v2half %bv5_0
+       %2059 = OpFMul %v2half %2057 %2058
+       %2060 = OpFAdd %v2half %2056 %2059
+               OpStore %x2_0 %2060
+       %2061 = OpLoad %v2half %x2_1
+       %2062 = OpLoad %v2half %s2_5
+       %2063 = OpLoad %v2half %bv5_1
+       %2064 = OpFMul %v2half %2062 %2063
+       %2065 = OpFAdd %v2half %2061 %2064
+               OpStore %x2_1 %2065
+       %2066 = OpLoad %v2half %x2_2
+       %2067 = OpLoad %v2half %s2_5
+       %2068 = OpLoad %v2half %bv5_2
+       %2069 = OpFMul %v2half %2067 %2068
+       %2070 = OpFAdd %v2half %2066 %2069
+               OpStore %x2_2 %2070
+       %2071 = OpLoad %v2half %x2_3
+       %2072 = OpLoad %v2half %s2_5
+       %2073 = OpLoad %v2half %bv5_3
+       %2074 = OpFMul %v2half %2072 %2073
+       %2075 = OpFAdd %v2half %2071 %2074
+               OpStore %x2_3 %2075
+       %2077 = OpLoad %float %av3_5
+       %2078 = OpFConvert %half %2077
+       %2079 = OpCompositeConstruct %v2half %2078 %2078
+               OpStore %s3_5 %2079
+       %2080 = OpLoad %v2half %x3_0
+       %2081 = OpLoad %v2half %s3_5
+       %2082 = OpLoad %v2half %bv5_0
+       %2083 = OpFMul %v2half %2081 %2082
+       %2084 = OpFAdd %v2half %2080 %2083
+               OpStore %x3_0 %2084
+       %2085 = OpLoad %v2half %x3_1
+       %2086 = OpLoad %v2half %s3_5
+       %2087 = OpLoad %v2half %bv5_1
+       %2088 = OpFMul %v2half %2086 %2087
+       %2089 = OpFAdd %v2half %2085 %2088
+               OpStore %x3_1 %2089
+       %2090 = OpLoad %v2half %x3_2
+       %2091 = OpLoad %v2half %s3_5
+       %2092 = OpLoad %v2half %bv5_2
+       %2093 = OpFMul %v2half %2091 %2092
+       %2094 = OpFAdd %v2half %2090 %2093
+               OpStore %x3_2 %2094
+       %2095 = OpLoad %v2half %x3_3
+       %2096 = OpLoad %v2half %s3_5
+       %2097 = OpLoad %v2half %bv5_3
+       %2098 = OpFMul %v2half %2096 %2097
+       %2099 = OpFAdd %v2half %2095 %2098
+               OpStore %x3_3 %2099
+       %2101 = OpLoad %float %av4_5
+       %2102 = OpFConvert %half %2101
+       %2103 = OpCompositeConstruct %v2half %2102 %2102
+               OpStore %s4_5 %2103
+       %2104 = OpLoad %v2half %x4_0
+       %2105 = OpLoad %v2half %s4_5
+       %2106 = OpLoad %v2half %bv5_0
+       %2107 = OpFMul %v2half %2105 %2106
+       %2108 = OpFAdd %v2half %2104 %2107
+               OpStore %x4_0 %2108
+       %2109 = OpLoad %v2half %x4_1
+       %2110 = OpLoad %v2half %s4_5
+       %2111 = OpLoad %v2half %bv5_1
+       %2112 = OpFMul %v2half %2110 %2111
+       %2113 = OpFAdd %v2half %2109 %2112
+               OpStore %x4_1 %2113
+       %2114 = OpLoad %v2half %x4_2
+       %2115 = OpLoad %v2half %s4_5
+       %2116 = OpLoad %v2half %bv5_2
+       %2117 = OpFMul %v2half %2115 %2116
+       %2118 = OpFAdd %v2half %2114 %2117
+               OpStore %x4_2 %2118
+       %2119 = OpLoad %v2half %x4_3
+       %2120 = OpLoad %v2half %s4_5
+       %2121 = OpLoad %v2half %bv5_3
+       %2122 = OpFMul %v2half %2120 %2121
+       %2123 = OpFAdd %v2half %2119 %2122
+               OpStore %x4_3 %2123
+       %2125 = OpLoad %float %av5_5
+       %2126 = OpFConvert %half %2125
+       %2127 = OpCompositeConstruct %v2half %2126 %2126
+               OpStore %s5_5 %2127
+       %2128 = OpLoad %v2half %x5_0
+       %2129 = OpLoad %v2half %s5_5
+       %2130 = OpLoad %v2half %bv5_0
+       %2131 = OpFMul %v2half %2129 %2130
+       %2132 = OpFAdd %v2half %2128 %2131
+               OpStore %x5_0 %2132
+       %2133 = OpLoad %v2half %x5_1
+       %2134 = OpLoad %v2half %s5_5
+       %2135 = OpLoad %v2half %bv5_1
+       %2136 = OpFMul %v2half %2134 %2135
+       %2137 = OpFAdd %v2half %2133 %2136
+               OpStore %x5_1 %2137
+       %2138 = OpLoad %v2half %x5_2
+       %2139 = OpLoad %v2half %s5_5
+       %2140 = OpLoad %v2half %bv5_2
+       %2141 = OpFMul %v2half %2139 %2140
+       %2142 = OpFAdd %v2half %2138 %2141
+               OpStore %x5_2 %2142
+       %2143 = OpLoad %v2half %x5_3
+       %2144 = OpLoad %v2half %s5_5
+       %2145 = OpLoad %v2half %bv5_3
+       %2146 = OpFMul %v2half %2144 %2145
+       %2147 = OpFAdd %v2half %2143 %2146
+               OpStore %x5_3 %2147
+       %2149 = OpLoad %float %av6_5
+       %2150 = OpFConvert %half %2149
+       %2151 = OpCompositeConstruct %v2half %2150 %2150
+               OpStore %s6_5 %2151
+       %2152 = OpLoad %v2half %x6_0
+       %2153 = OpLoad %v2half %s6_5
+       %2154 = OpLoad %v2half %bv5_0
+       %2155 = OpFMul %v2half %2153 %2154
+       %2156 = OpFAdd %v2half %2152 %2155
+               OpStore %x6_0 %2156
+       %2157 = OpLoad %v2half %x6_1
+       %2158 = OpLoad %v2half %s6_5
+       %2159 = OpLoad %v2half %bv5_1
+       %2160 = OpFMul %v2half %2158 %2159
+       %2161 = OpFAdd %v2half %2157 %2160
+               OpStore %x6_1 %2161
+       %2162 = OpLoad %v2half %x6_2
+       %2163 = OpLoad %v2half %s6_5
+       %2164 = OpLoad %v2half %bv5_2
+       %2165 = OpFMul %v2half %2163 %2164
+       %2166 = OpFAdd %v2half %2162 %2165
+               OpStore %x6_2 %2166
+       %2167 = OpLoad %v2half %x6_3
+       %2168 = OpLoad %v2half %s6_5
+       %2169 = OpLoad %v2half %bv5_3
+       %2170 = OpFMul %v2half %2168 %2169
+       %2171 = OpFAdd %v2half %2167 %2170
+               OpStore %x6_3 %2171
+       %2173 = OpLoad %float %av7_5
+       %2174 = OpFConvert %half %2173
+       %2175 = OpCompositeConstruct %v2half %2174 %2174
+               OpStore %s7_5 %2175
+       %2176 = OpLoad %v2half %x7_0
+       %2177 = OpLoad %v2half %s7_5
+       %2178 = OpLoad %v2half %bv5_0
+       %2179 = OpFMul %v2half %2177 %2178
+       %2180 = OpFAdd %v2half %2176 %2179
+               OpStore %x7_0 %2180
+       %2181 = OpLoad %v2half %x7_1
+       %2182 = OpLoad %v2half %s7_5
+       %2183 = OpLoad %v2half %bv5_1
+       %2184 = OpFMul %v2half %2182 %2183
+       %2185 = OpFAdd %v2half %2181 %2184
+               OpStore %x7_1 %2185
+       %2186 = OpLoad %v2half %x7_2
+       %2187 = OpLoad %v2half %s7_5
+       %2188 = OpLoad %v2half %bv5_2
+       %2189 = OpFMul %v2half %2187 %2188
+       %2190 = OpFAdd %v2half %2186 %2189
+               OpStore %x7_2 %2190
+       %2191 = OpLoad %v2half %x7_3
+       %2192 = OpLoad %v2half %s7_5
+       %2193 = OpLoad %v2half %bv5_3
+       %2194 = OpFMul %v2half %2192 %2193
+       %2195 = OpFAdd %v2half %2191 %2194
+               OpStore %x7_3 %2195
+       %2197 = OpLoad %int %r0
+       %2198 = OpIAdd %int %2197 %int_0
+       %2199 = OpIMul %int %2198 %K_
+       %2200 = OpLoad %int %kt
+       %2201 = OpIAdd %int %2199 %2200
+       %2202 = OpIAdd %int %2201 %int_6
+       %2203 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %2202
+       %2204 = OpLoad %float %2203
+               OpStore %av0_6 %2204
+       %2206 = OpLoad %int %r0
+       %2207 = OpIAdd %int %2206 %int_1
+       %2208 = OpIMul %int %2207 %K_
+       %2209 = OpLoad %int %kt
+       %2210 = OpIAdd %int %2208 %2209
+       %2211 = OpIAdd %int %2210 %int_6
+       %2212 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %2211
+       %2213 = OpLoad %float %2212
+               OpStore %av1_6 %2213
+       %2215 = OpLoad %int %r0
+       %2216 = OpIAdd %int %2215 %int_2
+       %2217 = OpIMul %int %2216 %K_
+       %2218 = OpLoad %int %kt
+       %2219 = OpIAdd %int %2217 %2218
+       %2220 = OpIAdd %int %2219 %int_6
+       %2221 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %2220
+       %2222 = OpLoad %float %2221
+               OpStore %av2_6 %2222
+       %2224 = OpLoad %int %r0
+       %2225 = OpIAdd %int %2224 %int_3
+       %2226 = OpIMul %int %2225 %K_
+       %2227 = OpLoad %int %kt
+       %2228 = OpIAdd %int %2226 %2227
+       %2229 = OpIAdd %int %2228 %int_6
+       %2230 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %2229
+       %2231 = OpLoad %float %2230
+               OpStore %av3_6 %2231
+       %2233 = OpLoad %int %r0
+       %2234 = OpIAdd %int %2233 %int_4
+       %2235 = OpIMul %int %2234 %K_
+       %2236 = OpLoad %int %kt
+       %2237 = OpIAdd %int %2235 %2236
+       %2238 = OpIAdd %int %2237 %int_6
+       %2239 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %2238
+       %2240 = OpLoad %float %2239
+               OpStore %av4_6 %2240
+       %2242 = OpLoad %int %r0
+       %2243 = OpIAdd %int %2242 %int_5
+       %2244 = OpIMul %int %2243 %K_
+       %2245 = OpLoad %int %kt
+       %2246 = OpIAdd %int %2244 %2245
+       %2247 = OpIAdd %int %2246 %int_6
+       %2248 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %2247
+       %2249 = OpLoad %float %2248
+               OpStore %av5_6 %2249
+       %2251 = OpLoad %int %r0
+       %2252 = OpIAdd %int %2251 %int_6
+       %2253 = OpIMul %int %2252 %K_
+       %2254 = OpLoad %int %kt
+       %2255 = OpIAdd %int %2253 %2254
+       %2256 = OpIAdd %int %2255 %int_6
+       %2257 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %2256
+       %2258 = OpLoad %float %2257
+               OpStore %av6_6 %2258
+       %2260 = OpLoad %int %r0
+       %2261 = OpIAdd %int %2260 %int_7
+       %2262 = OpIMul %int %2261 %K_
+       %2263 = OpLoad %int %kt
+       %2264 = OpIAdd %int %2262 %2263
+       %2265 = OpIAdd %int %2264 %int_6
+       %2266 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %2265
+       %2267 = OpLoad %float %2266
+               OpStore %av7_6 %2267
+       %2269 = OpLoad %int %kt
+       %2270 = OpIAdd %int %2269 %int_6
+       %2271 = OpIMul %int %2270 %N_
+       %2272 = OpLoad %int %c0
+       %2273 = OpIAdd %int %2271 %2272
+       %2274 = OpIAdd %int %2273 %int_0
+       %2275 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %2274
+       %2276 = OpLoad %float %2275
+       %2277 = OpFConvert %half %2276
+       %2278 = OpLoad %int %kt
+       %2279 = OpIAdd %int %2278 %int_6
+       %2280 = OpIMul %int %2279 %N_
+       %2281 = OpLoad %int %c0
+       %2282 = OpIAdd %int %2280 %2281
+       %2283 = OpIAdd %int %2282 %int_0
+       %2284 = OpIAdd %int %2283 %int_1
+       %2285 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %2284
+       %2286 = OpLoad %float %2285
+       %2287 = OpFConvert %half %2286
+       %2288 = OpCompositeConstruct %v2half %2277 %2287
+               OpStore %bv6_0 %2288
+       %2290 = OpLoad %int %kt
+       %2291 = OpIAdd %int %2290 %int_6
+       %2292 = OpIMul %int %2291 %N_
+       %2293 = OpLoad %int %c0
+       %2294 = OpIAdd %int %2292 %2293
+       %2295 = OpIAdd %int %2294 %int_2
+       %2296 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %2295
+       %2297 = OpLoad %float %2296
+       %2298 = OpFConvert %half %2297
+       %2299 = OpLoad %int %kt
+       %2300 = OpIAdd %int %2299 %int_6
+       %2301 = OpIMul %int %2300 %N_
+       %2302 = OpLoad %int %c0
+       %2303 = OpIAdd %int %2301 %2302
+       %2304 = OpIAdd %int %2303 %int_2
+       %2305 = OpIAdd %int %2304 %int_1
+       %2306 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %2305
+       %2307 = OpLoad %float %2306
+       %2308 = OpFConvert %half %2307
+       %2309 = OpCompositeConstruct %v2half %2298 %2308
+               OpStore %bv6_1 %2309
+       %2311 = OpLoad %int %kt
+       %2312 = OpIAdd %int %2311 %int_6
+       %2313 = OpIMul %int %2312 %N_
+       %2314 = OpLoad %int %c0
+       %2315 = OpIAdd %int %2313 %2314
+       %2316 = OpIAdd %int %2315 %int_4
+       %2317 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %2316
+       %2318 = OpLoad %float %2317
+       %2319 = OpFConvert %half %2318
+       %2320 = OpLoad %int %kt
+       %2321 = OpIAdd %int %2320 %int_6
+       %2322 = OpIMul %int %2321 %N_
+       %2323 = OpLoad %int %c0
+       %2324 = OpIAdd %int %2322 %2323
+       %2325 = OpIAdd %int %2324 %int_4
+       %2326 = OpIAdd %int %2325 %int_1
+       %2327 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %2326
+       %2328 = OpLoad %float %2327
+       %2329 = OpFConvert %half %2328
+       %2330 = OpCompositeConstruct %v2half %2319 %2329
+               OpStore %bv6_2 %2330
+       %2332 = OpLoad %int %kt
+       %2333 = OpIAdd %int %2332 %int_6
+       %2334 = OpIMul %int %2333 %N_
+       %2335 = OpLoad %int %c0
+       %2336 = OpIAdd %int %2334 %2335
+       %2337 = OpIAdd %int %2336 %int_6
+       %2338 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %2337
+       %2339 = OpLoad %float %2338
+       %2340 = OpFConvert %half %2339
+       %2341 = OpLoad %int %kt
+       %2342 = OpIAdd %int %2341 %int_6
+       %2343 = OpIMul %int %2342 %N_
+       %2344 = OpLoad %int %c0
+       %2345 = OpIAdd %int %2343 %2344
+       %2346 = OpIAdd %int %2345 %int_6
+       %2347 = OpIAdd %int %2346 %int_1
+       %2348 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %2347
+       %2349 = OpLoad %float %2348
+       %2350 = OpFConvert %half %2349
+       %2351 = OpCompositeConstruct %v2half %2340 %2350
+               OpStore %bv6_3 %2351
+       %2353 = OpLoad %float %av0_6
+       %2354 = OpFConvert %half %2353
+       %2355 = OpCompositeConstruct %v2half %2354 %2354
+               OpStore %s0_6 %2355
+       %2356 = OpLoad %v2half %x0_0
+       %2357 = OpLoad %v2half %s0_6
+       %2358 = OpLoad %v2half %bv6_0
+       %2359 = OpFMul %v2half %2357 %2358
+       %2360 = OpFAdd %v2half %2356 %2359
+               OpStore %x0_0 %2360
+       %2361 = OpLoad %v2half %x0_1
+       %2362 = OpLoad %v2half %s0_6
+       %2363 = OpLoad %v2half %bv6_1
+       %2364 = OpFMul %v2half %2362 %2363
+       %2365 = OpFAdd %v2half %2361 %2364
+               OpStore %x0_1 %2365
+       %2366 = OpLoad %v2half %x0_2
+       %2367 = OpLoad %v2half %s0_6
+       %2368 = OpLoad %v2half %bv6_2
+       %2369 = OpFMul %v2half %2367 %2368
+       %2370 = OpFAdd %v2half %2366 %2369
+               OpStore %x0_2 %2370
+       %2371 = OpLoad %v2half %x0_3
+       %2372 = OpLoad %v2half %s0_6
+       %2373 = OpLoad %v2half %bv6_3
+       %2374 = OpFMul %v2half %2372 %2373
+       %2375 = OpFAdd %v2half %2371 %2374
+               OpStore %x0_3 %2375
+       %2377 = OpLoad %float %av1_6
+       %2378 = OpFConvert %half %2377
+       %2379 = OpCompositeConstruct %v2half %2378 %2378
+               OpStore %s1_6 %2379
+       %2380 = OpLoad %v2half %x1_0
+       %2381 = OpLoad %v2half %s1_6
+       %2382 = OpLoad %v2half %bv6_0
+       %2383 = OpFMul %v2half %2381 %2382
+       %2384 = OpFAdd %v2half %2380 %2383
+               OpStore %x1_0 %2384
+       %2385 = OpLoad %v2half %x1_1
+       %2386 = OpLoad %v2half %s1_6
+       %2387 = OpLoad %v2half %bv6_1
+       %2388 = OpFMul %v2half %2386 %2387
+       %2389 = OpFAdd %v2half %2385 %2388
+               OpStore %x1_1 %2389
+       %2390 = OpLoad %v2half %x1_2
+       %2391 = OpLoad %v2half %s1_6
+       %2392 = OpLoad %v2half %bv6_2
+       %2393 = OpFMul %v2half %2391 %2392
+       %2394 = OpFAdd %v2half %2390 %2393
+               OpStore %x1_2 %2394
+       %2395 = OpLoad %v2half %x1_3
+       %2396 = OpLoad %v2half %s1_6
+       %2397 = OpLoad %v2half %bv6_3
+       %2398 = OpFMul %v2half %2396 %2397
+       %2399 = OpFAdd %v2half %2395 %2398
+               OpStore %x1_3 %2399
+       %2401 = OpLoad %float %av2_6
+       %2402 = OpFConvert %half %2401
+       %2403 = OpCompositeConstruct %v2half %2402 %2402
+               OpStore %s2_6 %2403
+       %2404 = OpLoad %v2half %x2_0
+       %2405 = OpLoad %v2half %s2_6
+       %2406 = OpLoad %v2half %bv6_0
+       %2407 = OpFMul %v2half %2405 %2406
+       %2408 = OpFAdd %v2half %2404 %2407
+               OpStore %x2_0 %2408
+       %2409 = OpLoad %v2half %x2_1
+       %2410 = OpLoad %v2half %s2_6
+       %2411 = OpLoad %v2half %bv6_1
+       %2412 = OpFMul %v2half %2410 %2411
+       %2413 = OpFAdd %v2half %2409 %2412
+               OpStore %x2_1 %2413
+       %2414 = OpLoad %v2half %x2_2
+       %2415 = OpLoad %v2half %s2_6
+       %2416 = OpLoad %v2half %bv6_2
+       %2417 = OpFMul %v2half %2415 %2416
+       %2418 = OpFAdd %v2half %2414 %2417
+               OpStore %x2_2 %2418
+       %2419 = OpLoad %v2half %x2_3
+       %2420 = OpLoad %v2half %s2_6
+       %2421 = OpLoad %v2half %bv6_3
+       %2422 = OpFMul %v2half %2420 %2421
+       %2423 = OpFAdd %v2half %2419 %2422
+               OpStore %x2_3 %2423
+       %2425 = OpLoad %float %av3_6
+       %2426 = OpFConvert %half %2425
+       %2427 = OpCompositeConstruct %v2half %2426 %2426
+               OpStore %s3_6 %2427
+       %2428 = OpLoad %v2half %x3_0
+       %2429 = OpLoad %v2half %s3_6
+       %2430 = OpLoad %v2half %bv6_0
+       %2431 = OpFMul %v2half %2429 %2430
+       %2432 = OpFAdd %v2half %2428 %2431
+               OpStore %x3_0 %2432
+       %2433 = OpLoad %v2half %x3_1
+       %2434 = OpLoad %v2half %s3_6
+       %2435 = OpLoad %v2half %bv6_1
+       %2436 = OpFMul %v2half %2434 %2435
+       %2437 = OpFAdd %v2half %2433 %2436
+               OpStore %x3_1 %2437
+       %2438 = OpLoad %v2half %x3_2
+       %2439 = OpLoad %v2half %s3_6
+       %2440 = OpLoad %v2half %bv6_2
+       %2441 = OpFMul %v2half %2439 %2440
+       %2442 = OpFAdd %v2half %2438 %2441
+               OpStore %x3_2 %2442
+       %2443 = OpLoad %v2half %x3_3
+       %2444 = OpLoad %v2half %s3_6
+       %2445 = OpLoad %v2half %bv6_3
+       %2446 = OpFMul %v2half %2444 %2445
+       %2447 = OpFAdd %v2half %2443 %2446
+               OpStore %x3_3 %2447
+       %2449 = OpLoad %float %av4_6
+       %2450 = OpFConvert %half %2449
+       %2451 = OpCompositeConstruct %v2half %2450 %2450
+               OpStore %s4_6 %2451
+       %2452 = OpLoad %v2half %x4_0
+       %2453 = OpLoad %v2half %s4_6
+       %2454 = OpLoad %v2half %bv6_0
+       %2455 = OpFMul %v2half %2453 %2454
+       %2456 = OpFAdd %v2half %2452 %2455
+               OpStore %x4_0 %2456
+       %2457 = OpLoad %v2half %x4_1
+       %2458 = OpLoad %v2half %s4_6
+       %2459 = OpLoad %v2half %bv6_1
+       %2460 = OpFMul %v2half %2458 %2459
+       %2461 = OpFAdd %v2half %2457 %2460
+               OpStore %x4_1 %2461
+       %2462 = OpLoad %v2half %x4_2
+       %2463 = OpLoad %v2half %s4_6
+       %2464 = OpLoad %v2half %bv6_2
+       %2465 = OpFMul %v2half %2463 %2464
+       %2466 = OpFAdd %v2half %2462 %2465
+               OpStore %x4_2 %2466
+       %2467 = OpLoad %v2half %x4_3
+       %2468 = OpLoad %v2half %s4_6
+       %2469 = OpLoad %v2half %bv6_3
+       %2470 = OpFMul %v2half %2468 %2469
+       %2471 = OpFAdd %v2half %2467 %2470
+               OpStore %x4_3 %2471
+       %2473 = OpLoad %float %av5_6
+       %2474 = OpFConvert %half %2473
+       %2475 = OpCompositeConstruct %v2half %2474 %2474
+               OpStore %s5_6 %2475
+       %2476 = OpLoad %v2half %x5_0
+       %2477 = OpLoad %v2half %s5_6
+       %2478 = OpLoad %v2half %bv6_0
+       %2479 = OpFMul %v2half %2477 %2478
+       %2480 = OpFAdd %v2half %2476 %2479
+               OpStore %x5_0 %2480
+       %2481 = OpLoad %v2half %x5_1
+       %2482 = OpLoad %v2half %s5_6
+       %2483 = OpLoad %v2half %bv6_1
+       %2484 = OpFMul %v2half %2482 %2483
+       %2485 = OpFAdd %v2half %2481 %2484
+               OpStore %x5_1 %2485
+       %2486 = OpLoad %v2half %x5_2
+       %2487 = OpLoad %v2half %s5_6
+       %2488 = OpLoad %v2half %bv6_2
+       %2489 = OpFMul %v2half %2487 %2488
+       %2490 = OpFAdd %v2half %2486 %2489
+               OpStore %x5_2 %2490
+       %2491 = OpLoad %v2half %x5_3
+       %2492 = OpLoad %v2half %s5_6
+       %2493 = OpLoad %v2half %bv6_3
+       %2494 = OpFMul %v2half %2492 %2493
+       %2495 = OpFAdd %v2half %2491 %2494
+               OpStore %x5_3 %2495
+       %2497 = OpLoad %float %av6_6
+       %2498 = OpFConvert %half %2497
+       %2499 = OpCompositeConstruct %v2half %2498 %2498
+               OpStore %s6_6 %2499
+       %2500 = OpLoad %v2half %x6_0
+       %2501 = OpLoad %v2half %s6_6
+       %2502 = OpLoad %v2half %bv6_0
+       %2503 = OpFMul %v2half %2501 %2502
+       %2504 = OpFAdd %v2half %2500 %2503
+               OpStore %x6_0 %2504
+       %2505 = OpLoad %v2half %x6_1
+       %2506 = OpLoad %v2half %s6_6
+       %2507 = OpLoad %v2half %bv6_1
+       %2508 = OpFMul %v2half %2506 %2507
+       %2509 = OpFAdd %v2half %2505 %2508
+               OpStore %x6_1 %2509
+       %2510 = OpLoad %v2half %x6_2
+       %2511 = OpLoad %v2half %s6_6
+       %2512 = OpLoad %v2half %bv6_2
+       %2513 = OpFMul %v2half %2511 %2512
+       %2514 = OpFAdd %v2half %2510 %2513
+               OpStore %x6_2 %2514
+       %2515 = OpLoad %v2half %x6_3
+       %2516 = OpLoad %v2half %s6_6
+       %2517 = OpLoad %v2half %bv6_3
+       %2518 = OpFMul %v2half %2516 %2517
+       %2519 = OpFAdd %v2half %2515 %2518
+               OpStore %x6_3 %2519
+       %2521 = OpLoad %float %av7_6
+       %2522 = OpFConvert %half %2521
+       %2523 = OpCompositeConstruct %v2half %2522 %2522
+               OpStore %s7_6 %2523
+       %2524 = OpLoad %v2half %x7_0
+       %2525 = OpLoad %v2half %s7_6
+       %2526 = OpLoad %v2half %bv6_0
+       %2527 = OpFMul %v2half %2525 %2526
+       %2528 = OpFAdd %v2half %2524 %2527
+               OpStore %x7_0 %2528
+       %2529 = OpLoad %v2half %x7_1
+       %2530 = OpLoad %v2half %s7_6
+       %2531 = OpLoad %v2half %bv6_1
+       %2532 = OpFMul %v2half %2530 %2531
+       %2533 = OpFAdd %v2half %2529 %2532
+               OpStore %x7_1 %2533
+       %2534 = OpLoad %v2half %x7_2
+       %2535 = OpLoad %v2half %s7_6
+       %2536 = OpLoad %v2half %bv6_2
+       %2537 = OpFMul %v2half %2535 %2536
+       %2538 = OpFAdd %v2half %2534 %2537
+               OpStore %x7_2 %2538
+       %2539 = OpLoad %v2half %x7_3
+       %2540 = OpLoad %v2half %s7_6
+       %2541 = OpLoad %v2half %bv6_3
+       %2542 = OpFMul %v2half %2540 %2541
+       %2543 = OpFAdd %v2half %2539 %2542
+               OpStore %x7_3 %2543
+       %2545 = OpLoad %int %r0
+       %2546 = OpIAdd %int %2545 %int_0
+       %2547 = OpIMul %int %2546 %K_
+       %2548 = OpLoad %int %kt
+       %2549 = OpIAdd %int %2547 %2548
+       %2550 = OpIAdd %int %2549 %int_7
+       %2551 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %2550
+       %2552 = OpLoad %float %2551
+               OpStore %av0_7 %2552
+       %2554 = OpLoad %int %r0
+       %2555 = OpIAdd %int %2554 %int_1
+       %2556 = OpIMul %int %2555 %K_
+       %2557 = OpLoad %int %kt
+       %2558 = OpIAdd %int %2556 %2557
+       %2559 = OpIAdd %int %2558 %int_7
+       %2560 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %2559
+       %2561 = OpLoad %float %2560
+               OpStore %av1_7 %2561
+       %2563 = OpLoad %int %r0
+       %2564 = OpIAdd %int %2563 %int_2
+       %2565 = OpIMul %int %2564 %K_
+       %2566 = OpLoad %int %kt
+       %2567 = OpIAdd %int %2565 %2566
+       %2568 = OpIAdd %int %2567 %int_7
+       %2569 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %2568
+       %2570 = OpLoad %float %2569
+               OpStore %av2_7 %2570
+       %2572 = OpLoad %int %r0
+       %2573 = OpIAdd %int %2572 %int_3
+       %2574 = OpIMul %int %2573 %K_
+       %2575 = OpLoad %int %kt
+       %2576 = OpIAdd %int %2574 %2575
+       %2577 = OpIAdd %int %2576 %int_7
+       %2578 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %2577
+       %2579 = OpLoad %float %2578
+               OpStore %av3_7 %2579
+       %2581 = OpLoad %int %r0
+       %2582 = OpIAdd %int %2581 %int_4
+       %2583 = OpIMul %int %2582 %K_
+       %2584 = OpLoad %int %kt
+       %2585 = OpIAdd %int %2583 %2584
+       %2586 = OpIAdd %int %2585 %int_7
+       %2587 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %2586
+       %2588 = OpLoad %float %2587
+               OpStore %av4_7 %2588
+       %2590 = OpLoad %int %r0
+       %2591 = OpIAdd %int %2590 %int_5
+       %2592 = OpIMul %int %2591 %K_
+       %2593 = OpLoad %int %kt
+       %2594 = OpIAdd %int %2592 %2593
+       %2595 = OpIAdd %int %2594 %int_7
+       %2596 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %2595
+       %2597 = OpLoad %float %2596
+               OpStore %av5_7 %2597
+       %2599 = OpLoad %int %r0
+       %2600 = OpIAdd %int %2599 %int_6
+       %2601 = OpIMul %int %2600 %K_
+       %2602 = OpLoad %int %kt
+       %2603 = OpIAdd %int %2601 %2602
+       %2604 = OpIAdd %int %2603 %int_7
+       %2605 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %2604
+       %2606 = OpLoad %float %2605
+               OpStore %av6_7 %2606
+       %2608 = OpLoad %int %r0
+       %2609 = OpIAdd %int %2608 %int_7
+       %2610 = OpIMul %int %2609 %K_
+       %2611 = OpLoad %int %kt
+       %2612 = OpIAdd %int %2610 %2611
+       %2613 = OpIAdd %int %2612 %int_7
+       %2614 = OpAccessChain %_ptr_Uniform_float %_ %int_0 %2613
+       %2615 = OpLoad %float %2614
+               OpStore %av7_7 %2615
+       %2617 = OpLoad %int %kt
+       %2618 = OpIAdd %int %2617 %int_7
+       %2619 = OpIMul %int %2618 %N_
+       %2620 = OpLoad %int %c0
+       %2621 = OpIAdd %int %2619 %2620
+       %2622 = OpIAdd %int %2621 %int_0
+       %2623 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %2622
+       %2624 = OpLoad %float %2623
+       %2625 = OpFConvert %half %2624
+       %2626 = OpLoad %int %kt
+       %2627 = OpIAdd %int %2626 %int_7
+       %2628 = OpIMul %int %2627 %N_
+       %2629 = OpLoad %int %c0
+       %2630 = OpIAdd %int %2628 %2629
+       %2631 = OpIAdd %int %2630 %int_0
+       %2632 = OpIAdd %int %2631 %int_1
+       %2633 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %2632
+       %2634 = OpLoad %float %2633
+       %2635 = OpFConvert %half %2634
+       %2636 = OpCompositeConstruct %v2half %2625 %2635
+               OpStore %bv7_0 %2636
+       %2638 = OpLoad %int %kt
+       %2639 = OpIAdd %int %2638 %int_7
+       %2640 = OpIMul %int %2639 %N_
+       %2641 = OpLoad %int %c0
+       %2642 = OpIAdd %int %2640 %2641
+       %2643 = OpIAdd %int %2642 %int_2
+       %2644 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %2643
+       %2645 = OpLoad %float %2644
+       %2646 = OpFConvert %half %2645
+       %2647 = OpLoad %int %kt
+       %2648 = OpIAdd %int %2647 %int_7
+       %2649 = OpIMul %int %2648 %N_
+       %2650 = OpLoad %int %c0
+       %2651 = OpIAdd %int %2649 %2650
+       %2652 = OpIAdd %int %2651 %int_2
+       %2653 = OpIAdd %int %2652 %int_1
+       %2654 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %2653
+       %2655 = OpLoad %float %2654
+       %2656 = OpFConvert %half %2655
+       %2657 = OpCompositeConstruct %v2half %2646 %2656
+               OpStore %bv7_1 %2657
+       %2659 = OpLoad %int %kt
+       %2660 = OpIAdd %int %2659 %int_7
+       %2661 = OpIMul %int %2660 %N_
+       %2662 = OpLoad %int %c0
+       %2663 = OpIAdd %int %2661 %2662
+       %2664 = OpIAdd %int %2663 %int_4
+       %2665 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %2664
+       %2666 = OpLoad %float %2665
+       %2667 = OpFConvert %half %2666
+       %2668 = OpLoad %int %kt
+       %2669 = OpIAdd %int %2668 %int_7
+       %2670 = OpIMul %int %2669 %N_
+       %2671 = OpLoad %int %c0
+       %2672 = OpIAdd %int %2670 %2671
+       %2673 = OpIAdd %int %2672 %int_4
+       %2674 = OpIAdd %int %2673 %int_1
+       %2675 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %2674
+       %2676 = OpLoad %float %2675
+       %2677 = OpFConvert %half %2676
+       %2678 = OpCompositeConstruct %v2half %2667 %2677
+               OpStore %bv7_2 %2678
+       %2680 = OpLoad %int %kt
+       %2681 = OpIAdd %int %2680 %int_7
+       %2682 = OpIMul %int %2681 %N_
+       %2683 = OpLoad %int %c0
+       %2684 = OpIAdd %int %2682 %2683
+       %2685 = OpIAdd %int %2684 %int_6
+       %2686 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %2685
+       %2687 = OpLoad %float %2686
+       %2688 = OpFConvert %half %2687
+       %2689 = OpLoad %int %kt
+       %2690 = OpIAdd %int %2689 %int_7
+       %2691 = OpIMul %int %2690 %N_
+       %2692 = OpLoad %int %c0
+       %2693 = OpIAdd %int %2691 %2692
+       %2694 = OpIAdd %int %2693 %int_6
+       %2695 = OpIAdd %int %2694 %int_1
+       %2696 = OpAccessChain %_ptr_Uniform_float %__0 %int_0 %2695
+       %2697 = OpLoad %float %2696
+       %2698 = OpFConvert %half %2697
+       %2699 = OpCompositeConstruct %v2half %2688 %2698
+               OpStore %bv7_3 %2699
+       %2701 = OpLoad %float %av0_7
+       %2702 = OpFConvert %half %2701
+       %2703 = OpCompositeConstruct %v2half %2702 %2702
+               OpStore %s0_7 %2703
+       %2704 = OpLoad %v2half %x0_0
+       %2705 = OpLoad %v2half %s0_7
+       %2706 = OpLoad %v2half %bv7_0
+       %2707 = OpFMul %v2half %2705 %2706
+       %2708 = OpFAdd %v2half %2704 %2707
+               OpStore %x0_0 %2708
+       %2709 = OpLoad %v2half %x0_1
+       %2710 = OpLoad %v2half %s0_7
+       %2711 = OpLoad %v2half %bv7_1
+       %2712 = OpFMul %v2half %2710 %2711
+       %2713 = OpFAdd %v2half %2709 %2712
+               OpStore %x0_1 %2713
+       %2714 = OpLoad %v2half %x0_2
+       %2715 = OpLoad %v2half %s0_7
+       %2716 = OpLoad %v2half %bv7_2
+       %2717 = OpFMul %v2half %2715 %2716
+       %2718 = OpFAdd %v2half %2714 %2717
+               OpStore %x0_2 %2718
+       %2719 = OpLoad %v2half %x0_3
+       %2720 = OpLoad %v2half %s0_7
+       %2721 = OpLoad %v2half %bv7_3
+       %2722 = OpFMul %v2half %2720 %2721
+       %2723 = OpFAdd %v2half %2719 %2722
+               OpStore %x0_3 %2723
+       %2725 = OpLoad %float %av1_7
+       %2726 = OpFConvert %half %2725
+       %2727 = OpCompositeConstruct %v2half %2726 %2726
+               OpStore %s1_7 %2727
+       %2728 = OpLoad %v2half %x1_0
+       %2729 = OpLoad %v2half %s1_7
+       %2730 = OpLoad %v2half %bv7_0
+       %2731 = OpFMul %v2half %2729 %2730
+       %2732 = OpFAdd %v2half %2728 %2731
+               OpStore %x1_0 %2732
+       %2733 = OpLoad %v2half %x1_1
+       %2734 = OpLoad %v2half %s1_7
+       %2735 = OpLoad %v2half %bv7_1
+       %2736 = OpFMul %v2half %2734 %2735
+       %2737 = OpFAdd %v2half %2733 %2736
+               OpStore %x1_1 %2737
+       %2738 = OpLoad %v2half %x1_2
+       %2739 = OpLoad %v2half %s1_7
+       %2740 = OpLoad %v2half %bv7_2
+       %2741 = OpFMul %v2half %2739 %2740
+       %2742 = OpFAdd %v2half %2738 %2741
+               OpStore %x1_2 %2742
+       %2743 = OpLoad %v2half %x1_3
+       %2744 = OpLoad %v2half %s1_7
+       %2745 = OpLoad %v2half %bv7_3
+       %2746 = OpFMul %v2half %2744 %2745
+       %2747 = OpFAdd %v2half %2743 %2746
+               OpStore %x1_3 %2747
+       %2749 = OpLoad %float %av2_7
+       %2750 = OpFConvert %half %2749
+       %2751 = OpCompositeConstruct %v2half %2750 %2750
+               OpStore %s2_7 %2751
+       %2752 = OpLoad %v2half %x2_0
+       %2753 = OpLoad %v2half %s2_7
+       %2754 = OpLoad %v2half %bv7_0
+       %2755 = OpFMul %v2half %2753 %2754
+       %2756 = OpFAdd %v2half %2752 %2755
+               OpStore %x2_0 %2756
+       %2757 = OpLoad %v2half %x2_1
+       %2758 = OpLoad %v2half %s2_7
+       %2759 = OpLoad %v2half %bv7_1
+       %2760 = OpFMul %v2half %2758 %2759
+       %2761 = OpFAdd %v2half %2757 %2760
+               OpStore %x2_1 %2761
+       %2762 = OpLoad %v2half %x2_2
+       %2763 = OpLoad %v2half %s2_7
+       %2764 = OpLoad %v2half %bv7_2
+       %2765 = OpFMul %v2half %2763 %2764
+       %2766 = OpFAdd %v2half %2762 %2765
+               OpStore %x2_2 %2766
+       %2767 = OpLoad %v2half %x2_3
+       %2768 = OpLoad %v2half %s2_7
+       %2769 = OpLoad %v2half %bv7_3
+       %2770 = OpFMul %v2half %2768 %2769
+       %2771 = OpFAdd %v2half %2767 %2770
+               OpStore %x2_3 %2771
+       %2773 = OpLoad %float %av3_7
+       %2774 = OpFConvert %half %2773
+       %2775 = OpCompositeConstruct %v2half %2774 %2774
+               OpStore %s3_7 %2775
+       %2776 = OpLoad %v2half %x3_0
+       %2777 = OpLoad %v2half %s3_7
+       %2778 = OpLoad %v2half %bv7_0
+       %2779 = OpFMul %v2half %2777 %2778
+       %2780 = OpFAdd %v2half %2776 %2779
+               OpStore %x3_0 %2780
+       %2781 = OpLoad %v2half %x3_1
+       %2782 = OpLoad %v2half %s3_7
+       %2783 = OpLoad %v2half %bv7_1
+       %2784 = OpFMul %v2half %2782 %2783
+       %2785 = OpFAdd %v2half %2781 %2784
+               OpStore %x3_1 %2785
+       %2786 = OpLoad %v2half %x3_2
+       %2787 = OpLoad %v2half %s3_7
+       %2788 = OpLoad %v2half %bv7_2
+       %2789 = OpFMul %v2half %2787 %2788
+       %2790 = OpFAdd %v2half %2786 %2789
+               OpStore %x3_2 %2790
+       %2791 = OpLoad %v2half %x3_3
+       %2792 = OpLoad %v2half %s3_7
+       %2793 = OpLoad %v2half %bv7_3
+       %2794 = OpFMul %v2half %2792 %2793
+       %2795 = OpFAdd %v2half %2791 %2794
+               OpStore %x3_3 %2795
+       %2797 = OpLoad %float %av4_7
+       %2798 = OpFConvert %half %2797
+       %2799 = OpCompositeConstruct %v2half %2798 %2798
+               OpStore %s4_7 %2799
+       %2800 = OpLoad %v2half %x4_0
+       %2801 = OpLoad %v2half %s4_7
+       %2802 = OpLoad %v2half %bv7_0
+       %2803 = OpFMul %v2half %2801 %2802
+       %2804 = OpFAdd %v2half %2800 %2803
+               OpStore %x4_0 %2804
+       %2805 = OpLoad %v2half %x4_1
+       %2806 = OpLoad %v2half %s4_7
+       %2807 = OpLoad %v2half %bv7_1
+       %2808 = OpFMul %v2half %2806 %2807
+       %2809 = OpFAdd %v2half %2805 %2808
+               OpStore %x4_1 %2809
+       %2810 = OpLoad %v2half %x4_2
+       %2811 = OpLoad %v2half %s4_7
+       %2812 = OpLoad %v2half %bv7_2
+       %2813 = OpFMul %v2half %2811 %2812
+       %2814 = OpFAdd %v2half %2810 %2813
+               OpStore %x4_2 %2814
+       %2815 = OpLoad %v2half %x4_3
+       %2816 = OpLoad %v2half %s4_7
+       %2817 = OpLoad %v2half %bv7_3
+       %2818 = OpFMul %v2half %2816 %2817
+       %2819 = OpFAdd %v2half %2815 %2818
+               OpStore %x4_3 %2819
+       %2821 = OpLoad %float %av5_7
+       %2822 = OpFConvert %half %2821
+       %2823 = OpCompositeConstruct %v2half %2822 %2822
+               OpStore %s5_7 %2823
+       %2824 = OpLoad %v2half %x5_0
+       %2825 = OpLoad %v2half %s5_7
+       %2826 = OpLoad %v2half %bv7_0
+       %2827 = OpFMul %v2half %2825 %2826
+       %2828 = OpFAdd %v2half %2824 %2827
+               OpStore %x5_0 %2828
+       %2829 = OpLoad %v2half %x5_1
+       %2830 = OpLoad %v2half %s5_7
+       %2831 = OpLoad %v2half %bv7_1
+       %2832 = OpFMul %v2half %2830 %2831
+       %2833 = OpFAdd %v2half %2829 %2832
+               OpStore %x5_1 %2833
+       %2834 = OpLoad %v2half %x5_2
+       %2835 = OpLoad %v2half %s5_7
+       %2836 = OpLoad %v2half %bv7_2
+       %2837 = OpFMul %v2half %2835 %2836
+       %2838 = OpFAdd %v2half %2834 %2837
+               OpStore %x5_2 %2838
+       %2839 = OpLoad %v2half %x5_3
+       %2840 = OpLoad %v2half %s5_7
+       %2841 = OpLoad %v2half %bv7_3
+       %2842 = OpFMul %v2half %2840 %2841
+       %2843 = OpFAdd %v2half %2839 %2842
+               OpStore %x5_3 %2843
+       %2845 = OpLoad %float %av6_7
+       %2846 = OpFConvert %half %2845
+       %2847 = OpCompositeConstruct %v2half %2846 %2846
+               OpStore %s6_7 %2847
+       %2848 = OpLoad %v2half %x6_0
+       %2849 = OpLoad %v2half %s6_7
+       %2850 = OpLoad %v2half %bv7_0
+       %2851 = OpFMul %v2half %2849 %2850
+       %2852 = OpFAdd %v2half %2848 %2851
+               OpStore %x6_0 %2852
+       %2853 = OpLoad %v2half %x6_1
+       %2854 = OpLoad %v2half %s6_7
+       %2855 = OpLoad %v2half %bv7_1
+       %2856 = OpFMul %v2half %2854 %2855
+       %2857 = OpFAdd %v2half %2853 %2856
+               OpStore %x6_1 %2857
+       %2858 = OpLoad %v2half %x6_2
+       %2859 = OpLoad %v2half %s6_7
+       %2860 = OpLoad %v2half %bv7_2
+       %2861 = OpFMul %v2half %2859 %2860
+       %2862 = OpFAdd %v2half %2858 %2861
+               OpStore %x6_2 %2862
+       %2863 = OpLoad %v2half %x6_3
+       %2864 = OpLoad %v2half %s6_7
+       %2865 = OpLoad %v2half %bv7_3
+       %2866 = OpFMul %v2half %2864 %2865
+       %2867 = OpFAdd %v2half %2863 %2866
+               OpStore %x6_3 %2867
+       %2869 = OpLoad %float %av7_7
+       %2870 = OpFConvert %half %2869
+       %2871 = OpCompositeConstruct %v2half %2870 %2870
+               OpStore %s7_7 %2871
+       %2872 = OpLoad %v2half %x7_0
+       %2873 = OpLoad %v2half %s7_7
+       %2874 = OpLoad %v2half %bv7_0
+       %2875 = OpFMul %v2half %2873 %2874
+       %2876 = OpFAdd %v2half %2872 %2875
+               OpStore %x7_0 %2876
+       %2877 = OpLoad %v2half %x7_1
+       %2878 = OpLoad %v2half %s7_7
+       %2879 = OpLoad %v2half %bv7_1
+       %2880 = OpFMul %v2half %2878 %2879
+       %2881 = OpFAdd %v2half %2877 %2880
+               OpStore %x7_1 %2881
+       %2882 = OpLoad %v2half %x7_2
+       %2883 = OpLoad %v2half %s7_7
+       %2884 = OpLoad %v2half %bv7_2
+       %2885 = OpFMul %v2half %2883 %2884
+       %2886 = OpFAdd %v2half %2882 %2885
+               OpStore %x7_2 %2886
+       %2887 = OpLoad %v2half %x7_3
+       %2888 = OpLoad %v2half %s7_7
+       %2889 = OpLoad %v2half %bv7_3
+       %2890 = OpFMul %v2half %2888 %2889
+       %2891 = OpFAdd %v2half %2887 %2890
+               OpStore %x7_3 %2891
+               OpBranch %84
+         %84 = OpLabel
+       %2892 = OpLoad %int %kt
+       %2893 = OpIAdd %int %2892 %int_8
+               OpStore %kt %2893
+               OpBranch %81
+         %83 = OpLabel
+       %2898 = OpLoad %int %r0
+       %2899 = OpIAdd %int %2898 %int_0
+       %2900 = OpIMul %int %2899 %N_
+       %2901 = OpLoad %int %c0
+       %2902 = OpIAdd %int %2900 %2901
+       %2903 = OpIAdd %int %2902 %int_0
+       %2905 = OpAccessChain %_ptr_Function_half %x0_0 %uint_0
+       %2906 = OpLoad %half %2905
+       %2907 = OpFConvert %float %2906
+       %2908 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %2903
+               OpStore %2908 %2907
+       %2909 = OpLoad %int %r0
+       %2910 = OpIAdd %int %2909 %int_0
+       %2911 = OpIMul %int %2910 %N_
+       %2912 = OpLoad %int %c0
+       %2913 = OpIAdd %int %2911 %2912
+       %2914 = OpIAdd %int %2913 %int_1
+       %2915 = OpAccessChain %_ptr_Function_half %x0_0 %uint_1
+       %2916 = OpLoad %half %2915
+       %2917 = OpFConvert %float %2916
+       %2918 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %2914
+               OpStore %2918 %2917
+       %2919 = OpLoad %int %r0
+       %2920 = OpIAdd %int %2919 %int_0
+       %2921 = OpIMul %int %2920 %N_
+       %2922 = OpLoad %int %c0
+       %2923 = OpIAdd %int %2921 %2922
+       %2924 = OpIAdd %int %2923 %int_2
+       %2925 = OpAccessChain %_ptr_Function_half %x0_1 %uint_0
+       %2926 = OpLoad %half %2925
+       %2927 = OpFConvert %float %2926
+       %2928 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %2924
+               OpStore %2928 %2927
+       %2929 = OpLoad %int %r0
+       %2930 = OpIAdd %int %2929 %int_0
+       %2931 = OpIMul %int %2930 %N_
+       %2932 = OpLoad %int %c0
+       %2933 = OpIAdd %int %2931 %2932
+       %2934 = OpIAdd %int %2933 %int_3
+       %2935 = OpAccessChain %_ptr_Function_half %x0_1 %uint_1
+       %2936 = OpLoad %half %2935
+       %2937 = OpFConvert %float %2936
+       %2938 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %2934
+               OpStore %2938 %2937
+       %2939 = OpLoad %int %r0
+       %2940 = OpIAdd %int %2939 %int_0
+       %2941 = OpIMul %int %2940 %N_
+       %2942 = OpLoad %int %c0
+       %2943 = OpIAdd %int %2941 %2942
+       %2944 = OpIAdd %int %2943 %int_4
+       %2945 = OpAccessChain %_ptr_Function_half %x0_2 %uint_0
+       %2946 = OpLoad %half %2945
+       %2947 = OpFConvert %float %2946
+       %2948 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %2944
+               OpStore %2948 %2947
+       %2949 = OpLoad %int %r0
+       %2950 = OpIAdd %int %2949 %int_0
+       %2951 = OpIMul %int %2950 %N_
+       %2952 = OpLoad %int %c0
+       %2953 = OpIAdd %int %2951 %2952
+       %2954 = OpIAdd %int %2953 %int_5
+       %2955 = OpAccessChain %_ptr_Function_half %x0_2 %uint_1
+       %2956 = OpLoad %half %2955
+       %2957 = OpFConvert %float %2956
+       %2958 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %2954
+               OpStore %2958 %2957
+       %2959 = OpLoad %int %r0
+       %2960 = OpIAdd %int %2959 %int_0
+       %2961 = OpIMul %int %2960 %N_
+       %2962 = OpLoad %int %c0
+       %2963 = OpIAdd %int %2961 %2962
+       %2964 = OpIAdd %int %2963 %int_6
+       %2965 = OpAccessChain %_ptr_Function_half %x0_3 %uint_0
+       %2966 = OpLoad %half %2965
+       %2967 = OpFConvert %float %2966
+       %2968 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %2964
+               OpStore %2968 %2967
+       %2969 = OpLoad %int %r0
+       %2970 = OpIAdd %int %2969 %int_0
+       %2971 = OpIMul %int %2970 %N_
+       %2972 = OpLoad %int %c0
+       %2973 = OpIAdd %int %2971 %2972
+       %2974 = OpIAdd %int %2973 %int_7
+       %2975 = OpAccessChain %_ptr_Function_half %x0_3 %uint_1
+       %2976 = OpLoad %half %2975
+       %2977 = OpFConvert %float %2976
+       %2978 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %2974
+               OpStore %2978 %2977
+       %2979 = OpLoad %int %r0
+       %2980 = OpIAdd %int %2979 %int_1
+       %2981 = OpIMul %int %2980 %N_
+       %2982 = OpLoad %int %c0
+       %2983 = OpIAdd %int %2981 %2982
+       %2984 = OpIAdd %int %2983 %int_0
+       %2985 = OpAccessChain %_ptr_Function_half %x1_0 %uint_0
+       %2986 = OpLoad %half %2985
+       %2987 = OpFConvert %float %2986
+       %2988 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %2984
+               OpStore %2988 %2987
+       %2989 = OpLoad %int %r0
+       %2990 = OpIAdd %int %2989 %int_1
+       %2991 = OpIMul %int %2990 %N_
+       %2992 = OpLoad %int %c0
+       %2993 = OpIAdd %int %2991 %2992
+       %2994 = OpIAdd %int %2993 %int_1
+       %2995 = OpAccessChain %_ptr_Function_half %x1_0 %uint_1
+       %2996 = OpLoad %half %2995
+       %2997 = OpFConvert %float %2996
+       %2998 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %2994
+               OpStore %2998 %2997
+       %2999 = OpLoad %int %r0
+       %3000 = OpIAdd %int %2999 %int_1
+       %3001 = OpIMul %int %3000 %N_
+       %3002 = OpLoad %int %c0
+       %3003 = OpIAdd %int %3001 %3002
+       %3004 = OpIAdd %int %3003 %int_2
+       %3005 = OpAccessChain %_ptr_Function_half %x1_1 %uint_0
+       %3006 = OpLoad %half %3005
+       %3007 = OpFConvert %float %3006
+       %3008 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3004
+               OpStore %3008 %3007
+       %3009 = OpLoad %int %r0
+       %3010 = OpIAdd %int %3009 %int_1
+       %3011 = OpIMul %int %3010 %N_
+       %3012 = OpLoad %int %c0
+       %3013 = OpIAdd %int %3011 %3012
+       %3014 = OpIAdd %int %3013 %int_3
+       %3015 = OpAccessChain %_ptr_Function_half %x1_1 %uint_1
+       %3016 = OpLoad %half %3015
+       %3017 = OpFConvert %float %3016
+       %3018 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3014
+               OpStore %3018 %3017
+       %3019 = OpLoad %int %r0
+       %3020 = OpIAdd %int %3019 %int_1
+       %3021 = OpIMul %int %3020 %N_
+       %3022 = OpLoad %int %c0
+       %3023 = OpIAdd %int %3021 %3022
+       %3024 = OpIAdd %int %3023 %int_4
+       %3025 = OpAccessChain %_ptr_Function_half %x1_2 %uint_0
+       %3026 = OpLoad %half %3025
+       %3027 = OpFConvert %float %3026
+       %3028 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3024
+               OpStore %3028 %3027
+       %3029 = OpLoad %int %r0
+       %3030 = OpIAdd %int %3029 %int_1
+       %3031 = OpIMul %int %3030 %N_
+       %3032 = OpLoad %int %c0
+       %3033 = OpIAdd %int %3031 %3032
+       %3034 = OpIAdd %int %3033 %int_5
+       %3035 = OpAccessChain %_ptr_Function_half %x1_2 %uint_1
+       %3036 = OpLoad %half %3035
+       %3037 = OpFConvert %float %3036
+       %3038 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3034
+               OpStore %3038 %3037
+       %3039 = OpLoad %int %r0
+       %3040 = OpIAdd %int %3039 %int_1
+       %3041 = OpIMul %int %3040 %N_
+       %3042 = OpLoad %int %c0
+       %3043 = OpIAdd %int %3041 %3042
+       %3044 = OpIAdd %int %3043 %int_6
+       %3045 = OpAccessChain %_ptr_Function_half %x1_3 %uint_0
+       %3046 = OpLoad %half %3045
+       %3047 = OpFConvert %float %3046
+       %3048 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3044
+               OpStore %3048 %3047
+       %3049 = OpLoad %int %r0
+       %3050 = OpIAdd %int %3049 %int_1
+       %3051 = OpIMul %int %3050 %N_
+       %3052 = OpLoad %int %c0
+       %3053 = OpIAdd %int %3051 %3052
+       %3054 = OpIAdd %int %3053 %int_7
+       %3055 = OpAccessChain %_ptr_Function_half %x1_3 %uint_1
+       %3056 = OpLoad %half %3055
+       %3057 = OpFConvert %float %3056
+       %3058 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3054
+               OpStore %3058 %3057
+       %3059 = OpLoad %int %r0
+       %3060 = OpIAdd %int %3059 %int_2
+       %3061 = OpIMul %int %3060 %N_
+       %3062 = OpLoad %int %c0
+       %3063 = OpIAdd %int %3061 %3062
+       %3064 = OpIAdd %int %3063 %int_0
+       %3065 = OpAccessChain %_ptr_Function_half %x2_0 %uint_0
+       %3066 = OpLoad %half %3065
+       %3067 = OpFConvert %float %3066
+       %3068 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3064
+               OpStore %3068 %3067
+       %3069 = OpLoad %int %r0
+       %3070 = OpIAdd %int %3069 %int_2
+       %3071 = OpIMul %int %3070 %N_
+       %3072 = OpLoad %int %c0
+       %3073 = OpIAdd %int %3071 %3072
+       %3074 = OpIAdd %int %3073 %int_1
+       %3075 = OpAccessChain %_ptr_Function_half %x2_0 %uint_1
+       %3076 = OpLoad %half %3075
+       %3077 = OpFConvert %float %3076
+       %3078 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3074
+               OpStore %3078 %3077
+       %3079 = OpLoad %int %r0
+       %3080 = OpIAdd %int %3079 %int_2
+       %3081 = OpIMul %int %3080 %N_
+       %3082 = OpLoad %int %c0
+       %3083 = OpIAdd %int %3081 %3082
+       %3084 = OpIAdd %int %3083 %int_2
+       %3085 = OpAccessChain %_ptr_Function_half %x2_1 %uint_0
+       %3086 = OpLoad %half %3085
+       %3087 = OpFConvert %float %3086
+       %3088 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3084
+               OpStore %3088 %3087
+       %3089 = OpLoad %int %r0
+       %3090 = OpIAdd %int %3089 %int_2
+       %3091 = OpIMul %int %3090 %N_
+       %3092 = OpLoad %int %c0
+       %3093 = OpIAdd %int %3091 %3092
+       %3094 = OpIAdd %int %3093 %int_3
+       %3095 = OpAccessChain %_ptr_Function_half %x2_1 %uint_1
+       %3096 = OpLoad %half %3095
+       %3097 = OpFConvert %float %3096
+       %3098 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3094
+               OpStore %3098 %3097
+       %3099 = OpLoad %int %r0
+       %3100 = OpIAdd %int %3099 %int_2
+       %3101 = OpIMul %int %3100 %N_
+       %3102 = OpLoad %int %c0
+       %3103 = OpIAdd %int %3101 %3102
+       %3104 = OpIAdd %int %3103 %int_4
+       %3105 = OpAccessChain %_ptr_Function_half %x2_2 %uint_0
+       %3106 = OpLoad %half %3105
+       %3107 = OpFConvert %float %3106
+       %3108 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3104
+               OpStore %3108 %3107
+       %3109 = OpLoad %int %r0
+       %3110 = OpIAdd %int %3109 %int_2
+       %3111 = OpIMul %int %3110 %N_
+       %3112 = OpLoad %int %c0
+       %3113 = OpIAdd %int %3111 %3112
+       %3114 = OpIAdd %int %3113 %int_5
+       %3115 = OpAccessChain %_ptr_Function_half %x2_2 %uint_1
+       %3116 = OpLoad %half %3115
+       %3117 = OpFConvert %float %3116
+       %3118 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3114
+               OpStore %3118 %3117
+       %3119 = OpLoad %int %r0
+       %3120 = OpIAdd %int %3119 %int_2
+       %3121 = OpIMul %int %3120 %N_
+       %3122 = OpLoad %int %c0
+       %3123 = OpIAdd %int %3121 %3122
+       %3124 = OpIAdd %int %3123 %int_6
+       %3125 = OpAccessChain %_ptr_Function_half %x2_3 %uint_0
+       %3126 = OpLoad %half %3125
+       %3127 = OpFConvert %float %3126
+       %3128 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3124
+               OpStore %3128 %3127
+       %3129 = OpLoad %int %r0
+       %3130 = OpIAdd %int %3129 %int_2
+       %3131 = OpIMul %int %3130 %N_
+       %3132 = OpLoad %int %c0
+       %3133 = OpIAdd %int %3131 %3132
+       %3134 = OpIAdd %int %3133 %int_7
+       %3135 = OpAccessChain %_ptr_Function_half %x2_3 %uint_1
+       %3136 = OpLoad %half %3135
+       %3137 = OpFConvert %float %3136
+       %3138 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3134
+               OpStore %3138 %3137
+       %3139 = OpLoad %int %r0
+       %3140 = OpIAdd %int %3139 %int_3
+       %3141 = OpIMul %int %3140 %N_
+       %3142 = OpLoad %int %c0
+       %3143 = OpIAdd %int %3141 %3142
+       %3144 = OpIAdd %int %3143 %int_0
+       %3145 = OpAccessChain %_ptr_Function_half %x3_0 %uint_0
+       %3146 = OpLoad %half %3145
+       %3147 = OpFConvert %float %3146
+       %3148 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3144
+               OpStore %3148 %3147
+       %3149 = OpLoad %int %r0
+       %3150 = OpIAdd %int %3149 %int_3
+       %3151 = OpIMul %int %3150 %N_
+       %3152 = OpLoad %int %c0
+       %3153 = OpIAdd %int %3151 %3152
+       %3154 = OpIAdd %int %3153 %int_1
+       %3155 = OpAccessChain %_ptr_Function_half %x3_0 %uint_1
+       %3156 = OpLoad %half %3155
+       %3157 = OpFConvert %float %3156
+       %3158 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3154
+               OpStore %3158 %3157
+       %3159 = OpLoad %int %r0
+       %3160 = OpIAdd %int %3159 %int_3
+       %3161 = OpIMul %int %3160 %N_
+       %3162 = OpLoad %int %c0
+       %3163 = OpIAdd %int %3161 %3162
+       %3164 = OpIAdd %int %3163 %int_2
+       %3165 = OpAccessChain %_ptr_Function_half %x3_1 %uint_0
+       %3166 = OpLoad %half %3165
+       %3167 = OpFConvert %float %3166
+       %3168 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3164
+               OpStore %3168 %3167
+       %3169 = OpLoad %int %r0
+       %3170 = OpIAdd %int %3169 %int_3
+       %3171 = OpIMul %int %3170 %N_
+       %3172 = OpLoad %int %c0
+       %3173 = OpIAdd %int %3171 %3172
+       %3174 = OpIAdd %int %3173 %int_3
+       %3175 = OpAccessChain %_ptr_Function_half %x3_1 %uint_1
+       %3176 = OpLoad %half %3175
+       %3177 = OpFConvert %float %3176
+       %3178 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3174
+               OpStore %3178 %3177
+       %3179 = OpLoad %int %r0
+       %3180 = OpIAdd %int %3179 %int_3
+       %3181 = OpIMul %int %3180 %N_
+       %3182 = OpLoad %int %c0
+       %3183 = OpIAdd %int %3181 %3182
+       %3184 = OpIAdd %int %3183 %int_4
+       %3185 = OpAccessChain %_ptr_Function_half %x3_2 %uint_0
+       %3186 = OpLoad %half %3185
+       %3187 = OpFConvert %float %3186
+       %3188 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3184
+               OpStore %3188 %3187
+       %3189 = OpLoad %int %r0
+       %3190 = OpIAdd %int %3189 %int_3
+       %3191 = OpIMul %int %3190 %N_
+       %3192 = OpLoad %int %c0
+       %3193 = OpIAdd %int %3191 %3192
+       %3194 = OpIAdd %int %3193 %int_5
+       %3195 = OpAccessChain %_ptr_Function_half %x3_2 %uint_1
+       %3196 = OpLoad %half %3195
+       %3197 = OpFConvert %float %3196
+       %3198 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3194
+               OpStore %3198 %3197
+       %3199 = OpLoad %int %r0
+       %3200 = OpIAdd %int %3199 %int_3
+       %3201 = OpIMul %int %3200 %N_
+       %3202 = OpLoad %int %c0
+       %3203 = OpIAdd %int %3201 %3202
+       %3204 = OpIAdd %int %3203 %int_6
+       %3205 = OpAccessChain %_ptr_Function_half %x3_3 %uint_0
+       %3206 = OpLoad %half %3205
+       %3207 = OpFConvert %float %3206
+       %3208 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3204
+               OpStore %3208 %3207
+       %3209 = OpLoad %int %r0
+       %3210 = OpIAdd %int %3209 %int_3
+       %3211 = OpIMul %int %3210 %N_
+       %3212 = OpLoad %int %c0
+       %3213 = OpIAdd %int %3211 %3212
+       %3214 = OpIAdd %int %3213 %int_7
+       %3215 = OpAccessChain %_ptr_Function_half %x3_3 %uint_1
+       %3216 = OpLoad %half %3215
+       %3217 = OpFConvert %float %3216
+       %3218 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3214
+               OpStore %3218 %3217
+       %3219 = OpLoad %int %r0
+       %3220 = OpIAdd %int %3219 %int_4
+       %3221 = OpIMul %int %3220 %N_
+       %3222 = OpLoad %int %c0
+       %3223 = OpIAdd %int %3221 %3222
+       %3224 = OpIAdd %int %3223 %int_0
+       %3225 = OpAccessChain %_ptr_Function_half %x4_0 %uint_0
+       %3226 = OpLoad %half %3225
+       %3227 = OpFConvert %float %3226
+       %3228 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3224
+               OpStore %3228 %3227
+       %3229 = OpLoad %int %r0
+       %3230 = OpIAdd %int %3229 %int_4
+       %3231 = OpIMul %int %3230 %N_
+       %3232 = OpLoad %int %c0
+       %3233 = OpIAdd %int %3231 %3232
+       %3234 = OpIAdd %int %3233 %int_1
+       %3235 = OpAccessChain %_ptr_Function_half %x4_0 %uint_1
+       %3236 = OpLoad %half %3235
+       %3237 = OpFConvert %float %3236
+       %3238 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3234
+               OpStore %3238 %3237
+       %3239 = OpLoad %int %r0
+       %3240 = OpIAdd %int %3239 %int_4
+       %3241 = OpIMul %int %3240 %N_
+       %3242 = OpLoad %int %c0
+       %3243 = OpIAdd %int %3241 %3242
+       %3244 = OpIAdd %int %3243 %int_2
+       %3245 = OpAccessChain %_ptr_Function_half %x4_1 %uint_0
+       %3246 = OpLoad %half %3245
+       %3247 = OpFConvert %float %3246
+       %3248 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3244
+               OpStore %3248 %3247
+       %3249 = OpLoad %int %r0
+       %3250 = OpIAdd %int %3249 %int_4
+       %3251 = OpIMul %int %3250 %N_
+       %3252 = OpLoad %int %c0
+       %3253 = OpIAdd %int %3251 %3252
+       %3254 = OpIAdd %int %3253 %int_3
+       %3255 = OpAccessChain %_ptr_Function_half %x4_1 %uint_1
+       %3256 = OpLoad %half %3255
+       %3257 = OpFConvert %float %3256
+       %3258 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3254
+               OpStore %3258 %3257
+       %3259 = OpLoad %int %r0
+       %3260 = OpIAdd %int %3259 %int_4
+       %3261 = OpIMul %int %3260 %N_
+       %3262 = OpLoad %int %c0
+       %3263 = OpIAdd %int %3261 %3262
+       %3264 = OpIAdd %int %3263 %int_4
+       %3265 = OpAccessChain %_ptr_Function_half %x4_2 %uint_0
+       %3266 = OpLoad %half %3265
+       %3267 = OpFConvert %float %3266
+       %3268 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3264
+               OpStore %3268 %3267
+       %3269 = OpLoad %int %r0
+       %3270 = OpIAdd %int %3269 %int_4
+       %3271 = OpIMul %int %3270 %N_
+       %3272 = OpLoad %int %c0
+       %3273 = OpIAdd %int %3271 %3272
+       %3274 = OpIAdd %int %3273 %int_5
+       %3275 = OpAccessChain %_ptr_Function_half %x4_2 %uint_1
+       %3276 = OpLoad %half %3275
+       %3277 = OpFConvert %float %3276
+       %3278 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3274
+               OpStore %3278 %3277
+       %3279 = OpLoad %int %r0
+       %3280 = OpIAdd %int %3279 %int_4
+       %3281 = OpIMul %int %3280 %N_
+       %3282 = OpLoad %int %c0
+       %3283 = OpIAdd %int %3281 %3282
+       %3284 = OpIAdd %int %3283 %int_6
+       %3285 = OpAccessChain %_ptr_Function_half %x4_3 %uint_0
+       %3286 = OpLoad %half %3285
+       %3287 = OpFConvert %float %3286
+       %3288 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3284
+               OpStore %3288 %3287
+       %3289 = OpLoad %int %r0
+       %3290 = OpIAdd %int %3289 %int_4
+       %3291 = OpIMul %int %3290 %N_
+       %3292 = OpLoad %int %c0
+       %3293 = OpIAdd %int %3291 %3292
+       %3294 = OpIAdd %int %3293 %int_7
+       %3295 = OpAccessChain %_ptr_Function_half %x4_3 %uint_1
+       %3296 = OpLoad %half %3295
+       %3297 = OpFConvert %float %3296
+       %3298 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3294
+               OpStore %3298 %3297
+       %3299 = OpLoad %int %r0
+       %3300 = OpIAdd %int %3299 %int_5
+       %3301 = OpIMul %int %3300 %N_
+       %3302 = OpLoad %int %c0
+       %3303 = OpIAdd %int %3301 %3302
+       %3304 = OpIAdd %int %3303 %int_0
+       %3305 = OpAccessChain %_ptr_Function_half %x5_0 %uint_0
+       %3306 = OpLoad %half %3305
+       %3307 = OpFConvert %float %3306
+       %3308 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3304
+               OpStore %3308 %3307
+       %3309 = OpLoad %int %r0
+       %3310 = OpIAdd %int %3309 %int_5
+       %3311 = OpIMul %int %3310 %N_
+       %3312 = OpLoad %int %c0
+       %3313 = OpIAdd %int %3311 %3312
+       %3314 = OpIAdd %int %3313 %int_1
+       %3315 = OpAccessChain %_ptr_Function_half %x5_0 %uint_1
+       %3316 = OpLoad %half %3315
+       %3317 = OpFConvert %float %3316
+       %3318 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3314
+               OpStore %3318 %3317
+       %3319 = OpLoad %int %r0
+       %3320 = OpIAdd %int %3319 %int_5
+       %3321 = OpIMul %int %3320 %N_
+       %3322 = OpLoad %int %c0
+       %3323 = OpIAdd %int %3321 %3322
+       %3324 = OpIAdd %int %3323 %int_2
+       %3325 = OpAccessChain %_ptr_Function_half %x5_1 %uint_0
+       %3326 = OpLoad %half %3325
+       %3327 = OpFConvert %float %3326
+       %3328 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3324
+               OpStore %3328 %3327
+       %3329 = OpLoad %int %r0
+       %3330 = OpIAdd %int %3329 %int_5
+       %3331 = OpIMul %int %3330 %N_
+       %3332 = OpLoad %int %c0
+       %3333 = OpIAdd %int %3331 %3332
+       %3334 = OpIAdd %int %3333 %int_3
+       %3335 = OpAccessChain %_ptr_Function_half %x5_1 %uint_1
+       %3336 = OpLoad %half %3335
+       %3337 = OpFConvert %float %3336
+       %3338 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3334
+               OpStore %3338 %3337
+       %3339 = OpLoad %int %r0
+       %3340 = OpIAdd %int %3339 %int_5
+       %3341 = OpIMul %int %3340 %N_
+       %3342 = OpLoad %int %c0
+       %3343 = OpIAdd %int %3341 %3342
+       %3344 = OpIAdd %int %3343 %int_4
+       %3345 = OpAccessChain %_ptr_Function_half %x5_2 %uint_0
+       %3346 = OpLoad %half %3345
+       %3347 = OpFConvert %float %3346
+       %3348 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3344
+               OpStore %3348 %3347
+       %3349 = OpLoad %int %r0
+       %3350 = OpIAdd %int %3349 %int_5
+       %3351 = OpIMul %int %3350 %N_
+       %3352 = OpLoad %int %c0
+       %3353 = OpIAdd %int %3351 %3352
+       %3354 = OpIAdd %int %3353 %int_5
+       %3355 = OpAccessChain %_ptr_Function_half %x5_2 %uint_1
+       %3356 = OpLoad %half %3355
+       %3357 = OpFConvert %float %3356
+       %3358 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3354
+               OpStore %3358 %3357
+       %3359 = OpLoad %int %r0
+       %3360 = OpIAdd %int %3359 %int_5
+       %3361 = OpIMul %int %3360 %N_
+       %3362 = OpLoad %int %c0
+       %3363 = OpIAdd %int %3361 %3362
+       %3364 = OpIAdd %int %3363 %int_6
+       %3365 = OpAccessChain %_ptr_Function_half %x5_3 %uint_0
+       %3366 = OpLoad %half %3365
+       %3367 = OpFConvert %float %3366
+       %3368 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3364
+               OpStore %3368 %3367
+       %3369 = OpLoad %int %r0
+       %3370 = OpIAdd %int %3369 %int_5
+       %3371 = OpIMul %int %3370 %N_
+       %3372 = OpLoad %int %c0
+       %3373 = OpIAdd %int %3371 %3372
+       %3374 = OpIAdd %int %3373 %int_7
+       %3375 = OpAccessChain %_ptr_Function_half %x5_3 %uint_1
+       %3376 = OpLoad %half %3375
+       %3377 = OpFConvert %float %3376
+       %3378 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3374
+               OpStore %3378 %3377
+       %3379 = OpLoad %int %r0
+       %3380 = OpIAdd %int %3379 %int_6
+       %3381 = OpIMul %int %3380 %N_
+       %3382 = OpLoad %int %c0
+       %3383 = OpIAdd %int %3381 %3382
+       %3384 = OpIAdd %int %3383 %int_0
+       %3385 = OpAccessChain %_ptr_Function_half %x6_0 %uint_0
+       %3386 = OpLoad %half %3385
+       %3387 = OpFConvert %float %3386
+       %3388 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3384
+               OpStore %3388 %3387
+       %3389 = OpLoad %int %r0
+       %3390 = OpIAdd %int %3389 %int_6
+       %3391 = OpIMul %int %3390 %N_
+       %3392 = OpLoad %int %c0
+       %3393 = OpIAdd %int %3391 %3392
+       %3394 = OpIAdd %int %3393 %int_1
+       %3395 = OpAccessChain %_ptr_Function_half %x6_0 %uint_1
+       %3396 = OpLoad %half %3395
+       %3397 = OpFConvert %float %3396
+       %3398 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3394
+               OpStore %3398 %3397
+       %3399 = OpLoad %int %r0
+       %3400 = OpIAdd %int %3399 %int_6
+       %3401 = OpIMul %int %3400 %N_
+       %3402 = OpLoad %int %c0
+       %3403 = OpIAdd %int %3401 %3402
+       %3404 = OpIAdd %int %3403 %int_2
+       %3405 = OpAccessChain %_ptr_Function_half %x6_1 %uint_0
+       %3406 = OpLoad %half %3405
+       %3407 = OpFConvert %float %3406
+       %3408 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3404
+               OpStore %3408 %3407
+       %3409 = OpLoad %int %r0
+       %3410 = OpIAdd %int %3409 %int_6
+       %3411 = OpIMul %int %3410 %N_
+       %3412 = OpLoad %int %c0
+       %3413 = OpIAdd %int %3411 %3412
+       %3414 = OpIAdd %int %3413 %int_3
+       %3415 = OpAccessChain %_ptr_Function_half %x6_1 %uint_1
+       %3416 = OpLoad %half %3415
+       %3417 = OpFConvert %float %3416
+       %3418 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3414
+               OpStore %3418 %3417
+       %3419 = OpLoad %int %r0
+       %3420 = OpIAdd %int %3419 %int_6
+       %3421 = OpIMul %int %3420 %N_
+       %3422 = OpLoad %int %c0
+       %3423 = OpIAdd %int %3421 %3422
+       %3424 = OpIAdd %int %3423 %int_4
+       %3425 = OpAccessChain %_ptr_Function_half %x6_2 %uint_0
+       %3426 = OpLoad %half %3425
+       %3427 = OpFConvert %float %3426
+       %3428 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3424
+               OpStore %3428 %3427
+       %3429 = OpLoad %int %r0
+       %3430 = OpIAdd %int %3429 %int_6
+       %3431 = OpIMul %int %3430 %N_
+       %3432 = OpLoad %int %c0
+       %3433 = OpIAdd %int %3431 %3432
+       %3434 = OpIAdd %int %3433 %int_5
+       %3435 = OpAccessChain %_ptr_Function_half %x6_2 %uint_1
+       %3436 = OpLoad %half %3435
+       %3437 = OpFConvert %float %3436
+       %3438 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3434
+               OpStore %3438 %3437
+       %3439 = OpLoad %int %r0
+       %3440 = OpIAdd %int %3439 %int_6
+       %3441 = OpIMul %int %3440 %N_
+       %3442 = OpLoad %int %c0
+       %3443 = OpIAdd %int %3441 %3442
+       %3444 = OpIAdd %int %3443 %int_6
+       %3445 = OpAccessChain %_ptr_Function_half %x6_3 %uint_0
+       %3446 = OpLoad %half %3445
+       %3447 = OpFConvert %float %3446
+       %3448 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3444
+               OpStore %3448 %3447
+       %3449 = OpLoad %int %r0
+       %3450 = OpIAdd %int %3449 %int_6
+       %3451 = OpIMul %int %3450 %N_
+       %3452 = OpLoad %int %c0
+       %3453 = OpIAdd %int %3451 %3452
+       %3454 = OpIAdd %int %3453 %int_7
+       %3455 = OpAccessChain %_ptr_Function_half %x6_3 %uint_1
+       %3456 = OpLoad %half %3455
+       %3457 = OpFConvert %float %3456
+       %3458 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3454
+               OpStore %3458 %3457
+       %3459 = OpLoad %int %r0
+       %3460 = OpIAdd %int %3459 %int_7
+       %3461 = OpIMul %int %3460 %N_
+       %3462 = OpLoad %int %c0
+       %3463 = OpIAdd %int %3461 %3462
+       %3464 = OpIAdd %int %3463 %int_0
+       %3465 = OpAccessChain %_ptr_Function_half %x7_0 %uint_0
+       %3466 = OpLoad %half %3465
+       %3467 = OpFConvert %float %3466
+       %3468 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3464
+               OpStore %3468 %3467
+       %3469 = OpLoad %int %r0
+       %3470 = OpIAdd %int %3469 %int_7
+       %3471 = OpIMul %int %3470 %N_
+       %3472 = OpLoad %int %c0
+       %3473 = OpIAdd %int %3471 %3472
+       %3474 = OpIAdd %int %3473 %int_1
+       %3475 = OpAccessChain %_ptr_Function_half %x7_0 %uint_1
+       %3476 = OpLoad %half %3475
+       %3477 = OpFConvert %float %3476
+       %3478 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3474
+               OpStore %3478 %3477
+       %3479 = OpLoad %int %r0
+       %3480 = OpIAdd %int %3479 %int_7
+       %3481 = OpIMul %int %3480 %N_
+       %3482 = OpLoad %int %c0
+       %3483 = OpIAdd %int %3481 %3482
+       %3484 = OpIAdd %int %3483 %int_2
+       %3485 = OpAccessChain %_ptr_Function_half %x7_1 %uint_0
+       %3486 = OpLoad %half %3485
+       %3487 = OpFConvert %float %3486
+       %3488 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3484
+               OpStore %3488 %3487
+       %3489 = OpLoad %int %r0
+       %3490 = OpIAdd %int %3489 %int_7
+       %3491 = OpIMul %int %3490 %N_
+       %3492 = OpLoad %int %c0
+       %3493 = OpIAdd %int %3491 %3492
+       %3494 = OpIAdd %int %3493 %int_3
+       %3495 = OpAccessChain %_ptr_Function_half %x7_1 %uint_1
+       %3496 = OpLoad %half %3495
+       %3497 = OpFConvert %float %3496
+       %3498 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3494
+               OpStore %3498 %3497
+       %3499 = OpLoad %int %r0
+       %3500 = OpIAdd %int %3499 %int_7
+       %3501 = OpIMul %int %3500 %N_
+       %3502 = OpLoad %int %c0
+       %3503 = OpIAdd %int %3501 %3502
+       %3504 = OpIAdd %int %3503 %int_4
+       %3505 = OpAccessChain %_ptr_Function_half %x7_2 %uint_0
+       %3506 = OpLoad %half %3505
+       %3507 = OpFConvert %float %3506
+       %3508 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3504
+               OpStore %3508 %3507
+       %3509 = OpLoad %int %r0
+       %3510 = OpIAdd %int %3509 %int_7
+       %3511 = OpIMul %int %3510 %N_
+       %3512 = OpLoad %int %c0
+       %3513 = OpIAdd %int %3511 %3512
+       %3514 = OpIAdd %int %3513 %int_5
+       %3515 = OpAccessChain %_ptr_Function_half %x7_2 %uint_1
+       %3516 = OpLoad %half %3515
+       %3517 = OpFConvert %float %3516
+       %3518 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3514
+               OpStore %3518 %3517
+       %3519 = OpLoad %int %r0
+       %3520 = OpIAdd %int %3519 %int_7
+       %3521 = OpIMul %int %3520 %N_
+       %3522 = OpLoad %int %c0
+       %3523 = OpIAdd %int %3521 %3522
+       %3524 = OpIAdd %int %3523 %int_6
+       %3525 = OpAccessChain %_ptr_Function_half %x7_3 %uint_0
+       %3526 = OpLoad %half %3525
+       %3527 = OpFConvert %float %3526
+       %3528 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3524
+               OpStore %3528 %3527
+       %3529 = OpLoad %int %r0
+       %3530 = OpIAdd %int %3529 %int_7
+       %3531 = OpIMul %int %3530 %N_
+       %3532 = OpLoad %int %c0
+       %3533 = OpIAdd %int %3531 %3532
+       %3534 = OpIAdd %int %3533 %int_7
+       %3535 = OpAccessChain %_ptr_Function_half %x7_3 %uint_1
+       %3536 = OpLoad %half %3535
+       %3537 = OpFConvert %float %3536
+       %3538 = OpAccessChain %_ptr_Uniform_float %__1 %int_0 %3534
+               OpStore %3538 %3537
+               OpReturn
+               OpFunctionEnd

@@ -1,0 +1,13 @@
+device : Mali-G610 MC4
+driver : panvk Mesa 26.0.8-1ubuntu0.3
+  C[ 0][ 0] expected -0.001485  got -0.000000
+  C[ 0][ 1] expected -0.002418  got -0.000000
+  C[ 0][ 2] expected  0.002264  got -0.000000
+  C[ 0][ 3] expected  0.002570  got -0.000000
+  C[ 0][ 4] expected -0.002750  got -0.000000
+  C[ 0][ 5] expected -0.001345  got -0.000000
+  C[ 0][ 6] expected -0.004969  got -0.000000
+  C[ 0][ 7] expected  0.001918  got -0.000000
+  C[ 0][ 9] expected -0.001713  got -0.000000
+  C[ 0][10] expected -0.002849  got -0.000000
+FAIL: 2736/4096 wrong (abs tol 0.001)
