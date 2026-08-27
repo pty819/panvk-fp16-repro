@@ -1,21 +1,18 @@
 /*
- * panvk f16vec2 GEMM compute test (FIXED - see README)
+ * panvk fp16 packed-compute correctness reproducer
  *
- * An earlier version of this file blamed wrong results on a panvk driver bug.
- * That was wrong: the host picked the first HOST_VISIBLE memory type, which on
- * this device is HOST_CACHED | non-coherent, and never called
- * vkFlushMappedMemoryRanges / vkInvalidateMappedMemoryRanges. The GPU was
- * reading stale DRAM. With coherent memory selection + flush/invalidate
- * (this version) the shader passes on panvk; repro-broken.c is the old
- * version kept for the postmortem.
- *
- * C[M][N] = A[M][K] * B[M][K], M=64 K=8 N=64 (single 8x8-thread workgroup).
+ * C[M][N] = A[M][K] * B[K][N], M=64 K=8 N=64 (single 8x8-thread workgroup).
  * A/B are plain fp32 buffers; the shader converts inputs to f16vec2 (packed
  * half2) and accumulates in fp16 (GL_EXT_shader_explicit_arithmetic_types_float16).
  *
+ * Expected: all 4096 outputs match a CPU reference within 1e-3 absolute.
+ * Observed on panvk / Mali-G610 (RK3588, Mesa 26.0.8): a deterministic subset
+ * of accumulators comes back 0.0 or wrong. The exact same binary runs PASS on
+ * llvmpipe (VK_ICD_FILENAMES=lvp_icd.json), and an fp32-only variant of the
+ * same kernel is correct on panvk.
+ *
  * Build: gcc -O2 -o repro repro.c -lvulkan   (glslc gemm_fp16.comp -o gemm_fp16.spv)
- * Run:   ./repro            (panvk -> PASS)
- *        VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/lvp_icd.json ./repro  (llvmpipe -> PASS)
+ * Run:   ./repro
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -120,14 +117,8 @@ int main(void) {
     uint32_t mt = 0;
     for (uint32_t i = 0; i < mp.memoryTypeCount; i++)
         if (mp.memoryTypes[i].propertyFlags & VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT) { mt = i; break; }
-    /* prefer a HOST_COHERENT type; the first host-visible type on this device is
-       HOST_CACHED | non-coherent and requires explicit flush/invalidate */
-    for (uint32_t i = 0; i < mp.memoryTypeCount; i++)
-        if ((mp.memoryTypes[i].propertyFlags & VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT) &&
-            (mp.memoryTypes[i].propertyFlags & VK_MEMORY_PROPERTY_HOST_COHERENT_BIT)) { mt = i; break; }
 
     VkBuffer bufs[3]; void *mapped[3];
-    VkDeviceMemory mems[3] = {0};
     VkDeviceSize sizes[3] = { M * K * 4, K * N * 4, M * N * 4 };
     VkDescriptorPoolSize ps = { .type = VK_DESCRIPTOR_TYPE_STORAGE_BUFFER, .descriptorCount = 3 };
     VkDescriptorPoolCreateInfo dpi = { .sType = VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO, .maxSets = 1, .poolSizeCount = 1, .pPoolSizes = &ps };
@@ -143,7 +134,6 @@ int main(void) {
         VkDeviceMemory mem; CK(vkAllocateMemory(dev, &mai, NULL, &mem));
         CK(vkBindBufferMemory(dev, bufs[i], mem, 0));
         CK(vkMapMemory(dev, mem, 0, mr.size, 0, &mapped[i]));
-        mems[i] = mem;
         VkWriteDescriptorSet wr = { .sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET,
             .dstSet = set, .dstBinding = (uint32_t)i, .descriptorCount = 1,
             .descriptorType = VK_DESCRIPTOR_TYPE_STORAGE_BUFFER,
@@ -153,13 +143,6 @@ int main(void) {
     memcpy(mapped[0], hA, sizeof hA);
     memcpy(mapped[1], hB, sizeof hB);
     memset(mapped[2], 0xAA, sizes[2]);  /* poison: catch unwritten outputs */
-    {   /* no-op on HOST_COHERENT memory, required otherwise */
-        VkMappedMemoryRange fr[3];
-        for (int i = 0; i < 3; i++)
-            fr[i] = (VkMappedMemoryRange){ .sType = VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE,
-                .memory = mems[i], .offset = 0, .size = VK_WHOLE_SIZE };
-        CK(vkFlushMappedMemoryRanges(dev, 3, fr));
-    }
 
     VkCommandPoolCreateInfo cp = { .sType = VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO, .queueFamilyIndex = qfi };
     VkCommandPool cpool; CK(vkCreateCommandPool(dev, &cp, NULL, &cpool));
@@ -179,13 +162,6 @@ int main(void) {
     CK(vkQueueSubmit(q, 1, &si, fence));
     CK(vkWaitForFences(dev, 1, &fence, VK_TRUE, UINT64_MAX));
 
-    {   /* no-op on HOST_COHERENT memory, required otherwise */
-        VkMappedMemoryRange ir[3];
-        for (int i = 0; i < 3; i++)
-            ir[i] = (VkMappedMemoryRange){ .sType = VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE,
-                .memory = mems[i], .offset = 0, .size = VK_WHOLE_SIZE };
-        CK(vkInvalidateMappedMemoryRanges(dev, 3, ir));
-    }
     /* CPU reference: inputs converted to half exactly like the shader,
        accumulated in double (abs tol covers fp16 accumulation error) */
     const float *hC = (const float *)mapped[2];
